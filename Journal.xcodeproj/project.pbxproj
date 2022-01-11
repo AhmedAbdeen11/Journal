@@ -14,6 +14,22 @@
 		7469FC07278973FD0038F9B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7469FC05278973FD0038F9B4 /* Main.storyboard */; };
 		7469FC09278973FE0038F9B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7469FC08278973FE0038F9B4 /* Assets.xcassets */; };
 		7469FC0C278973FE0038F9B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7469FC0A278973FE0038F9B4 /* LaunchScreen.storyboard */; };
+		747E14AE278DAC9A0027A566 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14AA278DAC990027A566 /* ResponseHandler.swift */; };
+		747E14AF278DAC9A0027A566 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14AB278DAC990027A566 /* NetworkService.swift */; };
+		747E14B0278DAC9A0027A566 /* ServerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14AC278DAC9A0027A566 /* ServerResponse.swift */; };
+		747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14AD278DAC9A0027A566 /* NetworkManager.swift */; };
+		747E14B6278DACA70027A566 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14B3278DACA50027A566 /* Utility.swift */; };
+		747E14B7278DACA70027A566 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14B4278DACA60027A566 /* Extensions.swift */; };
+		747E14B8278DACA70027A566 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14B5278DACA70027A566 /* Global.swift */; };
+		747E14BB278DACC10027A566 /* Theme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 747E14BA278DACC10027A566 /* Theme.xcassets */; };
+		747E14DB278DC2DA0027A566 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14DA278DC2DA0027A566 /* User.swift */; };
+		747E14DE278DC2E00027A566 /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14DD278DC2E00027A566 /* Paging.swift */; };
+		747E14E6278DC7DF0027A566 /* Authentication.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 747E14E5278DC7DF0027A566 /* Authentication.storyboard */; };
+		747E14EB278DCC8B0027A566 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14EA278DCC8B0027A566 /* IntroController.swift */; };
+		747E14F2278DE2D70027A566 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E14F1278DE2D70027A566 /* SignUpController.swift */; };
+		747E154E278DF82F0027A566 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E154D278DF82F0027A566 /* LoginController.swift */; };
+		747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */; };
+		747E1556278E00380027A566 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1555278E00370027A566 /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +41,22 @@
 		7469FC08278973FE0038F9B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7469FC0B278973FE0038F9B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7469FC0D278973FE0038F9B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		747E14AA278DAC990027A566 /* ResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
+		747E14AB278DAC990027A566 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		747E14AC278DAC9A0027A566 /* ServerResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerResponse.swift; sourceTree = "<group>"; };
+		747E14AD278DAC9A0027A566 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		747E14B3278DACA50027A566 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		747E14B4278DACA60027A566 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		747E14B5278DACA70027A566 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		747E14BA278DACC10027A566 /* Theme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Theme.xcassets; sourceTree = "<group>"; };
+		747E14DA278DC2DA0027A566 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		747E14DD278DC2E00027A566 /* Paging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paging.swift; sourceTree = "<group>"; };
+		747E14E5278DC7DF0027A566 /* Authentication.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Authentication.storyboard; sourceTree = "<group>"; };
+		747E14EA278DCC8B0027A566 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
+		747E14F1278DE2D70027A566 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
+		747E154D278DF82F0027A566 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		747E1555278E00370027A566 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		DFFA38729BE09D22682E1BBE /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		E96D95DD42A5D61811B85296 /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
 		F1227341D1FF1295FE509ABF /* Pods_Journal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +127,10 @@
 		747E149C278DAB090027A566 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				747E14AD278DAC9A0027A566 /* NetworkManager.swift */,
+				747E14AB278DAC990027A566 /* NetworkService.swift */,
+				747E14AA278DAC990027A566 /* ResponseHandler.swift */,
+				747E14AC278DAC9A0027A566 /* ServerResponse.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -102,6 +138,9 @@
 		747E149D278DAB0F0027A566 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				747E14B4278DACA60027A566 /* Extensions.swift */,
+				747E14B5278DACA70027A566 /* Global.swift */,
+				747E14B3278DACA50027A566 /* Utility.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -111,6 +150,7 @@
 			children = (
 				7469FC05278973FD0038F9B4 /* Main.storyboard */,
 				7469FC0A278973FE0038F9B4 /* LaunchScreen.storyboard */,
+				747E14E5278DC7DF0027A566 /* Authentication.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -118,6 +158,10 @@
 		747E149F278DAB1F0027A566 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				747E1550278DFB3D0027A566 /* Forgot Password */,
+				747E154C278DF8200027A566 /* Login */,
+				747E14EF278DE2C20027A566 /* SignUp */,
+				747E14E9278DCC700027A566 /* Intro */,
 				7469FC03278973FD0038F9B4 /* ViewController.swift */,
 			);
 			path = "View Controllers";
@@ -126,6 +170,8 @@
 		747E14A0278DAB290027A566 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				747E14DD278DC2E00027A566 /* Paging.swift */,
+				747E14DA278DC2DA0027A566 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +179,7 @@
 		747E14A1278DAB2F0027A566 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				747E14BA278DACC10027A566 /* Theme.xcassets */,
 				7469FC08278973FE0038F9B4 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -144,6 +191,39 @@
 				7469FC0D278973FE0038F9B4 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		747E14E9278DCC700027A566 /* Intro */ = {
+			isa = PBXGroup;
+			children = (
+				747E14EA278DCC8B0027A566 /* IntroController.swift */,
+			);
+			path = Intro;
+			sourceTree = "<group>";
+		};
+		747E14EF278DE2C20027A566 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				747E14F1278DE2D70027A566 /* SignUpController.swift */,
+				747E1555278E00370027A566 /* SignUpViewModel.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		747E154C278DF8200027A566 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				747E154D278DF82F0027A566 /* LoginController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		747E1550278DFB3D0027A566 /* Forgot Password */ = {
+			isa = PBXGroup;
+			children = (
+				747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */,
+			);
+			path = "Forgot Password";
 			sourceTree = "<group>";
 		};
 		D0833B8FA369ECC9A4FF7D45 /* Pods */ = {
@@ -215,8 +295,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				7469FC0C278973FE0038F9B4 /* LaunchScreen.storyboard in Resources */,
+				747E14BB278DACC10027A566 /* Theme.xcassets in Resources */,
 				7469FC09278973FE0038F9B4 /* Assets.xcassets in Resources */,
 				7469FC07278973FD0038F9B4 /* Main.storyboard in Resources */,
+				747E14E6278DC7DF0027A566 /* Authentication.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,9 +351,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				747E14AF278DAC9A0027A566 /* NetworkService.swift in Sources */,
+				747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */,
+				747E14B7278DACA70027A566 /* Extensions.swift in Sources */,
+				747E14B0278DAC9A0027A566 /* ServerResponse.swift in Sources */,
 				7469FC04278973FD0038F9B4 /* ViewController.swift in Sources */,
+				747E154E278DF82F0027A566 /* LoginController.swift in Sources */,
+				747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */,
+				747E14B6278DACA70027A566 /* Utility.swift in Sources */,
+				747E14AE278DAC9A0027A566 /* ResponseHandler.swift in Sources */,
+				747E1556278E00380027A566 /* SignUpViewModel.swift in Sources */,
+				747E14EB278DCC8B0027A566 /* IntroController.swift in Sources */,
 				7469FC00278973FD0038F9B4 /* AppDelegate.swift in Sources */,
+				747E14F2278DE2D70027A566 /* SignUpController.swift in Sources */,
+				747E14B8278DACA70027A566 /* Global.swift in Sources */,
+				747E14DE278DC2E00027A566 /* Paging.swift in Sources */,
 				7469FC02278973FD0038F9B4 /* SceneDelegate.swift in Sources */,
+				747E14DB278DC2DA0027A566 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +517,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8WX5Q5Q98;
-				INFOPLIST_FILE = Journal/Info.plist;
+				INFOPLIST_FILE = "Journal//Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -442,7 +538,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8WX5Q5Q98;
-				INFOPLIST_FILE = Journal/Info.plist;
+				INFOPLIST_FILE = "Journal//Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

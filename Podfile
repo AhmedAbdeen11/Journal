@@ -14,6 +14,8 @@ target 'Journal' do
   pod 'BEMCheckBox'
   pod 'SVProgressHUD'
   pod 'MaterialComponents/Buttons'
+  pod 'MaterialComponents/TextControls+OutlinedTextFields'
+  pod 'MaterialComponents/TextControls+FilledTextFields'
   pod 'Cosmos', '~> 23.0'
   pod 'FSCalendar'
   pod 'SwiftKeychainWrapper'
@@ -25,5 +27,6 @@ target 'Journal' do
   pod "BSImagePicker", "~> 3.1"
   pod 'Alamofire'
   pod "ImageSlideshow/Alamofire"
+  pod "ReachabilitySwift"
 
 end
