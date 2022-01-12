@@ -10,7 +10,7 @@
 		5F2F2E43843C88B82D9CE487 /* Pods_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1227341D1FF1295FE509ABF /* Pods_Journal.framework */; };
 		7469FC00278973FD0038F9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FBFF278973FD0038F9B4 /* AppDelegate.swift */; };
 		7469FC02278973FD0038F9B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FC01278973FD0038F9B4 /* SceneDelegate.swift */; };
-		7469FC04278973FD0038F9B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FC03278973FD0038F9B4 /* ViewController.swift */; };
+		7469FC04278973FD0038F9B4 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FC03278973FD0038F9B4 /* MainController.swift */; };
 		7469FC07278973FD0038F9B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7469FC05278973FD0038F9B4 /* Main.storyboard */; };
 		7469FC09278973FE0038F9B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7469FC08278973FE0038F9B4 /* Assets.xcassets */; };
 		7469FC0C278973FE0038F9B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7469FC0A278973FE0038F9B4 /* LaunchScreen.storyboard */; };
@@ -30,13 +30,14 @@
 		747E154E278DF82F0027A566 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E154D278DF82F0027A566 /* LoginController.swift */; };
 		747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */; };
 		747E1556278E00380027A566 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1555278E00370027A566 /* SignUpViewModel.swift */; };
+		747E155A278E40590027A566 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1559278E40580027A566 /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7469FBFC278973FD0038F9B4 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7469FBFF278973FD0038F9B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7469FC01278973FD0038F9B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7469FC03278973FD0038F9B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7469FC03278973FD0038F9B4 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		7469FC06278973FD0038F9B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7469FC08278973FE0038F9B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7469FC0B278973FE0038F9B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +58,7 @@
 		747E154D278DF82F0027A566 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		747E1555278E00370027A566 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		747E1559278E40580027A566 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		DFFA38729BE09D22682E1BBE /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		E96D95DD42A5D61811B85296 /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
 		F1227341D1FF1295FE509ABF /* Pods_Journal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,11 +160,11 @@
 		747E149F278DAB1F0027A566 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				747E155D278E4D980027A566 /* Main */,
 				747E1550278DFB3D0027A566 /* Forgot Password */,
 				747E154C278DF8200027A566 /* Login */,
 				747E14EF278DE2C20027A566 /* SignUp */,
 				747E14E9278DCC700027A566 /* Intro */,
-				7469FC03278973FD0038F9B4 /* ViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -214,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				747E154D278DF82F0027A566 /* LoginController.swift */,
+				747E1559278E40580027A566 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -224,6 +227,14 @@
 				747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */,
 			);
 			path = "Forgot Password";
+			sourceTree = "<group>";
+		};
+		747E155D278E4D980027A566 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7469FC03278973FD0038F9B4 /* MainController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		D0833B8FA369ECC9A4FF7D45 /* Pods */ = {
@@ -355,10 +366,11 @@
 				747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */,
 				747E14B7278DACA70027A566 /* Extensions.swift in Sources */,
 				747E14B0278DAC9A0027A566 /* ServerResponse.swift in Sources */,
-				7469FC04278973FD0038F9B4 /* ViewController.swift in Sources */,
+				7469FC04278973FD0038F9B4 /* MainController.swift in Sources */,
 				747E154E278DF82F0027A566 /* LoginController.swift in Sources */,
 				747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */,
 				747E14B6278DACA70027A566 /* Utility.swift in Sources */,
+				747E155A278E40590027A566 /* LoginViewModel.swift in Sources */,
 				747E14AE278DAC9A0027A566 /* ResponseHandler.swift in Sources */,
 				747E1556278E00380027A566 /* SignUpViewModel.swift in Sources */,
 				747E14EB278DCC8B0027A566 /* IntroController.swift in Sources */,

@@ -447,30 +447,59 @@
                                                 <color key="textColor" red="0.92549019610000005" green="0.94509803920000002" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WL8-D2-Yro" customClass="MDCOutlinedTextField">
-                                                <rect key="frame" x="16" y="155.5" width="382" height="55"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="tn5-WO-roi"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCC-su-XxF" customClass="MDCOutlinedTextField">
-                                                <rect key="frame" x="16" y="227.5" width="382" height="55"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="Dco-No-dkI"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FkL-i8-1yK" customClass="MDCOutlinedTextField">
-                                                <rect key="frame" x="16" y="299.5" width="382" height="55"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="Ubc-da-KvZ"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22C-Wa-zma" customClass="MDCOutlinedTextField">
-                                                <rect key="frame" x="16" y="371.5" width="382" height="55"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="55" id="sj2-SA-Kap"/>
-                                                </constraints>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="06D-0p-dnd">
+                                                <rect key="frame" x="16" y="150.5" width="382" height="271"/>
+                                                <subviews>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ow3-oM-gKd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WL8-D2-Yro" customClass="MDCOutlinedTextField">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="55" id="tn5-WO-roi"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="El8-Kl-huf">
+                                                        <rect key="frame" x="0.0" y="63.5" width="382" height="0.0"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCC-su-XxF" customClass="MDCOutlinedTextField">
+                                                        <rect key="frame" x="0.0" y="72" width="382" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="55" id="Dco-No-dkI"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uf-e3-dQd">
+                                                        <rect key="frame" x="0.0" y="135.5" width="382" height="0.0"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FkL-i8-1yK" customClass="MDCOutlinedTextField">
+                                                        <rect key="frame" x="0.0" y="144" width="382" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="55" id="Ubc-da-KvZ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Error" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kd-Jp-nhS">
+                                                        <rect key="frame" x="0.0" y="207.5" width="382" height="0.0"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                                        <color key="textColor" systemColor="systemRedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22C-Wa-zma" customClass="MDCOutlinedTextField">
+                                                        <rect key="frame" x="0.0" y="216" width="382" height="55"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="55" id="sj2-SA-Kap"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Qu6-u7-X5B">
                                                 <rect key="frame" x="110.5" y="711" width="193.5" height="28"/>
                                                 <subviews>
@@ -504,7 +533,7 @@
                                                 </connections>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KVv-Ln-SY3">
-                                                <rect key="frame" x="51.5" y="448.5" width="311.5" height="28"/>
+                                                <rect key="frame" x="51.5" y="443.5" width="311.5" height="28"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By continuing, you agree to our" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AUP-zb-VlY">
                                                         <rect key="frame" x="0.0" y="0.0" width="182.5" height="28"/>
@@ -528,7 +557,7 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6c7-Xo-Ba4">
-                                                <rect key="frame" x="166" y="476.5" width="82" height="28"/>
+                                                <rect key="frame" x="166" y="471.5" width="82" height="28"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                                 <state key="normal" title="Privacy Policy">
                                                     <color key="titleColor" red="0.2196078431372549" green="0.5490196078431373" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -537,33 +566,24 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="Qu6-u7-X5B" firstAttribute="top" secondItem="lJs-Z3-IUJ" secondAttribute="bottom" constant="15" id="5DB-fm-Tpj"/>
-                                            <constraint firstItem="FkL-i8-1yK" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="16" id="6ej-EN-L13"/>
-                                            <constraint firstItem="kCC-su-XxF" firstAttribute="top" secondItem="WL8-D2-Yro" secondAttribute="bottom" constant="17" id="7Bn-yZ-DNK"/>
                                             <constraint firstItem="iWf-f8-nLY" firstAttribute="centerX" secondItem="6xY-Hf-fg5" secondAttribute="centerX" id="7HG-jE-FSu"/>
-                                            <constraint firstItem="FkL-i8-1yK" firstAttribute="top" secondItem="kCC-su-XxF" secondAttribute="bottom" constant="17" id="A4q-tX-TJT"/>
                                             <constraint firstAttribute="trailing" secondItem="lJs-Z3-IUJ" secondAttribute="trailing" constant="25" id="CHs-50-bUl"/>
                                             <constraint firstItem="6c7-Xo-Ba4" firstAttribute="top" secondItem="KVv-Ln-SY3" secondAttribute="bottom" id="G2i-5U-K0d"/>
                                             <constraint firstItem="MNe-HQ-emG" firstAttribute="centerX" secondItem="6xY-Hf-fg5" secondAttribute="centerX" id="GeU-L8-bbt"/>
-                                            <constraint firstItem="22C-Wa-zma" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="16" id="IZv-D5-BTN"/>
+                                            <constraint firstItem="KVv-Ln-SY3" firstAttribute="top" secondItem="06D-0p-dnd" secondAttribute="bottom" constant="22" id="LUw-4d-saC"/>
                                             <constraint firstItem="6c7-Xo-Ba4" firstAttribute="centerX" secondItem="6xY-Hf-fg5" secondAttribute="centerX" id="Onp-hd-OBV"/>
                                             <constraint firstItem="lJs-Z3-IUJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6c7-Xo-Ba4" secondAttribute="bottom" constant="20" id="Otx-6K-Pni"/>
+                                            <constraint firstItem="06D-0p-dnd" firstAttribute="top" secondItem="MNe-HQ-emG" secondAttribute="bottom" constant="22" id="RnW-aK-eXA"/>
                                             <constraint firstItem="MNe-HQ-emG" firstAttribute="top" secondItem="iWf-f8-nLY" secondAttribute="bottom" constant="10" id="TdQ-vc-4aG"/>
                                             <constraint firstItem="iWf-f8-nLY" firstAttribute="top" secondItem="6se-UT-Oqz" secondAttribute="bottom" constant="10" id="Vxx-fb-nFo"/>
-                                            <constraint firstItem="kCC-su-XxF" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="16" id="WQl-at-4he"/>
                                             <constraint firstItem="Qu6-u7-X5B" firstAttribute="centerX" secondItem="6xY-Hf-fg5" secondAttribute="centerX" id="YDt-kj-OIH"/>
-                                            <constraint firstItem="WL8-D2-Yro" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="16" id="YR1-RI-xqK"/>
                                             <constraint firstItem="6se-UT-Oqz" firstAttribute="top" secondItem="6xY-Hf-fg5" secondAttribute="top" constant="20" id="Ycs-0A-bu4"/>
-                                            <constraint firstAttribute="trailing" secondItem="22C-Wa-zma" secondAttribute="trailing" constant="16" id="ZaH-7R-I7K"/>
+                                            <constraint firstAttribute="trailing" secondItem="06D-0p-dnd" secondAttribute="trailing" constant="16" id="azx-SY-cZu"/>
                                             <constraint firstItem="KVv-Ln-SY3" firstAttribute="centerX" secondItem="6xY-Hf-fg5" secondAttribute="centerX" id="dEY-cT-ylj"/>
-                                            <constraint firstAttribute="trailing" secondItem="kCC-su-XxF" secondAttribute="trailing" constant="16" id="e4M-QA-ebI"/>
+                                            <constraint firstItem="06D-0p-dnd" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="16" id="gTM-os-8Y5"/>
                                             <constraint firstItem="lJs-Z3-IUJ" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="25" id="hlT-qb-oRd"/>
-                                            <constraint firstItem="WL8-D2-Yro" firstAttribute="top" secondItem="MNe-HQ-emG" secondAttribute="bottom" constant="27" id="iy1-sH-RBj"/>
                                             <constraint firstItem="6se-UT-Oqz" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="16" id="mQK-lK-2Qh"/>
-                                            <constraint firstAttribute="trailing" secondItem="FkL-i8-1yK" secondAttribute="trailing" constant="16" id="obl-UI-xRB"/>
                                             <constraint firstAttribute="bottom" secondItem="Qu6-u7-X5B" secondAttribute="bottom" constant="35" id="r6x-nk-OMy"/>
-                                            <constraint firstItem="KVv-Ln-SY3" firstAttribute="top" secondItem="22C-Wa-zma" secondAttribute="bottom" constant="22" id="wVX-4l-jdf"/>
-                                            <constraint firstAttribute="trailing" secondItem="WL8-D2-Yro" secondAttribute="trailing" constant="16" id="xeE-cy-lWc"/>
-                                            <constraint firstItem="22C-Wa-zma" firstAttribute="top" secondItem="FkL-i8-1yK" secondAttribute="bottom" constant="17" id="zQb-Ar-gUE"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -598,6 +618,10 @@
                     <connections>
                         <outlet property="btnBack" destination="6se-UT-Oqz" id="Pzt-Xe-gqo"/>
                         <outlet property="btnSignup" destination="lJs-Z3-IUJ" id="d6a-0h-KyL"/>
+                        <outlet property="labelConfirmPasswordError" destination="3kd-Jp-nhS" id="GaS-0L-Snb"/>
+                        <outlet property="labelEmailError" destination="El8-Kl-huf" id="iqP-vL-tfo"/>
+                        <outlet property="labelNameError" destination="Ow3-oM-gKd" id="3V5-7t-vQS"/>
+                        <outlet property="labelPasswordError" destination="3uf-e3-dQd" id="c5f-Jp-t3b"/>
                         <outlet property="textFieldConfirmPassword" destination="22C-Wa-zma" id="Tjz-vH-Clb"/>
                         <outlet property="textFieldEmail" destination="kCC-su-XxF" id="Qzx-qC-gXf"/>
                         <outlet property="textFieldName" destination="WL8-D2-Yro" id="dAP-Wq-A57"/>
@@ -637,6 +661,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

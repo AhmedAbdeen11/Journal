@@ -1,24 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Journal-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iPa-DX-0DJ">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCp-bs-wWF">
+                                        <rect key="frame" x="0.0" y="756" width="414" height="62"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Mkh-E7-Ykm">
+                                                <rect key="frame" x="0.0" y="6" width="414" height="50"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLA-Pd-9Sb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="83" height="50"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6.5" translatesAutoresizingMaskIntoConstraints="NO" id="PER-TG-3R5">
+                                                                <rect key="frame" x="0.0" y="0.0" width="83" height="50"/>
+                                                                <subviews>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="cDO-12-Y6W">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="83" height="32.5"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="32.700000000000003" id="Qkj-5U-tFM"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Home" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBb-Az-Lj7">
+                                                                        <rect key="frame" x="0.0" y="39" width="83" height="11"/>
+                                                                        <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                                                        <color key="textColor" red="0.78431372549019607" green="0.82352941176470584" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="PER-TG-3R5" secondAttribute="bottom" id="QDo-K4-aRa"/>
+                                                            <constraint firstAttribute="trailing" secondItem="PER-TG-3R5" secondAttribute="trailing" id="gab-dJ-szp"/>
+                                                            <constraint firstItem="PER-TG-3R5" firstAttribute="top" secondItem="PLA-Pd-9Sb" secondAttribute="top" id="itf-CD-jDd"/>
+                                                            <constraint firstItem="PER-TG-3R5" firstAttribute="leading" secondItem="PLA-Pd-9Sb" secondAttribute="leading" id="ovo-bR-C9h"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6.5" translatesAutoresizingMaskIntoConstraints="NO" id="5T0-kG-yrP">
+                                                        <rect key="frame" x="83" y="0.0" width="82.5" height="50"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="meditate" translatesAutoresizingMaskIntoConstraints="NO" id="p24-fo-6C6">
+                                                                <rect key="frame" x="0.0" y="0.0" width="82.5" height="32.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="32.759999999999998" id="I1U-eC-qIq"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meditate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kg-p6-dcD">
+                                                                <rect key="frame" x="0.0" y="39" width="82.5" height="11"/>
+                                                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                                                <color key="textColor" red="0.7843137255" green="0.82352941180000006" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6.5" translatesAutoresizingMaskIntoConstraints="NO" id="cBR-Dr-sWW">
+                                                        <rect key="frame" x="165.5" y="0.0" width="83" height="50"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="journal" translatesAutoresizingMaskIntoConstraints="NO" id="Xo9-6L-WOm">
+                                                                <rect key="frame" x="0.0" y="0.0" width="83" height="32.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="32.700000000000003" id="V3i-ij-qiz"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSj-ig-WAo">
+                                                                <rect key="frame" x="0.0" y="39" width="83" height="11"/>
+                                                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                                                <color key="textColor" name="Primary"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6.5" translatesAutoresizingMaskIntoConstraints="NO" id="lI5-Bg-LWe">
+                                                        <rect key="frame" x="248.5" y="0.0" width="82.5" height="50"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="theory" translatesAutoresizingMaskIntoConstraints="NO" id="GIe-GN-6eL">
+                                                                <rect key="frame" x="0.0" y="0.0" width="82.5" height="32.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="32.700000000000003" id="G24-d2-N20"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Theory" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0V-wT-Ct3">
+                                                                <rect key="frame" x="0.0" y="39" width="82.5" height="11"/>
+                                                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                                                <color key="textColor" red="0.7843137255" green="0.82352941180000006" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="6.5" translatesAutoresizingMaskIntoConstraints="NO" id="4Kv-7w-08b">
+                                                        <rect key="frame" x="331" y="0.0" width="83" height="50"/>
+                                                        <subviews>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="profile_outline" translatesAutoresizingMaskIntoConstraints="NO" id="EGY-mM-g47">
+                                                                <rect key="frame" x="0.0" y="0.0" width="83" height="32.5"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="32.700000000000003" id="hXk-oj-iTL"/>
+                                                                </constraints>
+                                                            </imageView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgg-fg-87E">
+                                                                <rect key="frame" x="0.0" y="39" width="83" height="11"/>
+                                                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="12"/>
+                                                                <color key="textColor" name="Primary"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Mkh-E7-Ykm" firstAttribute="top" secondItem="nCp-bs-wWF" secondAttribute="top" constant="5.79" id="4Ed-Xt-TJt"/>
+                                            <constraint firstItem="Mkh-E7-Ykm" firstAttribute="leading" secondItem="nCp-bs-wWF" secondAttribute="leading" id="PiK-nQ-Wjh"/>
+                                            <constraint firstAttribute="height" constant="62" id="aEt-4k-X8C"/>
+                                            <constraint firstAttribute="bottom" secondItem="Mkh-E7-Ykm" secondAttribute="bottom" constant="5.79" id="eK9-Om-ad0"/>
+                                            <constraint firstAttribute="trailing" secondItem="Mkh-E7-Ykm" secondAttribute="trailing" id="pKI-99-KK1"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nCp-bs-wWF" secondAttribute="trailing" id="1yq-U2-Fl6"/>
+                                    <constraint firstItem="nCp-bs-wWF" firstAttribute="leading" secondItem="iPa-DX-0DJ" secondAttribute="leading" id="Ntk-of-OBs"/>
+                                    <constraint firstAttribute="bottom" secondItem="nCp-bs-wWF" secondAttribute="bottom" id="m05-Ve-i5m"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iPa-DX-0DJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="f8o-gj-K0D"/>
+                            <constraint firstItem="iPa-DX-0DJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pG9-4G-nNI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iPa-DX-0DJ" secondAttribute="bottom" id="rK4-wt-cl7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iPa-DX-0DJ" secondAttribute="trailing" id="wOJ-eb-87W"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Journal" selectedImage="journal" id="SmG-aV-9cd"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="48" y="-110"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home" width="142" height="142"/>
+        <image name="journal" width="151" height="142"/>
+        <image name="meditate" width="141" height="141"/>
+        <image name="profile_outline" width="128" height="142"/>
+        <image name="theory" width="154" height="142"/>
+        <namedColor name="Primary">
+            <color red="0.054999999701976776" green="0.25900000333786011" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

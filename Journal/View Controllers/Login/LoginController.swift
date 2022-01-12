@@ -7,9 +7,12 @@
 
 import UIKit
 import MaterialComponents
+import RxSwift
 
 class LoginController: UIViewController {
     // MARK: - View Model
+    var viewModel : LoginViewModel!
+    let disposeBag = DisposeBag()
     
     // MARK: - Properties
 
@@ -29,6 +32,7 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel = LoginViewModel(context: self)
         initViews()
     }
     
@@ -75,6 +79,42 @@ class LoginController: UIViewController {
         btnLogin.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
     }
     
+    // MARK: - Validate
+
+    private func validateForm() -> Bool {
+        
+        var valid = true
+        
+        if(textFieldEmail.text!.isEmpty || textFieldPassword.text!.isEmpty){
+            Utility.showAlertNew(message: "Please enter your email and password", context: self)
+            valid = false
+        }
+        
+        return valid
+    }
+    
+    // MARK: - Methods
+    
+    private func openMainPageController(){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        
+        if #available(iOS 13.0, *){
+            if let scene = UIApplication.shared.connectedScenes.first{
+                guard let windowScene = (scene as? UIWindowScene) else { return }
+                print(">>> windowScene: \(windowScene)")
+                let window: UIWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
+                window.windowScene = windowScene //Make sure to do this
+                window.rootViewController = vc
+                window.makeKeyAndVisible()
+                appDelegate.window = window
+            }
+        } else {
+            appDelegate.window?.rootViewController = vc
+            appDelegate.window?.makeKeyAndVisible()
+        }
+    }
+    
     // MARK: - Actions
 
     @IBAction func didTapBackBtn(_ sender: Any) {
@@ -82,12 +122,41 @@ class LoginController: UIViewController {
     }
     
     @IBAction func didTapLogin(_ sender: Any) {
-        
+        if validateForm() {
+            login()
+        }
     }
     
     @IBAction func didTapSignUp(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
         introController.didTapSignUpBtn(sender)
+    }
+    
+    // MARK: - Server Work
+    
+    private func login(){
+        
+        let deviceId = UIDevice.current.identifierForVendor?.uuidString
+        
+        Utility.showProgressDialog(view: self.view)
+        
+        let params: [String: Any] =
+            ["email": (textFieldEmail.text ?? ""),
+             "password": (textFieldPassword.text ?? ""),
+             "device_id": (deviceId ?? "ios_device"),
+             "notification_token": "notificationToken"
+        ]
+        
+        viewModel.login(params: params)
+            .subscribe(onSuccess: { message in
+                
+                Utility.hideProgressDialog(view: self.view)
+
+                self.openMainPageController()
+                
+            }
+            )
+        .disposed(by: disposeBag)
     }
     
 

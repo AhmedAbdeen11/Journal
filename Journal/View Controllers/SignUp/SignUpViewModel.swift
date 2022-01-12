@@ -11,7 +11,7 @@ import RxSwift
 import Moya
 import SwiftyJSON
 
-class RegisterViewModel {
+class SignUpViewModel {
     
     let provider = NetworkManager()
     let context: UIViewController!
@@ -27,11 +27,6 @@ class RegisterViewModel {
             self.provider.register(params: params)
                 .subscribe(onCompleted: {
                     observer(.completed)
-                    
-                }, onError: { error in
-                    
-                    ResponseHandler.showResponseError(context: self.context, error: error)
-                    Utility.hideProgressDialog(view: self.context.view)
                     
                 })
         })

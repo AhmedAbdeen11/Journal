@@ -14,14 +14,14 @@ class Utility {
     
     static func showAlert(message: String) -> UIAlertController {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "حسنا", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
         
         return alert
     }
     
     static func showAlertNew(message: String, context: UIViewController) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "حسنا", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: nil))
         
         context.present(alert, animated: true, completion: nil)
     }
@@ -68,25 +68,13 @@ class Utility {
         }*/
     }
     
-    static func loginRedirectAlert(context: UIViewController){
-        let confirmAlert = UIAlertController(title: "", message: "تحتاج لتسجيل الدخول او عمل حساب للقيام بهذا الاجراء", preferredStyle: UIAlertController.Style.alert)
-
-        confirmAlert.addAction(UIAlertAction(title: "فتح صفحة التسجيل", style: .default, handler: { (action: UIAlertAction!) in
-            openLogin()
-        }))
-
-        confirmAlert.addAction(UIAlertAction(title: "لا شكرا", style: .default, handler: nil))
-
-        context.present(confirmAlert, animated: true, completion: nil)
-    }
-    
-    static func isLoggedIn(context: UIViewController) -> Bool {
+    /*static func isLoggedIn(context: UIViewController) -> Bool {
         if Global.sharedInstance.userData == nil {
             loginRedirectAlert(context: context)
             return false
         }
         
         return true
-    }
+    }*/
     
 }
