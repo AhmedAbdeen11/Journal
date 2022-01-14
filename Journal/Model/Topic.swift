@@ -17,6 +17,9 @@ struct Topic : Mappable {
     var quotee: String?
     var description: String?
     var image : String?
+    var beforeHints : [Hint]?
+    var afterHints : [Hint]?
+    var questions : [Question]?
 
     init?(map: Map) {
 
@@ -31,6 +34,9 @@ struct Topic : Mappable {
         quotee <- map["quotee"]
         description <- map["description"]
         image <- map["image"]
+        beforeHints <- map["before_hints"]
+        afterHints <- map["after_hints"]
+        questions <- map["questions"]
         
     }
 

@@ -44,6 +44,8 @@
 		74E341DC27910AA3003C1C89 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341DB27910AA3003C1C89 /* TopicCell.swift */; };
 		74E341E327911057003C1C89 /* TopicQuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341E227911057003C1C89 /* TopicQuoteController.swift */; };
 		74E341E8279120AC003C1C89 /* CreateJournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341E7279120AC003C1C89 /* CreateJournalController.swift */; };
+		74E341EC279131BF003C1C89 /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341EB279131BF003C1C89 /* Hint.swift */; };
+		74E341F027913A88003C1C89 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341EF27913A88003C1C89 /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		74E341DB27910AA3003C1C89 /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
 		74E341E227911057003C1C89 /* TopicQuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicQuoteController.swift; sourceTree = "<group>"; };
 		74E341E7279120AC003C1C89 /* CreateJournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalController.swift; sourceTree = "<group>"; };
+		74E341EB279131BF003C1C89 /* Hint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
+		74E341EF27913A88003C1C89 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		DFFA38729BE09D22682E1BBE /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		E96D95DD42A5D61811B85296 /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
 		F1227341D1FF1295FE509ABF /* Pods_Journal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,6 +211,8 @@
 				747E14DA278DC2DA0027A566 /* User.swift */,
 				74E341B02790DDF5003C1C89 /* Journal.swift */,
 				74E341D6279107C7003C1C89 /* Topic.swift */,
+				74E341EB279131BF003C1C89 /* Hint.swift */,
+				74E341EF27913A88003C1C89 /* Question.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -485,9 +491,11 @@
 				747E14AF278DAC9A0027A566 /* NetworkService.swift in Sources */,
 				747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */,
 				747E14B7278DACA70027A566 /* Extensions.swift in Sources */,
+				74E341EC279131BF003C1C89 /* Hint.swift in Sources */,
 				74E341E8279120AC003C1C89 /* CreateJournalController.swift in Sources */,
 				747E14B0278DAC9A0027A566 /* ServerResponse.swift in Sources */,
 				7469FC04278973FD0038F9B4 /* MainController.swift in Sources */,
+				74E341F027913A88003C1C89 /* Question.swift in Sources */,
 				74E341DC27910AA3003C1C89 /* TopicCell.swift in Sources */,
 				747E154E278DF82F0027A566 /* LoginController.swift in Sources */,
 				74E341AD2790DDD7003C1C89 /* JournalPageViewModel.swift in Sources */,

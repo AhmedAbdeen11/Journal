@@ -366,6 +366,59 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="M2J-eN-jAT">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x06-49-Lau" userLabel="Hint View Container">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eudaimonia (happiness) was the aim of philosophy in ancient Greece" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOB-ao-5P4">
+                                        <rect key="frame" x="30" y="402.5" width="354" height="91"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                        <color key="textColor" name="Primary"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="YOB-ao-5P4" firstAttribute="leading" secondItem="x06-49-Lau" secondAttribute="leading" constant="30" id="9lD-XC-euJ"/>
+                                    <constraint firstItem="YOB-ao-5P4" firstAttribute="centerY" secondItem="x06-49-Lau" secondAttribute="centerY" id="EkL-DD-Jk8"/>
+                                    <constraint firstAttribute="trailing" secondItem="YOB-ao-5P4" secondAttribute="trailing" constant="30" id="gLT-kQ-0xz"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lCz-l9-Nfh" userLabel="Question View Container">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What goal or vision are you currently working towards and why?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zet-cP-h7m">
+                                        <rect key="frame" x="16" y="140" width="382" height="44.5"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                        <color key="textColor" name="Primary"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Having a vision to direct our efforts and energy is what makes life purposeful and rich." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaq-HU-8pe">
+                                        <rect key="frame" x="16" y="202.5" width="382" height="35"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <color key="textColor" red="0.58039215686274503" green="0.62745098039215685" blue="0.72941176470588232" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2MC-dd-kXe">
+                                        <rect key="frame" x="16" y="262.5" width="382" height="603.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="2MC-dd-kXe" secondAttribute="bottom" constant="30" id="2N9-57-ure"/>
+                                    <constraint firstItem="Uaq-HU-8pe" firstAttribute="top" secondItem="zet-cP-h7m" secondAttribute="bottom" constant="18" id="65K-K4-11v"/>
+                                    <constraint firstItem="zet-cP-h7m" firstAttribute="leading" secondItem="lCz-l9-Nfh" secondAttribute="leading" constant="16" id="Dln-ny-aoU"/>
+                                    <constraint firstAttribute="trailing" secondItem="zet-cP-h7m" secondAttribute="trailing" constant="16" id="K95-u9-vbN"/>
+                                    <constraint firstItem="Uaq-HU-8pe" firstAttribute="leading" secondItem="lCz-l9-Nfh" secondAttribute="leading" constant="16" id="LSt-LM-zGI"/>
+                                    <constraint firstItem="2MC-dd-kXe" firstAttribute="leading" secondItem="lCz-l9-Nfh" secondAttribute="leading" constant="16" id="Lnh-Mk-gOZ"/>
+                                    <constraint firstItem="2MC-dd-kXe" firstAttribute="top" secondItem="Uaq-HU-8pe" secondAttribute="bottom" constant="25" id="SEe-Wi-xYr"/>
+                                    <constraint firstItem="zet-cP-h7m" firstAttribute="top" secondItem="lCz-l9-Nfh" secondAttribute="top" constant="140" id="SZs-Vc-ERu"/>
+                                    <constraint firstAttribute="trailing" secondItem="2MC-dd-kXe" secondAttribute="trailing" constant="16" id="jmI-TQ-NwF"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uaq-HU-8pe" secondAttribute="trailing" constant="16" id="pOl-K8-ZX5"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Oz-G1-o7R" customClass="MDCFloatingButton">
                                 <rect key="frame" x="348" y="74" width="50" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -377,16 +430,10 @@
                                     <action selector="didTapCloseBtn:" destination="e0b-zx-R5a" eventType="touchUpInside" id="T2p-HD-mEE"/>
                                 </connections>
                             </view>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="qE7-zp-Ljg">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qE7-zp-Ljg">
                                 <rect key="frame" x="16" y="60" width="382" height="4"/>
                                 <color key="tintColor" name="Primary"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eudaimonia (happiness) was the aim of philosophy in ancient Greece" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOB-ao-5P4">
-                                <rect key="frame" x="26" y="402.5" width="362" height="91"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
-                                <color key="textColor" name="Primary"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eeq-3v-6tk" customClass="MDCFloatingButton">
                                 <rect key="frame" x="333" y="767" width="65" height="65"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -413,22 +460,27 @@
                         <viewLayoutGuide key="safeArea" id="0jk-B7-r0r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YOB-ao-5P4" firstAttribute="leading" secondItem="0jk-B7-r0r" secondAttribute="leading" constant="26" id="2PY-f5-7JO"/>
                             <constraint firstItem="PWH-bp-3I6" firstAttribute="top" secondItem="qE7-zp-Ljg" secondAttribute="bottom" constant="8" symbolic="YES" id="3Nq-Ad-9Sc"/>
                             <constraint firstItem="PWH-bp-3I6" firstAttribute="leading" secondItem="0jk-B7-r0r" secondAttribute="leading" constant="16" id="4sL-En-ots"/>
-                            <constraint firstItem="0jk-B7-r0r" firstAttribute="trailing" secondItem="YOB-ao-5P4" secondAttribute="trailing" constant="26" id="7UB-Cl-qKQ"/>
+                            <constraint firstAttribute="bottom" secondItem="lCz-l9-Nfh" secondAttribute="bottom" id="6g4-tr-Bta"/>
+                            <constraint firstItem="lCz-l9-Nfh" firstAttribute="trailing" secondItem="0jk-B7-r0r" secondAttribute="trailing" id="ChO-q0-hpi"/>
                             <constraint firstItem="0jk-B7-r0r" firstAttribute="trailing" secondItem="Eeq-3v-6tk" secondAttribute="trailing" constant="16" id="FWO-R3-q26"/>
+                            <constraint firstItem="x06-49-Lau" firstAttribute="top" secondItem="87z-Px-2TN" secondAttribute="top" id="KbW-WL-ug1"/>
                             <constraint firstItem="0jk-B7-r0r" firstAttribute="trailing" secondItem="qE7-zp-Ljg" secondAttribute="trailing" constant="16" id="NSv-sO-XQb"/>
                             <constraint firstItem="qE7-zp-Ljg" firstAttribute="leading" secondItem="0jk-B7-r0r" secondAttribute="leading" constant="16" id="SjE-cp-Q6k"/>
                             <constraint firstItem="0jk-B7-r0r" firstAttribute="bottom" secondItem="Eeq-3v-6tk" secondAttribute="bottom" constant="30" id="Sy9-dK-4U5"/>
+                            <constraint firstItem="x06-49-Lau" firstAttribute="leading" secondItem="0jk-B7-r0r" secondAttribute="leading" id="VNC-FA-VAb"/>
+                            <constraint firstItem="lCz-l9-Nfh" firstAttribute="leading" secondItem="0jk-B7-r0r" secondAttribute="leading" id="agc-w0-Qrg"/>
                             <constraint firstItem="4Oz-G1-o7R" firstAttribute="top" secondItem="qE7-zp-Ljg" secondAttribute="bottom" constant="10" id="bsr-qQ-XZi"/>
                             <constraint firstItem="M2J-eN-jAT" firstAttribute="leading" secondItem="87z-Px-2TN" secondAttribute="leading" id="h2i-7o-n9g"/>
                             <constraint firstAttribute="bottom" secondItem="M2J-eN-jAT" secondAttribute="bottom" id="iJh-cS-La3"/>
-                            <constraint firstItem="YOB-ao-5P4" firstAttribute="centerY" secondItem="87z-Px-2TN" secondAttribute="centerY" id="jaJ-DW-TP4"/>
                             <constraint firstItem="M2J-eN-jAT" firstAttribute="trailing" secondItem="87z-Px-2TN" secondAttribute="trailing" id="pii-eB-TZw"/>
                             <constraint firstItem="qE7-zp-Ljg" firstAttribute="top" secondItem="0jk-B7-r0r" secondAttribute="top" constant="16" id="qpD-Cm-svs"/>
+                            <constraint firstItem="x06-49-Lau" firstAttribute="trailing" secondItem="0jk-B7-r0r" secondAttribute="trailing" id="qzX-C8-yqn"/>
                             <constraint firstItem="0jk-B7-r0r" firstAttribute="trailing" secondItem="4Oz-G1-o7R" secondAttribute="trailing" constant="16" id="rAQ-Dk-dA0"/>
                             <constraint firstItem="M2J-eN-jAT" firstAttribute="top" secondItem="87z-Px-2TN" secondAttribute="top" id="u56-RC-3wX"/>
+                            <constraint firstAttribute="bottom" secondItem="x06-49-Lau" secondAttribute="bottom" id="xC7-Wn-aw4"/>
+                            <constraint firstItem="lCz-l9-Nfh" firstAttribute="top" secondItem="87z-Px-2TN" secondAttribute="top" id="yef-mK-ZJe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ffb-IV-aqX"/>
@@ -437,7 +489,12 @@
                         <outlet property="fbClose" destination="4Oz-G1-o7R" id="LMD-Z3-pVy"/>
                         <outlet property="fbNext" destination="Eeq-3v-6tk" id="UvF-BP-Qy5"/>
                         <outlet property="labelInfo" destination="YOB-ao-5P4" id="6NR-Py-loK"/>
+                        <outlet property="labelQuestionHint" destination="Uaq-HU-8pe" id="fxa-Sl-hrD"/>
+                        <outlet property="labelQuestionTitle" destination="zet-cP-h7m" id="U1i-pt-N9q"/>
                         <outlet property="progressView" destination="qE7-zp-Ljg" id="oYp-av-Pse"/>
+                        <outlet property="textViewUserInput" destination="2MC-dd-kXe" id="Cse-HT-UUG"/>
+                        <outlet property="viewHint" destination="x06-49-Lau" id="5Yk-Yn-Acr"/>
+                        <outlet property="viewQuestion" destination="lCz-l9-Nfh" id="EQM-JG-AnR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBN-qJ-ZYL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
