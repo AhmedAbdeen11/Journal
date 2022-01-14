@@ -54,13 +54,6 @@ class NetworkManager: NSObject {
             .ignoreElements()
     }
     
-    func getProvinces() -> Single<String> {
-        return provider.rx
-            .request(.provinces)
-            .filterSuccessfulStatusAndRedirectCodes()
-            .mapString()
-    }
-    
     func getCurrentUser(params: [String: Any]) -> Single<String> {
         return provider.rx
             .request(.myData(params: params))
@@ -76,11 +69,11 @@ class NetworkManager: NSObject {
             .ignoreElements()
     }
     
-    // MARK: - Product
+    // MARK: - Journal
     
-    func getCategories() -> Single<String> {
+    func getJournals() -> Single<String> {
         return provider.rx
-            .request(.getCategories)
+            .request(.getJournals)
             .filterSuccessfulStatusAndRedirectCodes()
             .mapString()
     }

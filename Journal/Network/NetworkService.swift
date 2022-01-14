@@ -29,9 +29,9 @@ public enum NetworkService {
     
     case logout
     
-    // MARK: - Category
+    // MARK: - Journal
     
-    case getCategories
+    case getJournals
     
     // MARK: - Product
     
@@ -84,7 +84,7 @@ extension NetworkService: TargetType {
     public var headers: [String: String]? {
         switch self {
             
-        case .login, .loginProvider, .register, .provinces, .getCategories, .getCategoryProductsNoAuth:
+        case .login, .loginProvider, .register, .provinces, .getCategoryProductsNoAuth:
         return [
             "Content-Type": "application/x-www-form-urlencoded",
             "Accept": "application/json"
@@ -129,10 +129,10 @@ extension NetworkService: TargetType {
             case .logout:
                 return "logout"
             
-            // MARK: - Category
+            // MARK: - Journal
         
-            case .getCategories:
-                return "category"
+            case .getJournals:
+                return "journal"
         
             // MARK: - Product
                 

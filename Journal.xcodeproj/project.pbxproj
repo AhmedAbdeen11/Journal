@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F2F2E43843C88B82D9CE487 /* Pods_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1227341D1FF1295FE509ABF /* Pods_Journal.framework */; };
+		74608FCA27902A8E0053381C /* Pods_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1227341D1FF1295FE509ABF /* Pods_Journal.framework */; };
 		7469FC00278973FD0038F9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FBFF278973FD0038F9B4 /* AppDelegate.swift */; };
 		7469FC02278973FD0038F9B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FC01278973FD0038F9B4 /* SceneDelegate.swift */; };
 		7469FC04278973FD0038F9B4 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FC03278973FD0038F9B4 /* MainController.swift */; };
@@ -31,6 +31,19 @@
 		747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */; };
 		747E1556278E00380027A566 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1555278E00370027A566 /* SignUpViewModel.swift */; };
 		747E155A278E40590027A566 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1559278E40580027A566 /* LoginViewModel.swift */; };
+		74E341002790491B003C1C89 /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E340FF2790491B003C1C89 /* JournalController.swift */; };
+		74E341382790500C003C1C89 /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341372790500C003C1C89 /* PageController.swift */; };
+		74E3413F279050AD003C1C89 /* JournalPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3413E279050AD003C1C89 /* JournalPageController.swift */; };
+		74E34143279050C2003C1C89 /* EntriesPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E34142279050C2003C1C89 /* EntriesPageController.swift */; };
+		74E341A92790DD2F003C1C89 /* JournalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341A82790DD2F003C1C89 /* JournalCell.swift */; };
+		74E341AD2790DDD7003C1C89 /* JournalPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341AC2790DDD6003C1C89 /* JournalPageViewModel.swift */; };
+		74E341B12790DDF5003C1C89 /* Journal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341B02790DDF5003C1C89 /* Journal.swift */; };
+		74E341CE2791009B003C1C89 /* JournalFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74E341CD2791009B003C1C89 /* JournalFlow.storyboard */; };
+		74E341D327910439003C1C89 /* TopicsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341D227910439003C1C89 /* TopicsController.swift */; };
+		74E341D7279107C7003C1C89 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341D6279107C7003C1C89 /* Topic.swift */; };
+		74E341DC27910AA3003C1C89 /* TopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341DB27910AA3003C1C89 /* TopicCell.swift */; };
+		74E341E327911057003C1C89 /* TopicQuoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341E227911057003C1C89 /* TopicQuoteController.swift */; };
+		74E341E8279120AC003C1C89 /* CreateJournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341E7279120AC003C1C89 /* CreateJournalController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +72,19 @@
 		747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		747E1555278E00370027A566 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		747E1559278E40580027A566 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		74E340FF2790491B003C1C89 /* JournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
+		74E341372790500C003C1C89 /* PageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
+		74E3413E279050AD003C1C89 /* JournalPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalPageController.swift; sourceTree = "<group>"; };
+		74E34142279050C2003C1C89 /* EntriesPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesPageController.swift; sourceTree = "<group>"; };
+		74E341A82790DD2F003C1C89 /* JournalCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalCell.swift; sourceTree = "<group>"; };
+		74E341AC2790DDD6003C1C89 /* JournalPageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalPageViewModel.swift; sourceTree = "<group>"; };
+		74E341B02790DDF5003C1C89 /* Journal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Journal.swift; sourceTree = "<group>"; };
+		74E341CD2791009B003C1C89 /* JournalFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = JournalFlow.storyboard; sourceTree = "<group>"; };
+		74E341D227910439003C1C89 /* TopicsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicsController.swift; sourceTree = "<group>"; };
+		74E341D6279107C7003C1C89 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		74E341DB27910AA3003C1C89 /* TopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicCell.swift; sourceTree = "<group>"; };
+		74E341E227911057003C1C89 /* TopicQuoteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicQuoteController.swift; sourceTree = "<group>"; };
+		74E341E7279120AC003C1C89 /* CreateJournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalController.swift; sourceTree = "<group>"; };
 		DFFA38729BE09D22682E1BBE /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		E96D95DD42A5D61811B85296 /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
 		F1227341D1FF1295FE509ABF /* Pods_Journal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F2F2E43843C88B82D9CE487 /* Pods_Journal.framework in Frameworks */,
+				74608FCA27902A8E0053381C /* Pods_Journal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,6 +179,7 @@
 				7469FC05278973FD0038F9B4 /* Main.storyboard */,
 				7469FC0A278973FE0038F9B4 /* LaunchScreen.storyboard */,
 				747E14E5278DC7DF0027A566 /* Authentication.storyboard */,
+				74E341CD2791009B003C1C89 /* JournalFlow.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -160,6 +187,10 @@
 		747E149F278DAB1F0027A566 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				74E341E627912066003C1C89 /* Create Journal */,
+				74E341E127911038003C1C89 /* Topic Quote */,
+				74E341D127910427003C1C89 /* Topics */,
+				74E340FD279048FE003C1C89 /* Journal */,
 				747E155D278E4D980027A566 /* Main */,
 				747E1550278DFB3D0027A566 /* Forgot Password */,
 				747E154C278DF8200027A566 /* Login */,
@@ -174,6 +205,8 @@
 			children = (
 				747E14DD278DC2E00027A566 /* Paging.swift */,
 				747E14DA278DC2DA0027A566 /* User.swift */,
+				74E341B02790DDF5003C1C89 /* Journal.swift */,
+				74E341D6279107C7003C1C89 /* Topic.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,6 +268,92 @@
 				7469FC03278973FD0038F9B4 /* MainController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		74E340FD279048FE003C1C89 /* Journal */ = {
+			isa = PBXGroup;
+			children = (
+				74E340FF2790491B003C1C89 /* JournalController.swift */,
+				74E3413627904FE4003C1C89 /* PagerView */,
+			);
+			path = Journal;
+			sourceTree = "<group>";
+		};
+		74E3413627904FE4003C1C89 /* PagerView */ = {
+			isa = PBXGroup;
+			children = (
+				74E3413B27905081003C1C89 /* Pages */,
+				74E341372790500C003C1C89 /* PageController.swift */,
+			);
+			path = PagerView;
+			sourceTree = "<group>";
+		};
+		74E3413B27905081003C1C89 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				74E3413C2790508A003C1C89 /* Journal Page */,
+				74E3413D2790509B003C1C89 /* Entries Page */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		74E3413C2790508A003C1C89 /* Journal Page */ = {
+			isa = PBXGroup;
+			children = (
+				74E341A72790DCF7003C1C89 /* cells */,
+				74E3413E279050AD003C1C89 /* JournalPageController.swift */,
+				74E341AC2790DDD6003C1C89 /* JournalPageViewModel.swift */,
+			);
+			path = "Journal Page";
+			sourceTree = "<group>";
+		};
+		74E3413D2790509B003C1C89 /* Entries Page */ = {
+			isa = PBXGroup;
+			children = (
+				74E34142279050C2003C1C89 /* EntriesPageController.swift */,
+			);
+			path = "Entries Page";
+			sourceTree = "<group>";
+		};
+		74E341A72790DCF7003C1C89 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				74E341A82790DD2F003C1C89 /* JournalCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		74E341D127910427003C1C89 /* Topics */ = {
+			isa = PBXGroup;
+			children = (
+				74E341DA27910A81003C1C89 /* cells */,
+				74E341D227910439003C1C89 /* TopicsController.swift */,
+			);
+			path = Topics;
+			sourceTree = "<group>";
+		};
+		74E341DA27910A81003C1C89 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				74E341DB27910AA3003C1C89 /* TopicCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		74E341E127911038003C1C89 /* Topic Quote */ = {
+			isa = PBXGroup;
+			children = (
+				74E341E227911057003C1C89 /* TopicQuoteController.swift */,
+			);
+			path = "Topic Quote";
+			sourceTree = "<group>";
+		};
+		74E341E627912066003C1C89 /* Create Journal */ = {
+			isa = PBXGroup;
+			children = (
+				74E341E7279120AC003C1C89 /* CreateJournalController.swift */,
+			);
+			path = "Create Journal";
 			sourceTree = "<group>";
 		};
 		D0833B8FA369ECC9A4FF7D45 /* Pods */ = {
@@ -307,6 +426,7 @@
 			files = (
 				7469FC0C278973FE0038F9B4 /* LaunchScreen.storyboard in Resources */,
 				747E14BB278DACC10027A566 /* Theme.xcassets in Resources */,
+				74E341CE2791009B003C1C89 /* JournalFlow.storyboard in Resources */,
 				7469FC09278973FE0038F9B4 /* Assets.xcassets in Resources */,
 				7469FC07278973FD0038F9B4 /* Main.storyboard in Resources */,
 				747E14E6278DC7DF0027A566 /* Authentication.storyboard in Resources */,
@@ -365,19 +485,31 @@
 				747E14AF278DAC9A0027A566 /* NetworkService.swift in Sources */,
 				747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */,
 				747E14B7278DACA70027A566 /* Extensions.swift in Sources */,
+				74E341E8279120AC003C1C89 /* CreateJournalController.swift in Sources */,
 				747E14B0278DAC9A0027A566 /* ServerResponse.swift in Sources */,
 				7469FC04278973FD0038F9B4 /* MainController.swift in Sources */,
+				74E341DC27910AA3003C1C89 /* TopicCell.swift in Sources */,
 				747E154E278DF82F0027A566 /* LoginController.swift in Sources */,
+				74E341AD2790DDD7003C1C89 /* JournalPageViewModel.swift in Sources */,
+				74E34143279050C2003C1C89 /* EntriesPageController.swift in Sources */,
 				747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */,
 				747E14B6278DACA70027A566 /* Utility.swift in Sources */,
+				74E341A92790DD2F003C1C89 /* JournalCell.swift in Sources */,
 				747E155A278E40590027A566 /* LoginViewModel.swift in Sources */,
 				747E14AE278DAC9A0027A566 /* ResponseHandler.swift in Sources */,
 				747E1556278E00380027A566 /* SignUpViewModel.swift in Sources */,
 				747E14EB278DCC8B0027A566 /* IntroController.swift in Sources */,
+				74E341E327911057003C1C89 /* TopicQuoteController.swift in Sources */,
+				74E3413F279050AD003C1C89 /* JournalPageController.swift in Sources */,
+				74E341B12790DDF5003C1C89 /* Journal.swift in Sources */,
 				7469FC00278973FD0038F9B4 /* AppDelegate.swift in Sources */,
 				747E14F2278DE2D70027A566 /* SignUpController.swift in Sources */,
 				747E14B8278DACA70027A566 /* Global.swift in Sources */,
+				74E341002790491B003C1C89 /* JournalController.swift in Sources */,
+				74E341382790500C003C1C89 /* PageController.swift in Sources */,
 				747E14DE278DC2E00027A566 /* Paging.swift in Sources */,
+				74E341D7279107C7003C1C89 /* Topic.swift in Sources */,
+				74E341D327910439003C1C89 /* TopicsController.swift in Sources */,
 				7469FC02278973FD0038F9B4 /* SceneDelegate.swift in Sources */,
 				747E14DB278DC2DA0027A566 /* User.swift in Sources */,
 			);
@@ -528,6 +660,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = K8WX5Q5Q98;
 				INFOPLIST_FILE = "Journal//Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -535,7 +668,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.solidbundle.Journal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solidbundle.journal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -549,6 +682,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = K8WX5Q5Q98;
 				INFOPLIST_FILE = "Journal//Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -556,7 +690,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.solidbundle.Journal;
+				PRODUCT_BUNDLE_IDENTIFIER = com.solidbundle.journal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
