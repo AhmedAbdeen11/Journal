@@ -23,6 +23,9 @@ class JournalPageController: UIViewController {
     
     var journals = [Journal]()
     
+    @IBOutlet weak var viewEntrySaved: UIView!
+    
+    
     // MARK: - Properties
     
     @IBOutlet weak var tableViewJournals: UITableView!
@@ -31,6 +34,7 @@ class JournalPageController: UIViewController {
     
     
     // MARK: - Variables
+    
     
     // MARK: - View Methods
     
@@ -61,6 +65,17 @@ class JournalPageController: UIViewController {
         viewEndDay.layer.shadowOpacity = 0.5
         viewEndDay.layer.shadowOffset = .zero
         viewEndDay.layer.shadowRadius = 10
+        
+        viewEntrySaved.layer.cornerRadius = 15
+    }
+    
+    func showViewEntrySaved(){
+        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.dismissViewEntrySaved), userInfo: nil, repeats: false)
+        viewEntrySaved.isHidden = false
+    }
+    
+    @objc private func dismissViewEntrySaved(){
+        self.viewEntrySaved.isHidden = true
     }
 
     //MARK: - Server Work
@@ -76,11 +91,11 @@ class JournalPageController: UIViewController {
                 
                 self.journals.append(contentsOf: chats)
                 self.tableViewJournals.reloadData()
-                
             })
         .disposed(by: disposeBag)
         
     }
+    
     
     
     // MARK: - Navigation
@@ -90,6 +105,7 @@ class JournalPageController: UIViewController {
         if segue.identifier == "showTopicsSegue" {
             let topicsController = segue.destination as! TopicsController
             topicsController.journal = sender as? Journal
+            topicsController.journalPageController = self
         }
     }
     

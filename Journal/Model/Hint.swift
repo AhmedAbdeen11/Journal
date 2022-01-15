@@ -14,6 +14,10 @@ struct Hint : Mappable {
     var title : String?
     var type : String?
 
+    init?(){
+        
+    }
+    
     init?(map: Map) {
 
     }

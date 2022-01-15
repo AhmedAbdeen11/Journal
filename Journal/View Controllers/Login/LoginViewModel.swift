@@ -50,34 +50,4 @@ class LoginViewModel {
         
     }
     
-    func loginProvider(params: [String: Any]) -> Single<Any> {
-        
-        return .create (subscribe: { observer in
-            
-            self.provider.loginProvider(params: params)
-                .subscribe(onSuccess: { response in
-                  
-                    do {
-                        let json = JSON(response)
-                        
-                        let accessToken = json["data"]["access_token"].string
-                                            
-                        //Save access token to KeyChain Wrapper
-                        let _: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
-                        
-                        Global.sharedInstance.token = accessToken!
-                        
-                        observer(.success("Login Success..."))
-                        
-                    }
-                    
-                    
-                }, onError: { error in
-                    Utility.hideProgressDialog(view: self.context.view)
-                    ResponseHandler.showResponseError(context: self.context, error: error)
-                })
-        })
-        
-    }
-    
 }

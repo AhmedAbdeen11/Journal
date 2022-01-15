@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		74608FCA27902A8E0053381C /* Pods_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1227341D1FF1295FE509ABF /* Pods_Journal.framework */; };
+		746534DB2792AE4100E745A3 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746534DA2792AE4100E745A3 /* Answer.swift */; };
+		746534E02792C7D000E745A3 /* CreateJournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746534DF2792C7D000E745A3 /* CreateJournalViewModel.swift */; };
 		7469FC00278973FD0038F9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FBFF278973FD0038F9B4 /* AppDelegate.swift */; };
 		7469FC02278973FD0038F9B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FC01278973FD0038F9B4 /* SceneDelegate.swift */; };
 		7469FC04278973FD0038F9B4 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FC03278973FD0038F9B4 /* MainController.swift */; };
@@ -49,6 +51,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		746534DA2792AE4100E745A3 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
+		746534DF2792C7D000E745A3 /* CreateJournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalViewModel.swift; sourceTree = "<group>"; };
 		7469FBFC278973FD0038F9B4 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7469FBFF278973FD0038F9B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7469FC01278973FD0038F9B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 				74E341D6279107C7003C1C89 /* Topic.swift */,
 				74E341EB279131BF003C1C89 /* Hint.swift */,
 				74E341EF27913A88003C1C89 /* Question.swift */,
+				746534DA2792AE4100E745A3 /* Answer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -358,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				74E341E7279120AC003C1C89 /* CreateJournalController.swift */,
+				746534DF2792C7D000E745A3 /* CreateJournalViewModel.swift */,
 			);
 			path = "Create Journal";
 			sourceTree = "<group>";
@@ -498,6 +504,7 @@
 				74E341F027913A88003C1C89 /* Question.swift in Sources */,
 				74E341DC27910AA3003C1C89 /* TopicCell.swift in Sources */,
 				747E154E278DF82F0027A566 /* LoginController.swift in Sources */,
+				746534E02792C7D000E745A3 /* CreateJournalViewModel.swift in Sources */,
 				74E341AD2790DDD7003C1C89 /* JournalPageViewModel.swift in Sources */,
 				74E34143279050C2003C1C89 /* EntriesPageController.swift in Sources */,
 				747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */,
@@ -519,6 +526,7 @@
 				74E341D7279107C7003C1C89 /* Topic.swift in Sources */,
 				74E341D327910439003C1C89 /* TopicsController.swift in Sources */,
 				7469FC02278973FD0038F9B4 /* SceneDelegate.swift in Sources */,
+				746534DB2792AE4100E745A3 /* Answer.swift in Sources */,
 				747E14DB278DC2DA0027A566 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

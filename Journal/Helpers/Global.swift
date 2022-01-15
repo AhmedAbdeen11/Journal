@@ -18,7 +18,6 @@ class Global {
     var token: String = ""
     var tokenType: String = ""
     var userData: User?
-    var currentLanguage = "ar"
     var selectedProvinceId = 0
     
 }

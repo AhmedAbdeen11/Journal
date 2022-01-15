@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import MaterialComponents
 
 class MainController: UIViewController {
 
@@ -20,6 +21,12 @@ class MainController: UIViewController {
     
     @IBOutlet weak var profileContainer: UIView!
     
+    @IBOutlet weak var viewComingSoonContainer: UIView!
+    
+    @IBOutlet weak var viewComingSoon: UIView!
+    
+    @IBOutlet weak var btnGotIt: MDCButton!
+    
     // MARK: - Variables
     
     
@@ -28,16 +35,32 @@ class MainController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        initViews()
+    }
+    
+    private func initViews(){
+        viewComingSoon.layer.cornerRadius = 20
+        
+        btnGotIt.backgroundColor = UIColor(named: "Primary")
+        btnGotIt.setTitle("Got it", for: .normal)
+        btnGotIt.layer.cornerRadius = 25
+        btnGotIt.isUppercaseTitle = false
+        btnGotIt.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
     }
     
     // MARK: - Actions
 
+    @IBAction func didTapGotItBtn(_ sender: Any) {
+        viewComingSoonContainer.isHidden = true
+    }
+    
     @IBAction func didTapHomeBtn(_ sender: Any) {
-        Utility.showAlertNew(message: "Coming Soon..", context: self)
+        viewComingSoonContainer.isHidden = false
     }
     
     @IBAction func didTapMeditateBtn(_ sender: Any) {
-        Utility.showAlertNew(message: "Coming Soon..", context: self)
+        viewComingSoonContainer.isHidden = false
     }
     
     @IBAction func didTapJournalBtn(_ sender: Any) {
@@ -46,12 +69,14 @@ class MainController: UIViewController {
     }
     
     @IBAction func didTapTheoryBtn(_ sender: Any) {
-        Utility.showAlertNew(message: "Coming Soon..", context: self)
+        viewComingSoonContainer.isHidden = false
     }
     
     @IBAction func didTapProfileBtn(_ sender: Any) {
-        profileContainer.isHidden = false
-        homeContainer.isHidden = true
+//        profileContainer.isHidden = false
+//        homeContainer.isHidden = true
+        
+        viewComingSoonContainer.isHidden = false
     }
     
     

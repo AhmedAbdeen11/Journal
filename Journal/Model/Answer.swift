@@ -8,13 +8,16 @@
 import Foundation
 import ObjectMapper
 
-struct Question : Mappable {
+struct Answer : Mappable {
     
-    var id : Int?
-    var question : String?
-    var hint : String?
-    var answer: Answer!
+    var id : Int = 0
+    var answer : String?
+    var date : String = ""
 
+    init?(){
+        
+    }
+    
     init?(map: Map) {
 
     }
@@ -22,13 +25,9 @@ struct Question : Mappable {
     mutating func mapping(map: Map) {
 
         id <- map["id"]
-        question <- map["question"]
-        hint <- map["hint"]
         answer <- map["answer"]
+        date <- map["date"]
         
-        if answer == nil {
-            answer = Answer()
-        }
     }
 
 }

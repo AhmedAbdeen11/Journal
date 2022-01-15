@@ -153,6 +153,7 @@
                             <constraint firstItem="bGj-g3-FzS" firstAttribute="top" secondItem="dSi-OQ-v7j" secondAttribute="top" id="yeK-Lh-t5i"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="1hu-MC-2FP"/>
                     <connections>
                         <outlet property="collectionViewTopics" destination="nM5-A6-UIa" id="5g5-9d-nSQ"/>
                         <outlet property="fbClose" destination="gCf-Pc-1HS" id="Nql-4g-0NT"/>
@@ -163,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rsk-NX-eAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="87" y="45"/>
+            <point key="canvasLocation" x="1907.2463768115942" y="44.866071428571423"/>
         </scene>
         <!--Topic Quote Controller-->
         <scene sceneID="yhe-Bu-4FC">
@@ -275,7 +276,7 @@
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTR-9o-8r2">
                                                         <rect key="frame" x="25" y="46" width="332" height="210"/>
-                                                        <mutableString key="text">The pursuit of happiness is the great quest to which we are all devoted. We spend our life seeking and avoiding external affairs in an attempt to find lasting contentment. As important as external affairs are, happiness is ultimately an internal state. In psychology, happiness is understood as the experience of positive emotions combined with a sense of life satisfaction. Given this, if we want to be happy we need to focus on the things that evoke positive emotions as well as what gives us a sense of meaning, purpose, and fulfillment.</mutableString>
+                                                        <string key="text">The pursuit of happiness is the great quest to which we are all devoted. We spend our life seeking and avoiding external affairs in an attempt to find lasting contentment. As important as external affairs are, happiness is ultimately an internal state. In psychology, happiness is understood as the experience of positive emotions combined with a sense of life satisfaction. Given this, if we want to be happy we need to focus on the things that evoke positive emotions as well as what gives us a sense of meaning, purpose, and fulfillment.</string>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                         <color key="textColor" red="0.31372549020000001" green="0.35294117650000001" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -348,17 +349,17 @@
                         <outlet property="viewQuoteContainer" destination="3GF-s7-bSa" id="xwB-2r-zjo"/>
                         <outlet property="viewQuoteDescription" destination="UFo-lG-pVV" id="TK6-3t-mO9"/>
                         <outlet property="viewReadMeContainer" destination="vkN-hf-FpP" id="JT6-IA-m9y"/>
-                        <segue destination="e0b-zx-R5a" kind="presentation" identifier="showCreateJournalSegue" modalPresentationStyle="fullScreen" id="xJ4-BU-CIc"/>
+                        <segue destination="e0b-zx-R5a" kind="presentation" identifier="showCreateJournalSegue" modalPresentationStyle="fullScreen" id="cQM-KV-kiU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbP-MN-PkD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="45"/>
+            <point key="canvasLocation" x="2802.898550724638" y="44.866071428571423"/>
         </scene>
         <!--Create Journal Controller-->
         <scene sceneID="LeQ-wR-TbC">
             <objects>
-                <viewController id="e0b-zx-R5a" customClass="CreateJournalController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateJournalController" id="e0b-zx-R5a" customClass="CreateJournalController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="87z-Px-2TN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -366,6 +367,49 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="M2J-eN-jAT">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePL-Sx-hGJ" userLabel="Final View Container">
+                                <rect key="frame" x="16" y="341" width="382" height="214"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JEe-Zs-ok6" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="96" width="382" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="TsO-jo-bH8"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="didTapAddFavoriteBtn:" destination="e0b-zx-R5a" eventType="touchUpInside" id="GiA-fO-uEY"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irL-ux-Dj9" customClass="MDCButton">
+                                        <rect key="frame" x="0.0" y="164" width="382" height="50"/>
+                                        <color key="backgroundColor" name="Primary"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="lHn-jx-j99"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="didTapFinishJournalBtn:" destination="e0b-zx-R5a" eventType="touchUpInside" id="UB0-f5-JSQ"/>
+                                        </connections>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Well done at practicing the art of philosophy!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cY-Lk-WOG">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="61"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="26"/>
+                                        <color key="textColor" name="Primary"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="irL-ux-Dj9" firstAttribute="leading" secondItem="ePL-Sx-hGJ" secondAttribute="leading" id="11h-X0-hK4"/>
+                                    <constraint firstAttribute="trailing" secondItem="JEe-Zs-ok6" secondAttribute="trailing" id="I7V-QN-W7P"/>
+                                    <constraint firstAttribute="trailing" secondItem="irL-ux-Dj9" secondAttribute="trailing" id="KaG-D3-WZ0"/>
+                                    <constraint firstItem="irL-ux-Dj9" firstAttribute="top" secondItem="JEe-Zs-ok6" secondAttribute="bottom" constant="18" id="NfP-Mc-yEa"/>
+                                    <constraint firstItem="7cY-Lk-WOG" firstAttribute="top" secondItem="ePL-Sx-hGJ" secondAttribute="top" id="Plh-tY-yFR"/>
+                                    <constraint firstItem="7cY-Lk-WOG" firstAttribute="leading" secondItem="ePL-Sx-hGJ" secondAttribute="leading" id="SYp-Z0-5r4"/>
+                                    <constraint firstAttribute="trailing" secondItem="7cY-Lk-WOG" secondAttribute="trailing" id="UDZ-j1-6Nr"/>
+                                    <constraint firstAttribute="height" priority="250" constant="300" id="YJs-Km-DOV"/>
+                                    <constraint firstItem="JEe-Zs-ok6" firstAttribute="leading" secondItem="ePL-Sx-hGJ" secondAttribute="leading" id="k5B-j4-XlK"/>
+                                    <constraint firstItem="JEe-Zs-ok6" firstAttribute="top" secondItem="7cY-Lk-WOG" secondAttribute="bottom" constant="35" id="xSL-so-cKu"/>
+                                    <constraint firstAttribute="bottom" secondItem="irL-ux-Dj9" secondAttribute="bottom" id="xl6-QB-QIE"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x06-49-Lau" userLabel="Hint View Container">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
@@ -460,18 +504,21 @@
                         <viewLayoutGuide key="safeArea" id="0jk-B7-r0r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0jk-B7-r0r" firstAttribute="trailing" secondItem="ePL-Sx-hGJ" secondAttribute="trailing" constant="16" id="1FY-HR-tj1"/>
                             <constraint firstItem="PWH-bp-3I6" firstAttribute="top" secondItem="qE7-zp-Ljg" secondAttribute="bottom" constant="8" symbolic="YES" id="3Nq-Ad-9Sc"/>
                             <constraint firstItem="PWH-bp-3I6" firstAttribute="leading" secondItem="0jk-B7-r0r" secondAttribute="leading" constant="16" id="4sL-En-ots"/>
                             <constraint firstAttribute="bottom" secondItem="lCz-l9-Nfh" secondAttribute="bottom" id="6g4-tr-Bta"/>
                             <constraint firstItem="lCz-l9-Nfh" firstAttribute="trailing" secondItem="0jk-B7-r0r" secondAttribute="trailing" id="ChO-q0-hpi"/>
                             <constraint firstItem="0jk-B7-r0r" firstAttribute="trailing" secondItem="Eeq-3v-6tk" secondAttribute="trailing" constant="16" id="FWO-R3-q26"/>
                             <constraint firstItem="x06-49-Lau" firstAttribute="top" secondItem="87z-Px-2TN" secondAttribute="top" id="KbW-WL-ug1"/>
+                            <constraint firstItem="ePL-Sx-hGJ" firstAttribute="leading" secondItem="0jk-B7-r0r" secondAttribute="leading" constant="16" id="LjL-NZ-eVR"/>
                             <constraint firstItem="0jk-B7-r0r" firstAttribute="trailing" secondItem="qE7-zp-Ljg" secondAttribute="trailing" constant="16" id="NSv-sO-XQb"/>
                             <constraint firstItem="qE7-zp-Ljg" firstAttribute="leading" secondItem="0jk-B7-r0r" secondAttribute="leading" constant="16" id="SjE-cp-Q6k"/>
                             <constraint firstItem="0jk-B7-r0r" firstAttribute="bottom" secondItem="Eeq-3v-6tk" secondAttribute="bottom" constant="30" id="Sy9-dK-4U5"/>
                             <constraint firstItem="x06-49-Lau" firstAttribute="leading" secondItem="0jk-B7-r0r" secondAttribute="leading" id="VNC-FA-VAb"/>
                             <constraint firstItem="lCz-l9-Nfh" firstAttribute="leading" secondItem="0jk-B7-r0r" secondAttribute="leading" id="agc-w0-Qrg"/>
                             <constraint firstItem="4Oz-G1-o7R" firstAttribute="top" secondItem="qE7-zp-Ljg" secondAttribute="bottom" constant="10" id="bsr-qQ-XZi"/>
+                            <constraint firstItem="ePL-Sx-hGJ" firstAttribute="centerY" secondItem="87z-Px-2TN" secondAttribute="centerY" id="c6W-cZ-Mtd"/>
                             <constraint firstItem="M2J-eN-jAT" firstAttribute="leading" secondItem="87z-Px-2TN" secondAttribute="leading" id="h2i-7o-n9g"/>
                             <constraint firstAttribute="bottom" secondItem="M2J-eN-jAT" secondAttribute="bottom" id="iJh-cS-La3"/>
                             <constraint firstItem="M2J-eN-jAT" firstAttribute="trailing" secondItem="87z-Px-2TN" secondAttribute="trailing" id="pii-eB-TZw"/>
@@ -485,9 +532,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="ffb-IV-aqX"/>
                     <connections>
+                        <outlet property="btnFinishJournal" destination="irL-ux-Dj9" id="DCZ-Py-vlV"/>
+                        <outlet property="btnSaveToFavorites" destination="JEe-Zs-ok6" id="b05-4z-pL4"/>
                         <outlet property="fbBack" destination="PWH-bp-3I6" id="cec-PO-BzB"/>
                         <outlet property="fbClose" destination="4Oz-G1-o7R" id="LMD-Z3-pVy"/>
                         <outlet property="fbNext" destination="Eeq-3v-6tk" id="UvF-BP-Qy5"/>
+                        <outlet property="finalViewContainer" destination="ePL-Sx-hGJ" id="qB7-1j-oUp"/>
+                        <outlet property="labelFinalText" destination="7cY-Lk-WOG" id="eHr-If-vjv"/>
                         <outlet property="labelInfo" destination="YOB-ao-5P4" id="6NR-Py-loK"/>
                         <outlet property="labelQuestionHint" destination="Uaq-HU-8pe" id="fxa-Sl-hrD"/>
                         <outlet property="labelQuestionTitle" destination="zet-cP-h7m" id="U1i-pt-N9q"/>
@@ -499,7 +550,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBN-qJ-ZYL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902.8985507246377" y="44.866071428571423"/>
+            <point key="canvasLocation" x="3699" y="45"/>
         </scene>
     </scenes>
     <resources>

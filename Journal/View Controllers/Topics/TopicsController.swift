@@ -28,6 +28,8 @@ class TopicsController: UIViewController {
     
     var journal: Journal!
     
+    var journalPageController: JournalPageController!
+    
     // MARK: - View Methods
     
     override func viewDidLoad() {
@@ -61,6 +63,8 @@ class TopicsController: UIViewController {
          if segue.identifier == "showTopicQuoteSegue" {
              let topicQuoteController = segue.destination as! TopicQuoteController
             topicQuoteController.topic = sender as? Topic
+            topicQuoteController.journalPageController = self.journalPageController
+            topicQuoteController.topicsController = self
          }
      }
      
