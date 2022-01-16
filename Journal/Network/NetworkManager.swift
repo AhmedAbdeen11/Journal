@@ -73,5 +73,21 @@ class NetworkManager: NSObject {
             .ignoreElements()
     }
     
+    // MARK: - Entry
+    
+    func myEntries() -> Single<String> {
+        return provider.rx
+            .request(.myEntries)
+            .filterSuccessfulStatusAndRedirectCodes()
+            .mapString()
+    }
+    
+    func favorite(params: [String: Any]) -> Completable {
+        return provider.rx
+            .request(.favorite(params: params))
+            .filterSuccessfulStatusAndRedirectCodes()
+            .asObservable()
+            .ignoreElements()
+    }
     
 }

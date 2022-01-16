@@ -154,7 +154,7 @@ class CreateJournalController: UIViewController {
         fbNext.isHidden = false
         fbBack.isHidden = false
         
-        textViewUserInput.text = topic.questions![position].answer.answer ?? ""
+        textViewUserInput.text = topic.questions![position].answer?.answer ?? ""
         labelQuestionTitle.text = topic.questions![position].question
         labelQuestionHint.text = topic.questions![position].hint
         progressView.setProgress(Float(counter)/Float(layouts.count), animated: true)
@@ -215,7 +215,7 @@ class CreateJournalController: UIViewController {
     }
     
     private func saveAnswer(questionPosition: Int){
-        topic.questions![questionPosition].answer.answer = textViewUserInput.text
+        topic.questions![questionPosition].answer?.answer = textViewUserInput.text
         textViewUserInput.text = ""
     }
     
@@ -286,15 +286,12 @@ class CreateJournalController: UIViewController {
     // MARK: - Server Work
     
     private func saveAnswersToServer(){
-        
-        let date = Date().string(format: "yyyy-MM-dd")
-        
-        var params: [String: Any] = [:]
+                
+        var params: [String: Any] = ["topic_id": topic.id!]
         
         for (index, question) in self.topic.questions!.enumerated(){
             params["answers[\(index)][question_id]"] = "\(question.id!)"
-            params["answers[\(index)][date]"] = "\(date)"
-            params["answers[\(index)][answer]"] = "\(question.answer.answer!)"
+            params["answers[\(index)][answer]"] = "\(question.answer?.answer ?? "")"
         }
         
         viewModel.saveAnswers(params: params)
@@ -324,7 +321,7 @@ extension CreateJournalController: UITextViewDelegate {
         let questionPosition = counter - topic.afterHints!.count
         
         if questionPosition >= 0 && questionPosition < topic.questions!.count {
-            topic.questions![questionPosition].answer.answer = textView.text
+            topic.questions![questionPosition].answer?.answer = textView.text
 //            saveAnswerToServer(questionPosition: questionPosition)
         }
     }

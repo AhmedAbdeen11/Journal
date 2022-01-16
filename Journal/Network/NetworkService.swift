@@ -31,6 +31,12 @@ public enum NetworkService {
     
     case saveAnswers(params: [String: Any])
     
+    // MARK: - Entry
+    
+    case myEntries
+    
+    case favorite(params: [String: Any])
+    
 }
 
 extension NetworkService: TargetType {
@@ -49,7 +55,8 @@ extension NetworkService: TargetType {
         default: return [
                 "Authorization": "Bearer \(Global.sharedInstance.token)",
                 "Content-Type": "application/x-www-form-urlencoded",
-                "Accept": "application/json"
+                "Accept": "application/json",
+                "date": Date().string(format: "yyyy-MM-dd")
             ]
             
     }
@@ -85,6 +92,14 @@ extension NetworkService: TargetType {
         
             case .saveAnswers:
                 return "answer/save"
+                
+            // MARK: - Entry
+        
+            case .myEntries:
+                return "entry"
+                
+            case .favorite:
+                return "entry/favorite"
         
         }
     }
@@ -92,7 +107,8 @@ extension NetworkService: TargetType {
     public var method: Moya.Method {
         switch self {
         
-        case .register, .login, .myData, .forgotPassword, .saveAnswers:
+        case .register, .login, .myData, .forgotPassword, .saveAnswers
+             , .favorite:
                 return .post
                 
             default:
@@ -119,7 +135,8 @@ extension NetworkService: TargetType {
              let .register(params: params),
              let .forgotPassword(params: params),
              let .myData(params: params),
-             let .saveAnswers(params: params):
+             let .saveAnswers(params: params),
+             let .favorite(params: params):
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
             
         // MARK: - Form + list of images

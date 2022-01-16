@@ -33,6 +33,13 @@
 		747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */; };
 		747E1556278E00380027A566 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1555278E00370027A566 /* SignUpViewModel.swift */; };
 		747E155A278E40590027A566 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1559278E40580027A566 /* LoginViewModel.swift */; };
+		74DD1F45279387FE00655695 /* EntriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1F44279387FE00655695 /* EntriesViewModel.swift */; };
+		74DD1F4A2793B4B000655695 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1F492793B4B000655695 /* DateCell.swift */; };
+		74DD1F4E2793B51700655695 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1F4D2793B51700655695 /* Entry.swift */; };
+		74DD1F532793BBC900655695 /* EntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1F522793BBC800655695 /* EntryCell.swift */; };
+		74DD1F582793E70A00655695 /* EntriesFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74DD1F572793E70A00655695 /* EntriesFlow.storyboard */; };
+		74DD1F5D2793E9AE00655695 /* ViewEntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1F5C2793E9AE00655695 /* ViewEntryController.swift */; };
+		74DD1F612793ED4A00655695 /* QuestionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1F602793ED4A00655695 /* QuestionCell.swift */; };
 		74E341002790491B003C1C89 /* JournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E340FF2790491B003C1C89 /* JournalController.swift */; };
 		74E341382790500C003C1C89 /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341372790500C003C1C89 /* PageController.swift */; };
 		74E3413F279050AD003C1C89 /* JournalPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E3413E279050AD003C1C89 /* JournalPageController.swift */; };
@@ -78,6 +85,13 @@
 		747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		747E1555278E00370027A566 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		747E1559278E40580027A566 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		74DD1F44279387FE00655695 /* EntriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesViewModel.swift; sourceTree = "<group>"; };
+		74DD1F492793B4B000655695 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
+		74DD1F4D2793B51700655695 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		74DD1F522793BBC800655695 /* EntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCell.swift; sourceTree = "<group>"; };
+		74DD1F572793E70A00655695 /* EntriesFlow.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EntriesFlow.storyboard; sourceTree = "<group>"; };
+		74DD1F5C2793E9AE00655695 /* ViewEntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEntryController.swift; sourceTree = "<group>"; };
+		74DD1F602793ED4A00655695 /* QuestionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCell.swift; sourceTree = "<group>"; };
 		74E340FF2790491B003C1C89 /* JournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalController.swift; sourceTree = "<group>"; };
 		74E341372790500C003C1C89 /* PageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
 		74E3413E279050AD003C1C89 /* JournalPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalPageController.swift; sourceTree = "<group>"; };
@@ -188,6 +202,7 @@
 				7469FC0A278973FE0038F9B4 /* LaunchScreen.storyboard */,
 				747E14E5278DC7DF0027A566 /* Authentication.storyboard */,
 				74E341CD2791009B003C1C89 /* JournalFlow.storyboard */,
+				74DD1F572793E70A00655695 /* EntriesFlow.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -195,6 +210,7 @@
 		747E149F278DAB1F0027A566 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				74DD1F5A2793E98F00655695 /* View Entry */,
 				74E341E627912066003C1C89 /* Create Journal */,
 				74E341E127911038003C1C89 /* Topic Quote */,
 				74E341D127910427003C1C89 /* Topics */,
@@ -218,6 +234,7 @@
 				74E341EB279131BF003C1C89 /* Hint.swift */,
 				74E341EF27913A88003C1C89 /* Question.swift */,
 				746534DA2792AE4100E745A3 /* Answer.swift */,
+				74DD1F4D2793B51700655695 /* Entry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -281,6 +298,32 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		74DD1F482793B49700655695 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				74DD1F522793BBC800655695 /* EntryCell.swift */,
+				74DD1F492793B4B000655695 /* DateCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		74DD1F5A2793E98F00655695 /* View Entry */ = {
+			isa = PBXGroup;
+			children = (
+				74DD1F5F2793ED2A00655695 /* cells */,
+				74DD1F5C2793E9AE00655695 /* ViewEntryController.swift */,
+			);
+			path = "View Entry";
+			sourceTree = "<group>";
+		};
+		74DD1F5F2793ED2A00655695 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				74DD1F602793ED4A00655695 /* QuestionCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		74E340FD279048FE003C1C89 /* Journal */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,7 +364,9 @@
 		74E3413D2790509B003C1C89 /* Entries Page */ = {
 			isa = PBXGroup;
 			children = (
+				74DD1F482793B49700655695 /* cells */,
 				74E34142279050C2003C1C89 /* EntriesPageController.swift */,
+				74DD1F44279387FE00655695 /* EntriesViewModel.swift */,
 			);
 			path = "Entries Page";
 			sourceTree = "<group>";
@@ -440,6 +485,7 @@
 				747E14BB278DACC10027A566 /* Theme.xcassets in Resources */,
 				74E341CE2791009B003C1C89 /* JournalFlow.storyboard in Resources */,
 				7469FC09278973FE0038F9B4 /* Assets.xcassets in Resources */,
+				74DD1F582793E70A00655695 /* EntriesFlow.storyboard in Resources */,
 				7469FC07278973FD0038F9B4 /* Main.storyboard in Resources */,
 				747E14E6278DC7DF0027A566 /* Authentication.storyboard in Resources */,
 			);
@@ -498,15 +544,19 @@
 				747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */,
 				747E14B7278DACA70027A566 /* Extensions.swift in Sources */,
 				74E341EC279131BF003C1C89 /* Hint.swift in Sources */,
+				74DD1F4A2793B4B000655695 /* DateCell.swift in Sources */,
 				74E341E8279120AC003C1C89 /* CreateJournalController.swift in Sources */,
 				747E14B0278DAC9A0027A566 /* ServerResponse.swift in Sources */,
 				7469FC04278973FD0038F9B4 /* MainController.swift in Sources */,
+				74DD1F532793BBC900655695 /* EntryCell.swift in Sources */,
 				74E341F027913A88003C1C89 /* Question.swift in Sources */,
 				74E341DC27910AA3003C1C89 /* TopicCell.swift in Sources */,
 				747E154E278DF82F0027A566 /* LoginController.swift in Sources */,
 				746534E02792C7D000E745A3 /* CreateJournalViewModel.swift in Sources */,
 				74E341AD2790DDD7003C1C89 /* JournalPageViewModel.swift in Sources */,
+				74DD1F5D2793E9AE00655695 /* ViewEntryController.swift in Sources */,
 				74E34143279050C2003C1C89 /* EntriesPageController.swift in Sources */,
+				74DD1F4E2793B51700655695 /* Entry.swift in Sources */,
 				747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */,
 				747E14B6278DACA70027A566 /* Utility.swift in Sources */,
 				74E341A92790DD2F003C1C89 /* JournalCell.swift in Sources */,
@@ -516,8 +566,10 @@
 				747E14EB278DCC8B0027A566 /* IntroController.swift in Sources */,
 				74E341E327911057003C1C89 /* TopicQuoteController.swift in Sources */,
 				74E3413F279050AD003C1C89 /* JournalPageController.swift in Sources */,
+				74DD1F45279387FE00655695 /* EntriesViewModel.swift in Sources */,
 				74E341B12790DDF5003C1C89 /* Journal.swift in Sources */,
 				7469FC00278973FD0038F9B4 /* AppDelegate.swift in Sources */,
+				74DD1F612793ED4A00655695 /* QuestionCell.swift in Sources */,
 				747E14F2278DE2D70027A566 /* SignUpController.swift in Sources */,
 				747E14B8278DACA70027A566 /* Global.swift in Sources */,
 				74E341002790491B003C1C89 /* JournalController.swift in Sources */,

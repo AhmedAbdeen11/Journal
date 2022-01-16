@@ -13,7 +13,7 @@ struct Question : Mappable {
     var id : Int?
     var question : String?
     var hint : String?
-    var answer: Answer!
+    var answer: Answer?
 
     init?(map: Map) {
 

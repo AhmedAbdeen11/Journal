@@ -17,16 +17,13 @@ class JournalPageController: UIViewController {
     var viewModel : JournalPageViewModel!
     let disposeBag = DisposeBag()
     
+    // MARK: - Properties
+    
     @IBOutlet weak var viewStartDay: UIView!
     
     @IBOutlet weak var viewEndDay: UIView!
     
-    var journals = [Journal]()
-    
     @IBOutlet weak var viewEntrySaved: UIView!
-    
-    
-    // MARK: - Properties
     
     @IBOutlet weak var tableViewJournals: UITableView!
     
@@ -35,6 +32,7 @@ class JournalPageController: UIViewController {
     
     // MARK: - Variables
     
+    var journals = [Journal]()
     
     // MARK: - View Methods
     
@@ -82,14 +80,15 @@ class JournalPageController: UIViewController {
     
     private func getJournals(){
       
-        Utility.showProgressDialog(view: self.view)
+//        Utility.showProgressDialog(view: self.view)
         
         viewModel.getJournals()
-            .subscribe(onSuccess: { chats in
+            .subscribe(onSuccess: { journals in
 
-                Utility.hideProgressDialog(view: self.view)
+//                Utility.hideProgressDialog(view: self.view)
                 
-                self.journals.append(contentsOf: chats)
+                self.journals.removeAll()
+                self.journals.append(contentsOf: journals)
                 self.tableViewJournals.reloadData()
             })
         .disposed(by: disposeBag)
