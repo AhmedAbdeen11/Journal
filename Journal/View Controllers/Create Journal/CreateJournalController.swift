@@ -57,9 +57,11 @@ class CreateJournalController: UIViewController {
     
     var journalPageController: JournalPageController!
     
-    var topicsController: TopicsController!
+    var topicsController: TopicsController?
     
     var topicQuoteController: TopicQuoteController!
+    
+    var entry: Entry!
     
     // MARK: - View Methods
     
@@ -90,13 +92,13 @@ class CreateJournalController: UIViewController {
         
         //Save to favorites button
         btnSaveToFavorites.backgroundColor = UIColor.white
-        btnSaveToFavorites.setTitle("Save as Favourite", for: .normal)
         btnSaveToFavorites.layer.cornerRadius = 25
         btnSaveToFavorites.isUppercaseTitle = false
         btnSaveToFavorites.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
         btnSaveToFavorites.setBorderWidth(2, for: .normal)
         btnSaveToFavorites.setBorderColor(UIColor(named: "Primary"), for: .normal)
         btnSaveToFavorites.setTitleColor(UIColor(named: "Primary"), for: .normal)
+        btnSaveToFavorites.setTitle("Loading...", for: .normal)
         
         
         //Finish Journal button
@@ -106,6 +108,16 @@ class CreateJournalController: UIViewController {
         btnFinishJournal.isUppercaseTitle = false
         btnFinishJournal.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
         
+    }
+    
+    private func checkFavorite(){
+        if entry.isFavorite! {
+            btnSaveToFavorites.setTitle("   Saved    ", for: .normal)
+            btnSaveToFavorites.setImage(UIImage(named: "star_filled2"), for: .normal)
+        }else{
+            btnSaveToFavorites.setTitle("   Save as Favourite", for: .normal)
+            btnSaveToFavorites.setImage(UIImage(named: "ic_star_outline2"), for: .normal)
+        }
     }
     
     private func setData(){
@@ -137,6 +149,7 @@ class CreateJournalController: UIViewController {
         viewQuestion.isHidden = true
         fbNext.isHidden = false
         finalViewContainer.isHidden = true
+        fbNext.setImage(#imageLiteral(resourceName: "ic_forward"), for: .normal)
         if position == 0 {
             fbBack.isHidden = true
         }else{
@@ -153,6 +166,7 @@ class CreateJournalController: UIViewController {
         viewQuestion.isHidden = false
         fbNext.isHidden = false
         fbBack.isHidden = false
+        fbNext.setImage(#imageLiteral(resourceName: "checkmark"), for: .normal)
         
         textViewUserInput.text = topic.questions![position].answer?.answer ?? ""
         labelQuestionTitle.text = topic.questions![position].question
@@ -166,12 +180,14 @@ class CreateJournalController: UIViewController {
         fbNext.isHidden = false
         finalViewContainer.isHidden = true
         fbBack.isHidden = false
+        fbNext.setImage(#imageLiteral(resourceName: "ic_forward"), for: .normal)
         
         labelInfo.text = topic.afterHints![position].title
         progressView.setProgress(Float(counter)/Float(layouts.count), animated: true)
     }
     
     private func showFinalView(){
+        fbClose.isHidden = true
         viewHint.isHidden = true
         viewQuestion.isHidden = true
         fbNext.isHidden = true
@@ -204,6 +220,7 @@ class CreateJournalController: UIViewController {
                 
             case "finalView":
                 do {
+                    self.saveAnswersToServer()
                     self.showFinalView()
                 }
                     
@@ -230,7 +247,7 @@ class CreateJournalController: UIViewController {
                     self.saveAnswersToServer()
                     self.dismiss(animated: false, completion: {
                         self.topicQuoteController.dismiss(animated: false, completion: {
-                            self.topicsController.dismiss(animated: false, completion: {
+                            self.topicsController?.dismiss(animated: false, completion: {
                                 
                             })
                         })
@@ -241,7 +258,7 @@ class CreateJournalController: UIViewController {
                     
                     self.dismiss(animated: false, completion: {
                         self.topicQuoteController.dismiss(animated: false, completion: {
-                            self.topicsController.dismiss(animated: false, completion: {
+                            self.topicsController?.dismiss(animated: false, completion: {
                                 
                             })
                         })
@@ -269,14 +286,16 @@ class CreateJournalController: UIViewController {
     }
     
     @IBAction func didTapAddFavoriteBtn(_ sender: Any) {
+        self.entry.isFavorite! = !self.entry.isFavorite!
+        self.checkFavorite()
+        self.updateFavoriteOnServer(entryId: self.entry!.id!)
     }
     
     @IBAction func didTapFinishJournalBtn(_ sender: Any) {
-        saveAnswersToServer()
         journalPageController.showViewEntrySaved()
         self.dismiss(animated: false, completion: {
             self.topicQuoteController.dismiss(animated: false, completion: {
-                self.topicsController.dismiss(animated: false, completion: {
+                self.topicsController?.dismiss(animated: false, completion: {
                     
                 })
             })
@@ -295,12 +314,24 @@ class CreateJournalController: UIViewController {
         }
         
         viewModel.saveAnswers(params: params)
+            .subscribe(onSuccess: { entry in
+                self.entry = entry
+                self.checkFavorite()
+            })
+        .disposed(by: disposeBag)
+    }
+    
+    private func updateFavoriteOnServer(entryId: Int){
+                
+        let params: [String: Any] = ["entry_id": entryId]
+        
+        
+        viewModel.favorite(params: params)
             .subscribe(onCompleted: {
                 //No Action
             })
         .disposed(by: disposeBag)
     }
-    
     
     
     /*

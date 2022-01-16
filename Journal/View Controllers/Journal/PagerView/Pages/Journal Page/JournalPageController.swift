@@ -21,7 +21,12 @@ class JournalPageController: UIViewController {
     
     @IBOutlet weak var viewStartDay: UIView!
     
+    @IBOutlet weak var viewSubStartDay: UIView!
+    
     @IBOutlet weak var viewEndDay: UIView!
+    
+    @IBOutlet weak var viewSubEnday: UIView!
+    
     
     @IBOutlet weak var viewEntrySaved: UIView!
     
@@ -34,6 +39,12 @@ class JournalPageController: UIViewController {
     
     var journals = [Journal]()
     
+    var listJournals = [Journal]()
+    
+    var startDayJournal: Journal!
+    
+    var endDayJournal: Journal!
+    
     // MARK: - View Methods
     
     override func viewDidLoad() {
@@ -45,24 +56,29 @@ class JournalPageController: UIViewController {
     }
     
     private func initViews(){
-        viewStartDay.layer.cornerRadius = 10
+        viewStartDay.layer.cornerRadius = 20
         viewStartDay.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
         viewStartDay.layer.borderWidth = 1
         
-        viewStartDay.layer.shadowColor = UIColor(rgb: 0xD1D7DC).cgColor
-        viewStartDay.layer.shadowOpacity = 0.5
+        viewStartDay.layer.shadowColor = UIColor.black.cgColor
+        viewStartDay.layer.shadowOpacity = 0.2
         viewStartDay.layer.shadowOffset = .zero
-        viewStartDay.layer.shadowRadius = 10
+        viewStartDay.layer.shadowRadius = 3
+        viewStartDay.layer.shouldRasterize = true
+        viewStartDay.layer.rasterizationScale = UIScreen.main.scale
         
         
-        viewEndDay.layer.cornerRadius = 10
+        viewEndDay.layer.cornerRadius = 20
+
         viewEndDay.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
         viewEndDay.layer.borderWidth = 1
         
-        viewEndDay.layer.shadowColor = UIColor(rgb: 0xD1D7DC).cgColor
-        viewEndDay.layer.shadowOpacity = 0.5
+        viewEndDay.layer.shadowColor = UIColor.black.cgColor
+        viewEndDay.layer.shadowOpacity = 0.2
         viewEndDay.layer.shadowOffset = .zero
-        viewEndDay.layer.shadowRadius = 10
+        viewEndDay.layer.shadowRadius = 3
+        viewEndDay.layer.shouldRasterize = true
+        viewEndDay.layer.rasterizationScale = UIScreen.main.scale
         
         viewEntrySaved.layer.cornerRadius = 15
     }
@@ -75,20 +91,49 @@ class JournalPageController: UIViewController {
     @objc private func dismissViewEntrySaved(){
         self.viewEntrySaved.isHidden = true
     }
+    
+    private func sortJournals(){
+        var counter = 0
+        listJournals.removeAll()
+        for item in journals {
+            if item.title == "start_the_day" {
+                startDayJournal = item
+            }else if item.title == "end_the_day" {
+                endDayJournal = item
+            }else{
+                listJournals.append(item)
+            }
+            
+            counter = counter + 1
+        }
+    }
 
+    //MARK: - Actions
+    
+    @IBAction func didTapStartTheDayBtn(_ sender: Any) {
+        self.performSegue(withIdentifier: "ShowTopicQuoteController", sender: startDayJournal)
+    }
+    
+    
+    @IBAction func didTapEndTheDayBtn(_ sender: Any) {
+        self.performSegue(withIdentifier: "ShowTopicQuoteController", sender: endDayJournal)
+    }
+    
+    
+    
     //MARK: - Server Work
     
     private func getJournals(){
       
-//        Utility.showProgressDialog(view: self.view)
+        Utility.showProgressDialog(view: self.view)
         
         viewModel.getJournals()
             .subscribe(onSuccess: { journals in
 
-//                Utility.hideProgressDialog(view: self.view)
-                
+                Utility.hideProgressDialog(view: self.view)
                 self.journals.removeAll()
                 self.journals.append(contentsOf: journals)
+                self.sortJournals()
                 self.tableViewJournals.reloadData()
             })
         .disposed(by: disposeBag)
@@ -106,6 +151,12 @@ class JournalPageController: UIViewController {
             topicsController.journal = sender as? Journal
             topicsController.journalPageController = self
         }
+        
+        if segue.identifier == "ShowTopicQuoteController" {
+            let topicQuoteController = segue.destination as! TopicQuoteController
+            topicQuoteController.topic = (sender as? Journal)?.topics![0]
+            topicQuoteController.journalPageController = self
+        }
     }
     
 
@@ -116,16 +167,16 @@ class JournalPageController: UIViewController {
 extension JournalPageController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return journals.count
+        return listJournals.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showTopicsSegue", sender:     journals[indexPath.row])
+        performSegue(withIdentifier: "showTopicsSegue", sender:     listJournals[indexPath.row])
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let journal = journals[indexPath.row]
+        let journal = listJournals[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "JournalCell", for: indexPath) as! JournalCell
         

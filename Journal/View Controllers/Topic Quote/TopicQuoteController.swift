@@ -29,6 +29,8 @@ class TopicQuoteController: UIViewController {
     @IBOutlet weak var
         labelQuote: UILabel!
     
+    @IBOutlet weak var labelSubtitle: UILabel!
+    
     @IBOutlet weak var viewQuoteDescription: UIView!
     
     @IBOutlet weak var labelQuoteDescription: UILabel!
@@ -99,6 +101,10 @@ class TopicQuoteController: UIViewController {
     
     private func setData(){
         labelTitle.text = topic.title
+        
+        if topic.subtitle != nil || !topic.subtitle!.isEmpty {
+            labelSubtitle.text = "(\(topic.subtitle!))"
+        }
         
         labelQuotee.text = topic.quotee
         labelQuote.text = "\"\(topic.quote!)\""

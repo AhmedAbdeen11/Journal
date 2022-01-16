@@ -33,5 +33,6 @@ target 'Journal' do
   pod 'Alamofire'
   pod "ImageSlideshow/Alamofire"
   pod "ReachabilitySwift"
+  pod "SWSegmentedControl"
 
 end

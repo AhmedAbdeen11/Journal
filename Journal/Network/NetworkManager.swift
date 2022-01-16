@@ -65,12 +65,11 @@ class NetworkManager: NSObject {
     
     // MARK: - Answer
     
-    func saveAnswers(params: [String: Any]) -> Completable {
+    func saveAnswers(params: [String: Any]) -> Single<String> {
         return provider.rx
             .request(.saveAnswers(params: params))
             .filterSuccessfulStatusAndRedirectCodes()
-            .asObservable()
-            .ignoreElements()
+            .mapString()
     }
     
     // MARK: - Entry

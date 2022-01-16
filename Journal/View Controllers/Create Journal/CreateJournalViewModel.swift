@@ -20,11 +20,32 @@ class CreateJournalViewModel {
         self.context = context
     }
     
-    func saveAnswers(params: [String: Any]) -> Completable {
+    func saveAnswers(params: [String: Any]) -> Single<Entry> {
         
         return .create (subscribe: { observer in
             
-            self.provider.saveAnswers(params: params)
+          self.provider.saveAnswers(params: params)
+                .subscribe(onSuccess: { serverResponse in
+                  
+                  let serverModel = BaseResponseObject<Entry>(JSONString: serverResponse)
+                                  
+                  
+                  observer(.success((serverModel?.data)!))
+                    
+                }, onError: { error in
+                    
+                    ResponseHandler.showResponseError(context: self.context, error: error)
+                    
+                })
+        })
+        
+    }
+    
+    func favorite(params: [String: Any]) -> Completable {
+        
+        return .create (subscribe: { observer in
+            
+            self.provider.favorite(params: params)
                 .subscribe(onCompleted: {
                     observer(.completed)
                 }, onError: { error in

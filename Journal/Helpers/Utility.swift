@@ -49,8 +49,8 @@ class Utility {
     }
     
     static func openLogin(){
-        /*let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateViewController(withIdentifier: "LoginController") as! LoginController
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateInitialViewController()
 
         if #available(iOS 13.0, *){
             if let scene = UIApplication.shared.connectedScenes.first{
@@ -65,7 +65,7 @@ class Utility {
         } else {
             appDelegate.window?.rootViewController = vc
             appDelegate.window?.makeKeyAndVisible()
-        }*/
+        }
     }
     
     /*static func isLoggedIn(context: UIViewController) -> Bool {

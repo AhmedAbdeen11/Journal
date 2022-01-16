@@ -46,6 +46,10 @@ class EntriesPageController: UIViewController {
         viewModel = EntriesViewModel(context: self)
         
         initViews()
+//        getMyEntries()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         getMyEntries()
     }
     
@@ -54,6 +58,16 @@ class EntriesPageController: UIViewController {
         fbFavorite.setImage(#imageLiteral(resourceName: "ic_star_outline"), for: .normal)
         
         viewSearch.layer.cornerRadius = 25
+        
+        viewSearch.layer.shadowColor = UIColor.black.cgColor
+        viewSearch.layer.shadowOpacity = 0.2
+        viewSearch.layer.shadowOffset = .zero
+        viewSearch.layer.shadowRadius = 5
+//        viewSearch.layer.shadowPath = UIBezierPath(rect: viewSearch.bounds).cgPath
+        viewSearch.layer.shouldRasterize = true
+        viewSearch.layer.rasterizationScale = UIScreen.main.scale
+        
+        
         textFieldSearch.borderStyle = .none
     }
 

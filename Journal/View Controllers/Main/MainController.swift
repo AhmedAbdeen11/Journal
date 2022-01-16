@@ -8,11 +8,13 @@
 import UIKit
 import RxSwift
 import MaterialComponents
+import RxSwift
+import SwiftKeychainWrapper
 
 class MainController: UIViewController {
 
     // MARK: - View Model
-//    var viewModel : LoginViewModel!
+    var viewModel : MainViewModel!
     let disposeBag = DisposeBag()
     
     // MARK: - Properties
@@ -36,6 +38,7 @@ class MainController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        viewModel = MainViewModel(context: self)
         initViews()
     }
     
@@ -76,7 +79,43 @@ class MainController: UIViewController {
 //        profileContainer.isHidden = false
 //        homeContainer.isHidden = true
         
-        viewComingSoonContainer.isHidden = false
+//        viewComingSoonContainer.isHidden = false
+        logout()
+        
+    }
+    
+    private func logout() {
+        
+        let confirmAlert = UIAlertController(title: "", message: "Are you sure you want to logout?", preferredStyle: UIAlertController.Style.alert)
+
+        confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
+//            self.logoutUser()
+            self.clearUserData()
+        }))
+
+        confirmAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+
+        present(confirmAlert, animated: true, completion: nil)
+        
+    }
+    
+    private func logoutUser(){
+        Utility.showProgressDialog(view: self.view)
+        viewModel.logout()
+            .subscribe(onCompleted: {
+                Utility.hideProgressDialog(view: self.view)
+                self.clearUserData()
+            }) { (error) in
+        }
+        .disposed(by: disposeBag)
+    }
+    
+    private func clearUserData(){
+        let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: "accessToken")
+
+        if removeSuccessful {
+            Utility.openLogin()
+        }
     }
     
     

@@ -6,23 +6,50 @@
 //
 
 import UIKit
+import SWSegmentedControl
 
 class JournalController: UIViewController {
     
+    // MARK: - Properties
+    
+    @IBOutlet weak var segmentedControl: SWSegmentedControl!
+    
+    // MARK: - Variables
+    
+    var pageController: PageController!
+    
+    
+    // MARK: - View Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        initViews()
     }
     
-
-    /*
+    private func initViews(){
+        segmentedControl.items = ["Journal", "Entries"]
+        segmentedControl.font = UIFont(name: "Baskerville", size: 19)!
+    }
+    
+    func changeSegmentedControlSelection(index: Int){
+        segmentedControl.setSelectedSegmentIndex(index, animated: true)
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func didUserSelectTab(_ sender: Any) {
+        pageController.changePage(index: segmentedControl.selectedSegmentIndex)
+    }
+    
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "ShowPageController" {
+            pageController = segue.destination as? PageController
+        }
     }
-    */
+
 
 }
