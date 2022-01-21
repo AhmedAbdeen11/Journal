@@ -19,9 +19,9 @@ class LoginController: UIViewController {
 
     @IBOutlet weak var btnBack: UIButton!
     
-    @IBOutlet weak var textFieldEmail: MDCOutlinedTextField!
+    @IBOutlet weak var textFieldEmail: MDCFilledTextField!
     
-    @IBOutlet weak var textFieldPassword: MDCOutlinedTextField!
+    @IBOutlet weak var textFieldPassword: MDCFilledTextField!
     
     @IBOutlet weak var btnLogin: MDCButton!
     
@@ -39,45 +39,20 @@ class LoginController: UIViewController {
     
     private func initViews(){
         //Btn back
-        
-        btnBack.layer.borderWidth = 1
-        btnBack.layer.borderColor = UIColor.white.cgColor
-        btnBack.layer.cornerRadius = 20
-        
+        btnBack.btnBackStyle()
         
         //Text Field Email
-        textFieldEmail.label.text = "Email"
-        textFieldEmail.setOutlineColor(UIColor.white, for: .editing)
-        textFieldEmail.setOutlineColor(UIColor.white, for: .normal)
-        textFieldEmail.setTextColor(UIColor.white, for: .editing)
-        textFieldEmail.setFloatingLabelColor(UIColor.white, for: .editing)
-        textFieldEmail.setTextColor(UIColor.white, for: .normal)
-        textFieldEmail.setFloatingLabelColor(UIColor.white, for: .normal)
-        textFieldEmail.setNormalLabelColor(UIColor.white, for: .editing)
-        textFieldEmail.setNormalLabelColor(UIColor.white, for: .normal)
-        textFieldEmail.font = UIFont(name: "Helvetica Neue", size: 15)
+        self.textFieldEmail.style(title: "Email")
         
         
         //Text Field Password
-        textFieldPassword.label.text = "Password"
-        textFieldPassword.setOutlineColor(UIColor.white, for: .editing)
-        textFieldPassword.setOutlineColor(UIColor.white, for: .normal)
-        textFieldPassword.setTextColor(UIColor.white, for: .editing)
-        textFieldPassword.setFloatingLabelColor(UIColor.white, for: .editing)
-        textFieldPassword.setTextColor(UIColor.white, for: .normal)
-        textFieldPassword.setFloatingLabelColor(UIColor.white, for: .normal)
-        textFieldPassword.setNormalLabelColor(UIColor.white, for: .editing)
-        textFieldPassword.setNormalLabelColor(UIColor.white, for: .normal)
-        textFieldPassword.isSecureTextEntry = true
-        textFieldPassword.font = UIFont(name: "Helvetica Neue", size: 15)
+        self.textFieldPassword.style(title: "Password")
+        self.textFieldPassword.isSecureTextEntry = true
         
-        //Button Signup
-        btnLogin.backgroundColor = UIColor(named: "Primary")
-        btnLogin.setTitle("Login", for: .normal)
-        btnLogin.layer.cornerRadius = 25
-        btnLogin.isUppercaseTitle = false
+        //Button Login
+        btnLogin.style(color: UIColor(named: "Primary")!, title: "Login")
+        btnLogin.addShadow()
         
-        btnLogin.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
     }
     
     // MARK: - Validate
@@ -129,7 +104,7 @@ class LoginController: UIViewController {
     }
     
     @IBAction func didTapSignUp(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: false)
         introController.didTapSignUpBtn(sender)
     }
     

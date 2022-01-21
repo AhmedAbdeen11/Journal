@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MaterialComponents
 
 extension UIImageView
 {
@@ -86,4 +87,77 @@ extension UIColor {
            blue: rgb & 0xFF
        )
    }
+}
+
+extension UIView {
+    func addShadow() {
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowOffset = .zero
+        self.layer.shadowRadius = 3
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+    }
+    
+}
+
+extension MDCButton {
+    
+    func style(color: UIColor, title: String){
+        self.backgroundColor = color
+        self.setTitle(title, for: .normal)
+        self.layer.cornerRadius = 25
+        self.isUppercaseTitle = false
+        self.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
+    }
+    
+    func addBorder(color: UIColor, width: CGFloat){
+        self.setBorderWidth(width, for: .normal)
+        self.setBorderColor(color, for: .normal)
+    }
+    
+}
+
+extension MDCOutlinedTextField {
+    func style(title: String){
+        self.label.text = title
+        self.setOutlineColor(UIColor.white, for: .editing)
+        self.setOutlineColor(UIColor.white, for: .normal)
+        self.setTextColor(UIColor.white, for: .editing)
+        self.setFloatingLabelColor(UIColor.white, for: .editing)
+        self.setTextColor(UIColor.white, for: .normal)
+        self.setFloatingLabelColor(UIColor.white, for: .normal)
+        self.setNormalLabelColor(UIColor.white, for: .editing)
+        self.setNormalLabelColor(UIColor.white, for: .normal)
+        self.layer.backgroundColor = UIColor.white.withAlphaComponent(0.1).cgColor
+        self.font = UIFont(name: "Helvetica Neue", size: 15)
+    }
+}
+
+extension MDCFilledTextField {
+    func style(title: String){
+        self.setFilledBackgroundColor(UIColor.white.withAlphaComponent(0.1), for: .normal)
+        self.setFilledBackgroundColor(UIColor.white.withAlphaComponent(0.1), for: .editing)
+        self.label.text = title
+        self.setFloatingLabelColor(UIColor(rgb: 0xECF1F7), for: .normal)
+        self.setFloatingLabelColor(UIColor(rgb: 0xECF1F7), for: .editing)
+        self.setFloatingLabelColor(UIColor(rgb: 0xECF1F7), for: .disabled)
+        self.setNormalLabelColor(UIColor(rgb: 0xECF1F7), for: .normal)
+        self.setTextColor(UIColor(rgb: 0xECF1F7), for: .editing)
+        self.setTextColor(UIColor.white, for: .normal)
+        self.setUnderlineColor(UIColor.white.withAlphaComponent(0), for: .normal)
+        self.setUnderlineColor(UIColor.white.withAlphaComponent(0), for: .editing)
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 7.5
+        self.layer.borderColor = UIColor.white.cgColor
+        self.font = UIFont(name: "Helvetica Neue", size: 15)
+    }
+}
+
+extension UIButton {
+    func btnBackStyle(){
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.white.cgColor
+        self.layer.cornerRadius = 18
+    }
 }

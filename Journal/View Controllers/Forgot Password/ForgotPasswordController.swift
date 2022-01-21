@@ -14,46 +14,31 @@ class ForgotPasswordController: UIViewController {
     
     // MARK: - Properties
 
-    @IBOutlet weak var btnBack: UIButton!
     
-    @IBOutlet weak var textFieldEmail: MDCOutlinedTextField!
+    @IBOutlet weak var textFieldEmail: MDCFilledTextField!
     
     @IBOutlet weak var btnSubmit: MDCButton!
+    
+    @IBOutlet weak var fbClose: MDCFloatingButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         initViews()
     }
     
     private func initViews(){
-        //Btn back
-        
-        btnBack.layer.borderWidth = 1
-        btnBack.layer.borderColor = UIColor.white.cgColor
-        btnBack.layer.cornerRadius = 20
-        
+        //Btn Close
+        fbClose.backgroundColor = UIColor.white
+        fbClose.setImage(#imageLiteral(resourceName: "big_x"), for: .normal)
         
         //Text Field Email
-        textFieldEmail.label.text = "Email"
-        textFieldEmail.setOutlineColor(UIColor.white, for: .editing)
-        textFieldEmail.setOutlineColor(UIColor.white, for: .normal)
-        textFieldEmail.setTextColor(UIColor.white, for: .editing)
-        textFieldEmail.setFloatingLabelColor(UIColor.white, for: .editing)
-        textFieldEmail.setTextColor(UIColor.white, for: .normal)
-        textFieldEmail.setFloatingLabelColor(UIColor.white, for: .normal)
-        textFieldEmail.setNormalLabelColor(UIColor.white, for: .editing)
-        textFieldEmail.setNormalLabelColor(UIColor.white, for: .normal)
-        textFieldEmail.font = UIFont(name: "Helvetica Neue", size: 15)
+        textFieldEmail.style(title: "Email Address")
         
-        
-        //Button Signup
-        btnSubmit.backgroundColor = UIColor(named: "Primary")
-        btnSubmit.setTitle("Send Reset Link", for: .normal)
-        btnSubmit.layer.cornerRadius = 25
-        btnSubmit.isUppercaseTitle = false
-        
-        btnSubmit.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
+        //Button Submit
+        btnSubmit.style(color: UIColor(named: "Primary")!, title: "Send Reset Link")
+        btnSubmit.addShadow()
     }
     
     // MARK: - Actions

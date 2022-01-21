@@ -27,20 +27,13 @@ class IntroController: UIViewController {
     
     private func initViews(){
         //Signup button
-        btnSignup.backgroundColor = UIColor(named: "Primary")
-        btnSignup.setTitle("Sign Up", for: .normal)
-        btnSignup.layer.cornerRadius = 25
-        btnSignup.isUppercaseTitle = false
-        btnSignup.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
+        btnSignup.style(color: UIColor(named: "Primary")!, title: "Sign Up")
+        btnSignup.addShadow()
         
         //Login button
-        btnLogin.backgroundColor = UIColor.white.withAlphaComponent(0)
-        btnLogin.setBorderWidth(2, for: .normal)
-        btnLogin.setBorderColor(UIColor(rgb: 0xFFFFFF), for: .normal)
-        btnLogin.setTitle("Login", for: .normal)
-        btnLogin.layer.cornerRadius = 25
-        btnLogin.isUppercaseTitle = false
-        btnLogin.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
+        btnLogin.style(color: UIColor.white.withAlphaComponent(0.1), title: "Login")
+        btnLogin.addBorder(color: UIColor(rgb: 0xFFFFFF), width: 2)
+        btnSignup.addShadow()
     }
     
     // MARK: - Actions
