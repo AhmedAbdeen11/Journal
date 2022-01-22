@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_modern_science.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

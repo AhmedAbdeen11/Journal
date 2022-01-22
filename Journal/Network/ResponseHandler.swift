@@ -27,11 +27,29 @@ class ResponseHandler {
         }
     }
     
+    static func extractFormErrors(error: Error) -> ServerError {
+        let moyaError: MoyaError? = error as? MoyaError
+        let moyaResponse : Response? = moyaError?.response
+        
+        do {
+            
+            
+            let serverError = BaseErrorResponseObject<ServerError>(JSON: try moyaResponse!.mapJSON() as! [String : Any])
+            
+            return serverError!.errors!
+            
+        } catch {
+//            Utility.showAlertNew(message: "Unknown error!", context: context)
+        }
+        
+        return ServerError()!
+    }
+    
     static func handOnError(context: UIViewController, error: Error){
         
         let reachability = try! Reachability()
         if(reachability.connection == .unavailable){
-            Utility.showAlertNew(message: "من فضلك تاكد من اتصالك بالانترنت", context: context)
+            Utility.showAlertNew(message: "Internet connection wasn't found...", context: context)
         }
         
         else{

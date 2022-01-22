@@ -33,6 +33,13 @@
 		747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */; };
 		747E1556278E00380027A566 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1555278E00370027A566 /* SignUpViewModel.swift */; };
 		747E155A278E40590027A566 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 747E1559278E40580027A566 /* LoginViewModel.swift */; };
+		74B68692279BA1610089C6F5 /* ForgotPasswordConfirmationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B68691279BA1610089C6F5 /* ForgotPasswordConfirmationController.swift */; };
+		74B68697279BA75C0089C6F5 /* ServerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B68696279BA75C0089C6F5 /* ServerError.swift */; };
+		74B6869D279BB63E0089C6F5 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B6869C279BB63E0089C6F5 /* OnBoarding.storyboard */; };
+		74B686A5279BB85B0089C6F5 /* OnBoardingPage1Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B686A4279BB85B0089C6F5 /* OnBoardingPage1Controller.swift */; };
+		74B686A9279BB8890089C6F5 /* OnBoardingPage2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B686A8279BB8890089C6F5 /* OnBoardingPage2Controller.swift */; };
+		74B686AC279BB89F0089C6F5 /* OnBoardingPage3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B686AB279BB89F0089C6F5 /* OnBoardingPage3Controller.swift */; };
+		74B686B1279BBCD20089C6F5 /* OnBoardingPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B686B0279BBCD20089C6F5 /* OnBoardingPageController.swift */; };
 		74DD1F45279387FE00655695 /* EntriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1F44279387FE00655695 /* EntriesViewModel.swift */; };
 		74DD1F4A2793B4B000655695 /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1F492793B4B000655695 /* DateCell.swift */; };
 		74DD1F4E2793B51700655695 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74DD1F4D2793B51700655695 /* Entry.swift */; };
@@ -86,6 +93,13 @@
 		747E1551278DFB4F0027A566 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		747E1555278E00370027A566 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		747E1559278E40580027A566 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		74B68691279BA1610089C6F5 /* ForgotPasswordConfirmationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordConfirmationController.swift; sourceTree = "<group>"; };
+		74B68696279BA75C0089C6F5 /* ServerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerError.swift; sourceTree = "<group>"; };
+		74B6869C279BB63E0089C6F5 /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		74B686A4279BB85B0089C6F5 /* OnBoardingPage1Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage1Controller.swift; sourceTree = "<group>"; };
+		74B686A8279BB8890089C6F5 /* OnBoardingPage2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage2Controller.swift; sourceTree = "<group>"; };
+		74B686AB279BB89F0089C6F5 /* OnBoardingPage3Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPage3Controller.swift; sourceTree = "<group>"; };
+		74B686B0279BBCD20089C6F5 /* OnBoardingPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingPageController.swift; sourceTree = "<group>"; };
 		74DD1F44279387FE00655695 /* EntriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesViewModel.swift; sourceTree = "<group>"; };
 		74DD1F492793B4B000655695 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
 		74DD1F4D2793B51700655695 /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
@@ -205,6 +219,7 @@
 				747E14E5278DC7DF0027A566 /* Authentication.storyboard */,
 				74E341CD2791009B003C1C89 /* JournalFlow.storyboard */,
 				74DD1F572793E70A00655695 /* EntriesFlow.storyboard */,
+				74B6869C279BB63E0089C6F5 /* OnBoarding.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -212,12 +227,14 @@
 		747E149F278DAB1F0027A566 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				74B686A0279BB7000089C6F5 /* OnBoarding */,
 				74DD1F5A2793E98F00655695 /* View Entry */,
 				74E341E627912066003C1C89 /* Create Journal */,
 				74E341E127911038003C1C89 /* Topic Quote */,
 				74E341D127910427003C1C89 /* Topics */,
 				74E340FD279048FE003C1C89 /* Journal */,
 				747E155D278E4D980027A566 /* Main */,
+				74B68690279BA1280089C6F5 /* Forgot Password Confirm */,
 				747E1550278DFB3D0027A566 /* Forgot Password */,
 				747E154C278DF8200027A566 /* Login */,
 				747E14EF278DE2C20027A566 /* SignUp */,
@@ -229,6 +246,7 @@
 		747E14A0278DAB290027A566 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				74B68696279BA75C0089C6F5 /* ServerError.swift */,
 				747E14DD278DC2E00027A566 /* Paging.swift */,
 				747E14DA278DC2DA0027A566 /* User.swift */,
 				74E341B02790DDF5003C1C89 /* Journal.swift */,
@@ -299,6 +317,33 @@
 				74DD1F7C2794339600655695 /* MainViewModel.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		74B68690279BA1280089C6F5 /* Forgot Password Confirm */ = {
+			isa = PBXGroup;
+			children = (
+				74B68691279BA1610089C6F5 /* ForgotPasswordConfirmationController.swift */,
+			);
+			path = "Forgot Password Confirm";
+			sourceTree = "<group>";
+		};
+		74B686A0279BB7000089C6F5 /* OnBoarding */ = {
+			isa = PBXGroup;
+			children = (
+				74B686A3279BB8470089C6F5 /* Pages */,
+				74B686B0279BBCD20089C6F5 /* OnBoardingPageController.swift */,
+			);
+			path = OnBoarding;
+			sourceTree = "<group>";
+		};
+		74B686A3279BB8470089C6F5 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				74B686A4279BB85B0089C6F5 /* OnBoardingPage1Controller.swift */,
+				74B686A8279BB8890089C6F5 /* OnBoardingPage2Controller.swift */,
+				74B686AB279BB89F0089C6F5 /* OnBoardingPage3Controller.swift */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 		74DD1F482793B49700655695 /* cells */ = {
@@ -491,6 +536,7 @@
 				74DD1F582793E70A00655695 /* EntriesFlow.storyboard in Resources */,
 				7469FC07278973FD0038F9B4 /* Main.storyboard in Resources */,
 				747E14E6278DC7DF0027A566 /* Authentication.storyboard in Resources */,
+				74B6869D279BB63E0089C6F5 /* OnBoarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +592,7 @@
 				747E14AF278DAC9A0027A566 /* NetworkService.swift in Sources */,
 				747E1552278DFB4F0027A566 /* ForgotPasswordController.swift in Sources */,
 				747E14B7278DACA70027A566 /* Extensions.swift in Sources */,
+				74B686A5279BB85B0089C6F5 /* OnBoardingPage1Controller.swift in Sources */,
 				74E341EC279131BF003C1C89 /* Hint.swift in Sources */,
 				74DD1F4A2793B4B000655695 /* DateCell.swift in Sources */,
 				74E341E8279120AC003C1C89 /* CreateJournalController.swift in Sources */,
@@ -561,11 +608,14 @@
 				74DD1F5D2793E9AE00655695 /* ViewEntryController.swift in Sources */,
 				74E34143279050C2003C1C89 /* EntriesPageController.swift in Sources */,
 				74DD1F4E2793B51700655695 /* Entry.swift in Sources */,
+				74B686AC279BB89F0089C6F5 /* OnBoardingPage3Controller.swift in Sources */,
 				747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */,
 				747E14B6278DACA70027A566 /* Utility.swift in Sources */,
 				74E341A92790DD2F003C1C89 /* JournalCell.swift in Sources */,
+				74B68697279BA75C0089C6F5 /* ServerError.swift in Sources */,
 				747E155A278E40590027A566 /* LoginViewModel.swift in Sources */,
 				747E14AE278DAC9A0027A566 /* ResponseHandler.swift in Sources */,
+				74B686B1279BBCD20089C6F5 /* OnBoardingPageController.swift in Sources */,
 				747E1556278E00380027A566 /* SignUpViewModel.swift in Sources */,
 				747E14EB278DCC8B0027A566 /* IntroController.swift in Sources */,
 				74E341E327911057003C1C89 /* TopicQuoteController.swift in Sources */,
@@ -574,6 +624,7 @@
 				74E341B12790DDF5003C1C89 /* Journal.swift in Sources */,
 				7469FC00278973FD0038F9B4 /* AppDelegate.swift in Sources */,
 				74DD1F612793ED4A00655695 /* QuestionCell.swift in Sources */,
+				74B686A9279BB8890089C6F5 /* OnBoardingPage2Controller.swift in Sources */,
 				747E14F2278DE2D70027A566 /* SignUpController.swift in Sources */,
 				747E14B8278DACA70027A566 /* Global.swift in Sources */,
 				74E341002790491B003C1C89 /* JournalController.swift in Sources */,
@@ -583,6 +634,7 @@
 				74E341D327910439003C1C89 /* TopicsController.swift in Sources */,
 				7469FC02278973FD0038F9B4 /* SceneDelegate.swift in Sources */,
 				746534DB2792AE4100E745A3 /* Answer.swift in Sources */,
+				74B68692279BA1610089C6F5 /* ForgotPasswordConfirmationController.swift in Sources */,
 				747E14DB278DC2DA0027A566 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

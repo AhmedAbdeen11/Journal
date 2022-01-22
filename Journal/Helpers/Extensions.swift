@@ -90,6 +90,7 @@ extension UIColor {
 }
 
 extension UIView {
+    
     func addShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
         self.layer.shadowOpacity = 0.3
@@ -99,11 +100,15 @@ extension UIView {
         self.layer.rasterizationScale = UIScreen.main.scale
     }
     
+    func circularDots() {
+        self.layer.cornerRadius = 4
+    }
+    
 }
 
 extension MDCButton {
     
-    func style(color: UIColor, title: String){
+    func styleMDC(color: UIColor, title: String){
         self.backgroundColor = color
         self.setTitle(title, for: .normal)
         self.layer.cornerRadius = 25
@@ -111,9 +116,25 @@ extension MDCButton {
         self.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
     }
     
-    func addBorder(color: UIColor, width: CGFloat){
+    func addBorderMDC(color: UIColor, width: CGFloat){
         self.setBorderWidth(width, for: .normal)
         self.setBorderColor(color, for: .normal)
+    }
+    
+}
+
+extension UIButton {
+    
+    func style(color: UIColor, title: String){
+        self.backgroundColor = color
+        self.setTitle(title, for: .normal)
+        self.layer.cornerRadius = 25
+        self.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 18)
+    }
+    
+    func addBorder(color: UIColor, width: CGFloat){
+        self.layer.borderWidth = width
+        self.layer.borderColor = color.cgColor
     }
     
 }

@@ -12,7 +12,7 @@ import RxSwift
 class SignUpController: UIViewController {
 
     // MARK: - View Model
-    var viewModel : SignUpViewModel!
+    var viewModel = SignUpViewModel()
     let disposeBag = DisposeBag()
     
     // MARK: - Properties
@@ -45,8 +45,7 @@ class SignUpController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        viewModel = SignUpViewModel(context: self)
+        
         initViews()
     }
     
@@ -132,22 +131,44 @@ class SignUpController: UIViewController {
         return valid
     }
     
+    private func displayServerErrors(serverError: ServerError){
+        if serverError.name != nil {
+            labelNameError.isHidden = false
+            labelNameError.text = serverError.name![0]
+        }
+        
+        if serverError.email != nil {
+            labelEmailError.isHidden = false
+            labelEmailError.text = serverError.email![0]
+        }
+        
+        if serverError.password != nil {
+            labelPasswordError.isHidden = false
+            labelPasswordError.text = serverError.password![0]
+        }
+    }
+    
     // MARK: - Network
     
     private func signup(){
+        
+        let deviceId = UIDevice.current.identifierForVendor?.uuidString
+        
         Utility.showProgressDialog(view: self.view)
         let params: [String: Any] =
             ["name": (textFieldName.text ?? ""),
              "email": (textFieldEmail.text ?? ""),
-             "password": (textFieldPassword.text ?? "")
+             "password": (textFieldPassword.text ?? ""),
+             "device_id": (deviceId ?? "ios_device"),
+             "notification_token": "notificationToken"
         ]
         
         viewModel.register(params: params)
-            .subscribe(onCompleted: {
+            .subscribe(onSuccess: { message in
                 
                 Utility.hideProgressDialog(view: self.view)
                 
-                let alert = UIAlertController(title: "", message: "Register success you can login...", preferredStyle: .alert)
+                /*let alert = UIAlertController(title: "", message: "Register success you can login...", preferredStyle: .alert)
                
                 alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { (action: UIAlertAction!) in
                     self.dismiss(animated: true) {
@@ -156,10 +177,12 @@ class SignUpController: UIViewController {
                     }
                 }))
                                     
-                self.present(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)*/
                 
-            }, onError: { (serverResponse) in
-                Utility.showAlertNew(message: "Please fix the errors and resubmit", context: self)
+            }, onError: { (error) in
+                Utility.hideProgressDialog(view: self.view)
+                let serverError = ResponseHandler.extractFormErrors( error: error)
+                self.displayServerErrors(serverError: serverError)
             })
         .disposed(by: disposeBag)
     }

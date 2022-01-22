@@ -22,12 +22,11 @@ class NetworkManager: NSObject {
             .mapJSON()
     }
     
-    func register(params: [String: Any]) -> Completable {
+    func register(params: [String: Any]) -> Single<Any> {
         return provider.rx
             .request(.register(params: params))
             .filterSuccessfulStatusAndRedirectCodes()
-            .asObservable()
-            .ignoreElements()
+            .mapJSON()
     }
     
     func forgotPassword(params: [String: Any]) -> Completable

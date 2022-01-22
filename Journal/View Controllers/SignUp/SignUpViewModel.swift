@@ -10,24 +10,36 @@ import Foundation
 import RxSwift
 import Moya
 import SwiftyJSON
+import SwiftKeychainWrapper
 
 class SignUpViewModel {
     
     let provider = NetworkManager()
-    let context: UIViewController!
-    
-    init(context: UIViewController) {
-        self.context = context
-    }
-    
-    func register(params: [String: Any]) -> Completable {
+ 
+    func register(params: [String: Any]) -> Single<Any> {
         
         return .create (subscribe: { observer in
             
             self.provider.register(params: params)
-                .subscribe(onCompleted: {
-                    observer(.completed)
+                .subscribe(onSuccess: { response in
                     
+                    do {
+                        let json = JSON(response)
+                        
+                        let accessToken = json["data"]["access_token"].string
+                                            
+                        //Save access token to KeyChain Wrapper
+                        let _: Bool = KeychainWrapper.standard.set(accessToken!, forKey: "accessToken")
+                        
+                        Global.sharedInstance.token = accessToken!
+                        
+                        observer(.success("Register Success..."))
+                        
+                    }
+                    
+                    
+                }, onError: { error in
+                    observer(.error(error))
                 })
         })
         

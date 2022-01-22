@@ -27,12 +27,12 @@ class IntroController: UIViewController {
     
     private func initViews(){
         //Signup button
-        btnSignup.style(color: UIColor(named: "Primary")!, title: "Sign Up")
+        btnSignup.styleMDC(color: UIColor(named: "Primary")!, title: "Sign Up")
         btnSignup.addShadow()
         
         //Login button
-        btnLogin.style(color: UIColor.white.withAlphaComponent(0.1), title: "Login")
-        btnLogin.addBorder(color: UIColor(rgb: 0xFFFFFF), width: 2)
+        btnLogin.styleMDC(color: UIColor.white.withAlphaComponent(0.1), title: "Login")
+        btnLogin.addBorderMDC(color: UIColor(rgb: 0xFFFFFF), width: 2)
         btnSignup.addShadow()
     }
     

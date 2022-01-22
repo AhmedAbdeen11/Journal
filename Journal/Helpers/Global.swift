@@ -13,8 +13,8 @@ class Global {
     
     static let sharedInstance = Global()
     
-    var baseUrl = "http://journal.solidbundle.com/api/v1"
-//    var baseUrl = "http://192.168.1.3:8000/api/v1/"
+//    var baseUrl = "http://journal.solidbundle.com/api/v1"
+    var baseUrl = "http://192.168.1.2:8000/api/v1/"
     var token: String = ""
     var tokenType: String = ""
     var userData: User?
