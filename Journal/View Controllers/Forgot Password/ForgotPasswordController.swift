@@ -17,7 +17,7 @@ class ForgotPasswordController: UIViewController {
     
     @IBOutlet weak var textFieldEmail: MDCFilledTextField!
     
-    @IBOutlet weak var btnSubmit: MDCButton!
+    @IBOutlet weak var btnSubmit: UIButton!
     
     @IBOutlet weak var fbClose: MDCFloatingButton!
     
@@ -37,7 +37,7 @@ class ForgotPasswordController: UIViewController {
         textFieldEmail.style(title: "Email Address")
         
         //Button Submit
-        btnSubmit.style(color: UIColor(named: "Primary")!, title: "Send Reset Link")
+        btnSubmit.layer.cornerRadius = 25
         btnSubmit.addShadow()
     }
     

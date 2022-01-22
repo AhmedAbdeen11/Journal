@@ -18,7 +18,7 @@ class ForgotPasswordConfirmationController: UIViewController {
     
     @IBOutlet weak var btnBack: UIButton!
     
-    @IBOutlet weak var btnLogin: MDCButton!
+    @IBOutlet weak var btnLogin: UIButton!
     
     // MARK: - Variables
     
@@ -39,7 +39,8 @@ class ForgotPasswordConfirmationController: UIViewController {
         viewCheckMark.layer.cornerRadius = 48
         
         //Btn Login
-        btnLogin.style(color: UIColor(named: "Primary")!, title: "Login")
+        btnLogin.layer.cornerRadius = 25
+        btnLogin.addShadow()
     }
     
     @IBAction func didTapBtnLogin(_ sender: Any) {

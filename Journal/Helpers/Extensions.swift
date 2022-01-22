@@ -104,6 +104,11 @@ extension UIView {
         self.layer.cornerRadius = 4
     }
     
+    func addBorder(color: UIColor, width: CGFloat){
+        self.layer.borderWidth = width
+        self.layer.borderColor = color.cgColor
+    }
+    
 }
 
 extension MDCButton {
@@ -116,11 +121,6 @@ extension MDCButton {
         self.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
     }
     
-    func addBorderMDC(color: UIColor, width: CGFloat){
-        self.setBorderWidth(width, for: .normal)
-        self.setBorderColor(color, for: .normal)
-    }
-    
 }
 
 extension UIButton {
@@ -130,11 +130,6 @@ extension UIButton {
         self.setTitle(title, for: .normal)
         self.layer.cornerRadius = 25
         self.titleLabel?.font = UIFont(name: "Helvetica Neue", size: 18)
-    }
-    
-    func addBorder(color: UIColor, width: CGFloat){
-        self.layer.borderWidth = width
-        self.layer.borderColor = color.cgColor
     }
     
 }

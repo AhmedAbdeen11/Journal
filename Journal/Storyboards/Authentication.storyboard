@@ -39,44 +39,52 @@
                                         <color key="textColor" red="0.92549019607843142" green="0.94509803921568625" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P43-25-EQD" customClass="MDCButton">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dX-AL-Zt2">
                                         <rect key="frame" x="25" y="727" width="325" height="50"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.13" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="l78-uP-lYo"/>
+                                            <constraint firstAttribute="height" constant="50" id="x6e-7F-cGW"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
-                                            <action selector="didTapLoginBtn:" destination="31n-o8-biE" eventType="touchUpInside" id="X90-ve-B1k"/>
+                                            <action selector="didTapLoginBtn:" destination="31n-o8-biE" eventType="touchUpInside" id="EdB-VQ-u4c"/>
                                         </connections>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14K-PS-E7A" customClass="MDCButton">
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Do6-P8-O6w">
                                         <rect key="frame" x="25" y="662" width="325" height="50"/>
                                         <color key="backgroundColor" name="Primary"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="mT4-6H-QRI"/>
+                                            <constraint firstAttribute="height" constant="50" id="BNu-a2-B1e"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
-                                            <action selector="didTapSignUpBtn:" destination="31n-o8-biE" eventType="touchUpInside" id="603-su-pI8"/>
+                                            <action selector="didTapSignUpBtn:" destination="31n-o8-biE" eventType="touchUpInside" id="zp0-v0-f6F"/>
                                         </connections>
-                                    </view>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.027450980392156862" green="0.12941176470588234" blue="0.20784313725490194" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="q5t-5k-FhQ" firstAttribute="top" secondItem="bOT-Gt-gxm" secondAttribute="bottom" constant="10" id="1lj-vq-KfT"/>
-                                    <constraint firstAttribute="trailing" secondItem="P43-25-EQD" secondAttribute="trailing" constant="25" id="4XC-zd-dzY"/>
+                                    <constraint firstAttribute="trailing" secondItem="Do6-P8-O6w" secondAttribute="trailing" constant="25" id="I33-TH-1GR"/>
+                                    <constraint firstItem="Do6-P8-O6w" firstAttribute="leading" secondItem="46X-hx-RRv" secondAttribute="leading" constant="25" id="IHg-tF-hwc"/>
                                     <constraint firstItem="bOT-Gt-gxm" firstAttribute="top" secondItem="QrC-tA-YUa" secondAttribute="bottom" constant="11" id="OD4-ek-BT9"/>
                                     <constraint firstItem="q5t-5k-FhQ" firstAttribute="centerX" secondItem="46X-hx-RRv" secondAttribute="centerX" id="RgB-1z-nm0"/>
                                     <constraint firstItem="bOT-Gt-gxm" firstAttribute="centerX" secondItem="46X-hx-RRv" secondAttribute="centerX" id="SbC-zP-IJE"/>
-                                    <constraint firstItem="14K-PS-E7A" firstAttribute="leading" secondItem="46X-hx-RRv" secondAttribute="leading" constant="25" id="SpY-hD-o7H"/>
-                                    <constraint firstItem="P43-25-EQD" firstAttribute="top" secondItem="14K-PS-E7A" secondAttribute="bottom" constant="15" id="TbJ-t6-J54"/>
+                                    <constraint firstAttribute="trailing" secondItem="6dX-AL-Zt2" secondAttribute="trailing" constant="25" id="Ukt-8R-o3e"/>
                                     <constraint firstItem="QrC-tA-YUa" firstAttribute="leading" secondItem="46X-hx-RRv" secondAttribute="leading" constant="100" id="aTD-qm-zga"/>
                                     <constraint firstItem="q5t-5k-FhQ" firstAttribute="leading" secondItem="46X-hx-RRv" secondAttribute="leading" constant="25" id="bMr-ia-TAi"/>
-                                    <constraint firstAttribute="trailing" secondItem="14K-PS-E7A" secondAttribute="trailing" constant="25" id="diI-rQ-mcR"/>
                                     <constraint firstAttribute="trailing" secondItem="QrC-tA-YUa" secondAttribute="trailing" constant="100" id="ePJ-p9-3aQ"/>
-                                    <constraint firstItem="P43-25-EQD" firstAttribute="leading" secondItem="46X-hx-RRv" secondAttribute="leading" constant="25" id="hN0-hd-KsF"/>
+                                    <constraint firstAttribute="bottom" secondItem="6dX-AL-Zt2" secondAttribute="bottom" constant="35" id="jxz-Kp-HNQ"/>
+                                    <constraint firstItem="6dX-AL-Zt2" firstAttribute="top" secondItem="Do6-P8-O6w" secondAttribute="bottom" constant="15" id="rt6-Op-yrq"/>
                                     <constraint firstAttribute="trailing" secondItem="q5t-5k-FhQ" secondAttribute="trailing" constant="25" id="shs-wm-jdP"/>
-                                    <constraint firstItem="14K-PS-E7A" firstAttribute="top" secondItem="q5t-5k-FhQ" secondAttribute="bottom" constant="124" id="u7F-cW-X8M"/>
+                                    <constraint firstItem="6dX-AL-Zt2" firstAttribute="leading" secondItem="46X-hx-RRv" secondAttribute="leading" constant="25" id="vMI-8o-d8o"/>
                                     <constraint firstItem="QrC-tA-YUa" firstAttribute="top" secondItem="46X-hx-RRv" secondAttribute="top" constant="182" id="wpv-qi-uew"/>
-                                    <constraint firstAttribute="bottom" secondItem="P43-25-EQD" secondAttribute="bottom" constant="35" id="yfA-Fb-HWd"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -95,8 +103,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="WGN-t8-U97"/>
                     <connections>
-                        <outlet property="btnLogin" destination="P43-25-EQD" id="2nW-Wr-hIq"/>
-                        <outlet property="btnSignup" destination="14K-PS-E7A" id="Jxp-VJ-uaf"/>
+                        <outlet property="btnLogin" destination="6dX-AL-Zt2" id="mDy-TR-t1X"/>
+                        <outlet property="btnSignup" destination="Do6-P8-O6w" id="l0g-HN-tvh"/>
                         <segue destination="O0r-Sp-iXo" kind="show" identifier="openSignupSegue" id="m2M-jK-roU"/>
                         <segue destination="DQI-3e-yan" kind="show" identifier="openLoginSegue" id="WOe-o6-YbE"/>
                     </connections>
@@ -184,16 +192,6 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L3I-Kq-p5O" customClass="MDCButton">
-                                                <rect key="frame" x="25" y="596" width="325" height="50"/>
-                                                <color key="backgroundColor" name="Primary"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="JMl-GK-mRO"/>
-                                                </constraints>
-                                                <connections>
-                                                    <action selector="didTapLogin:" destination="DQI-3e-yan" eventType="touchUpInside" id="caI-c6-Gtq"/>
-                                                </connections>
-                                            </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRI-2R-ETr">
                                                 <rect key="frame" x="252" y="272.66666666666669" width="107" height="28"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
@@ -204,16 +202,30 @@
                                                     <segue destination="pWL-3B-0xh" kind="presentation" modalPresentationStyle="fullScreen" id="bhz-Ty-DPm"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Qy-X8-ST1">
+                                                <rect key="frame" x="25" y="596" width="325" height="50"/>
+                                                <color key="backgroundColor" name="Primary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="5sk-I5-6iv"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Login">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapLogin:" destination="DQI-3e-yan" eventType="touchUpInside" id="uxd-M0-2AM"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="L3I-Kq-p5O" secondAttribute="trailing" constant="25" id="0tT-VQ-jX4"/>
                                             <constraint firstItem="ZNf-8Q-6ll" firstAttribute="centerX" secondItem="qfe-85-Jr9" secondAttribute="centerX" id="2hB-ag-VW6"/>
+                                            <constraint firstItem="5Qy-X8-ST1" firstAttribute="leading" secondItem="qfe-85-Jr9" secondAttribute="leading" constant="25" id="7D4-xs-S9q"/>
                                             <constraint firstAttribute="trailing" secondItem="NRI-2R-ETr" secondAttribute="trailing" constant="16" id="9ri-CG-e6S"/>
                                             <constraint firstItem="NYh-6q-b9y" firstAttribute="top" secondItem="Ev7-f5-Gcn" secondAttribute="bottom" constant="22" id="HKe-vH-EA1"/>
                                             <constraint firstItem="JFG-HY-xgt" firstAttribute="top" secondItem="Bcl-3g-kVu" secondAttribute="bottom" constant="20" id="IMs-Zc-ZuL"/>
+                                            <constraint firstItem="ZNf-8Q-6ll" firstAttribute="top" secondItem="5Qy-X8-ST1" secondAttribute="bottom" constant="15" id="Ibn-S5-50D"/>
                                             <constraint firstItem="NRI-2R-ETr" firstAttribute="top" secondItem="rcc-Nn-h6e" secondAttribute="bottom" constant="22" id="K3l-qz-4gf"/>
                                             <constraint firstItem="NYh-6q-b9y" firstAttribute="leading" secondItem="qfe-85-Jr9" secondAttribute="leading" constant="16" id="M7L-Xt-HO7"/>
-                                            <constraint firstItem="L3I-Kq-p5O" firstAttribute="leading" secondItem="qfe-85-Jr9" secondAttribute="leading" constant="25" id="Rat-dw-XBo"/>
                                             <constraint firstAttribute="bottom" secondItem="ZNf-8Q-6ll" secondAttribute="bottom" constant="35" id="TJb-pU-vPw"/>
                                             <constraint firstItem="Bcl-3g-kVu" firstAttribute="top" secondItem="qfe-85-Jr9" secondAttribute="top" constant="20" id="axh-kK-1aQ"/>
                                             <constraint firstItem="Ev7-f5-Gcn" firstAttribute="centerX" secondItem="qfe-85-Jr9" secondAttribute="centerX" id="bSe-JU-eCg"/>
@@ -221,7 +233,7 @@
                                             <constraint firstItem="rcc-Nn-h6e" firstAttribute="top" secondItem="NYh-6q-b9y" secondAttribute="bottom" constant="10" id="dIz-HU-h98"/>
                                             <constraint firstItem="Ev7-f5-Gcn" firstAttribute="top" secondItem="JFG-HY-xgt" secondAttribute="bottom" constant="10" id="dsp-g4-yZA"/>
                                             <constraint firstItem="rcc-Nn-h6e" firstAttribute="leading" secondItem="qfe-85-Jr9" secondAttribute="leading" constant="16" id="fbj-d7-RZl"/>
-                                            <constraint firstItem="ZNf-8Q-6ll" firstAttribute="top" secondItem="L3I-Kq-p5O" secondAttribute="bottom" constant="15" id="hLu-EX-Iyc"/>
+                                            <constraint firstAttribute="trailing" secondItem="5Qy-X8-ST1" secondAttribute="trailing" constant="25" id="oJ8-uE-qGB"/>
                                             <constraint firstAttribute="trailing" secondItem="NYh-6q-b9y" secondAttribute="trailing" constant="16" id="pc4-hL-rLB"/>
                                             <constraint firstItem="Bcl-3g-kVu" firstAttribute="leading" secondItem="qfe-85-Jr9" secondAttribute="leading" constant="16" id="u1m-cv-Tx2"/>
                                             <constraint firstItem="JFG-HY-xgt" firstAttribute="centerX" secondItem="qfe-85-Jr9" secondAttribute="centerX" id="xQM-97-h3l"/>
@@ -258,7 +270,7 @@
                     <navigationItem key="navigationItem" id="IvM-LK-x1E"/>
                     <connections>
                         <outlet property="btnBack" destination="Bcl-3g-kVu" id="KZj-3N-Kjl"/>
-                        <outlet property="btnLogin" destination="L3I-Kq-p5O" id="RpU-Fc-NYo"/>
+                        <outlet property="btnLogin" destination="5Qy-X8-ST1" id="gvw-5x-qG0"/>
                         <outlet property="textFieldEmail" destination="NYh-6q-b9y" id="vms-Yb-3Kl"/>
                         <outlet property="textFieldPassword" destination="rcc-Nn-h6e" id="RU8-ju-f6k"/>
                     </connections>
@@ -306,16 +318,6 @@
                                                     <constraint firstAttribute="height" priority="250" constant="40" id="VJF-Up-ce0"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8s-uO-RJj" customClass="MDCButton">
-                                                <rect key="frame" x="25" y="222.66666666666669" width="325" height="50"/>
-                                                <color key="backgroundColor" name="Primary"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="lod-Zf-egA"/>
-                                                </constraints>
-                                                <connections>
-                                                    <action selector="didTapSubmit:" destination="pWL-3B-0xh" eventType="touchUpInside" id="irE-v7-XBT"/>
-                                                </connections>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XLl-hv-ot7" customClass="MDCFloatingButton">
                                                 <rect key="frame" x="313" y="20" width="46" height="46"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -327,20 +329,34 @@
                                                     <action selector="didTapBackBtn:" destination="pWL-3B-0xh" eventType="touchUpInside" id="ufz-dq-tzM"/>
                                                 </connections>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WeR-Ny-yeC">
+                                                <rect key="frame" x="25" y="222.66666666666669" width="325" height="50"/>
+                                                <color key="backgroundColor" name="Primary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="mpP-tR-olR"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Send Reset Link">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapSubmit:" destination="pWL-3B-0xh" eventType="touchUpInside" id="dFn-nX-FY5"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="WkY-Fc-Idq" firstAttribute="centerX" secondItem="c6w-aq-OaR" secondAttribute="centerX" id="07z-wW-9bx"/>
                                             <constraint firstAttribute="trailing" secondItem="TmY-RC-5QY" secondAttribute="trailing" constant="16" id="0jX-hW-JlR"/>
+                                            <constraint firstItem="WeR-Ny-yeC" firstAttribute="top" secondItem="TmY-RC-5QY" secondAttribute="bottom" constant="30" id="HQ2-wK-kbn"/>
                                             <constraint firstItem="TmY-RC-5QY" firstAttribute="leading" secondItem="c6w-aq-OaR" secondAttribute="leading" constant="16" id="Ryi-fS-YFy"/>
                                             <constraint firstItem="SBZ-DQ-14H" firstAttribute="centerX" secondItem="c6w-aq-OaR" secondAttribute="centerX" id="ToU-bA-uB0"/>
-                                            <constraint firstItem="E8s-uO-RJj" firstAttribute="leading" secondItem="c6w-aq-OaR" secondAttribute="leading" constant="25" id="cIY-bo-Ecv"/>
+                                            <constraint firstItem="WeR-Ny-yeC" firstAttribute="leading" secondItem="c6w-aq-OaR" secondAttribute="leading" constant="25" id="hho-ms-Dwo"/>
                                             <constraint firstItem="SBZ-DQ-14H" firstAttribute="top" secondItem="WkY-Fc-Idq" secondAttribute="bottom" constant="10" id="icH-1w-9Vw"/>
-                                            <constraint firstItem="E8s-uO-RJj" firstAttribute="top" secondItem="TmY-RC-5QY" secondAttribute="bottom" constant="30" id="ios-Vs-vTc"/>
                                             <constraint firstAttribute="trailing" secondItem="XLl-hv-ot7" secondAttribute="trailing" constant="16" id="o6l-uC-8ez"/>
                                             <constraint firstItem="TmY-RC-5QY" firstAttribute="top" secondItem="SBZ-DQ-14H" secondAttribute="bottom" constant="22" id="qmP-K1-veX"/>
+                                            <constraint firstAttribute="trailing" secondItem="WeR-Ny-yeC" secondAttribute="trailing" constant="25" id="ra7-BU-tqc"/>
                                             <constraint firstItem="XLl-hv-ot7" firstAttribute="top" secondItem="c6w-aq-OaR" secondAttribute="top" constant="20" id="sRZ-sl-EJJ"/>
                                             <constraint firstItem="WkY-Fc-Idq" firstAttribute="top" secondItem="XLl-hv-ot7" secondAttribute="bottom" constant="2" id="tUt-3k-zPd"/>
-                                            <constraint firstAttribute="trailing" secondItem="E8s-uO-RJj" secondAttribute="trailing" constant="25" id="vV7-db-bd7"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -372,7 +388,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnSubmit" destination="E8s-uO-RJj" id="KoZ-i4-kKH"/>
+                        <outlet property="btnSubmit" destination="WeR-Ny-yeC" id="wMi-8S-Kfw"/>
                         <outlet property="fbClose" destination="XLl-hv-ot7" id="bzt-gR-CC1"/>
                         <outlet property="textFieldEmail" destination="TmY-RC-5QY" id="Dhl-JL-Nx6"/>
                         <segue destination="N4e-e5-a8h" kind="presentation" identifier="showForgotPasswordConfirmationSegue" modalPresentationStyle="fullScreen" id="uE4-J1-zWY"/>
@@ -523,16 +539,6 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJs-Z3-IUJ" customClass="MDCButton">
-                                                <rect key="frame" x="25" y="562" width="325" height="50"/>
-                                                <color key="backgroundColor" name="Primary"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="u7V-ck-9O7"/>
-                                                </constraints>
-                                                <connections>
-                                                    <action selector="didTapSignup:" destination="O0r-Sp-iXo" eventType="touchUpInside" id="fHC-jm-iV0"/>
-                                                </connections>
-                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="KVv-Ln-SY3">
                                                 <rect key="frame" x="32" y="402.66666666666669" width="311.33333333333331" height="28"/>
                                                 <subviews>
@@ -564,16 +570,28 @@
                                                     <color key="titleColor" red="0.2196078431372549" green="0.5490196078431373" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljO-s7-6Ib">
+                                                <rect key="frame" x="25" y="562" width="325" height="50"/>
+                                                <color key="backgroundColor" name="Primary"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="f7x-rR-UPI"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal" title="Sign Up">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didTapSignup:" destination="O0r-Sp-iXo" eventType="touchUpInside" id="0pC-MR-akE"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Qu6-u7-X5B" firstAttribute="top" secondItem="lJs-Z3-IUJ" secondAttribute="bottom" constant="15" id="5DB-fm-Tpj"/>
                                             <constraint firstItem="iWf-f8-nLY" firstAttribute="centerX" secondItem="6xY-Hf-fg5" secondAttribute="centerX" id="7HG-jE-FSu"/>
-                                            <constraint firstAttribute="trailing" secondItem="lJs-Z3-IUJ" secondAttribute="trailing" constant="25" id="CHs-50-bUl"/>
                                             <constraint firstItem="6c7-Xo-Ba4" firstAttribute="top" secondItem="KVv-Ln-SY3" secondAttribute="bottom" id="G2i-5U-K0d"/>
                                             <constraint firstItem="MNe-HQ-emG" firstAttribute="centerX" secondItem="6xY-Hf-fg5" secondAttribute="centerX" id="GeU-L8-bbt"/>
                                             <constraint firstItem="KVv-Ln-SY3" firstAttribute="top" secondItem="06D-0p-dnd" secondAttribute="bottom" constant="22" id="LUw-4d-saC"/>
                                             <constraint firstItem="6c7-Xo-Ba4" firstAttribute="centerX" secondItem="6xY-Hf-fg5" secondAttribute="centerX" id="Onp-hd-OBV"/>
-                                            <constraint firstItem="lJs-Z3-IUJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6c7-Xo-Ba4" secondAttribute="bottom" constant="20" id="Otx-6K-Pni"/>
+                                            <constraint firstItem="Qu6-u7-X5B" firstAttribute="top" secondItem="ljO-s7-6Ib" secondAttribute="bottom" constant="15" id="PKt-Yk-3lK"/>
                                             <constraint firstItem="06D-0p-dnd" firstAttribute="top" secondItem="MNe-HQ-emG" secondAttribute="bottom" constant="22" id="RnW-aK-eXA"/>
                                             <constraint firstItem="MNe-HQ-emG" firstAttribute="top" secondItem="iWf-f8-nLY" secondAttribute="bottom" constant="10" id="TdQ-vc-4aG"/>
                                             <constraint firstItem="iWf-f8-nLY" firstAttribute="top" secondItem="6se-UT-Oqz" secondAttribute="bottom" constant="10" id="Vxx-fb-nFo"/>
@@ -582,7 +600,8 @@
                                             <constraint firstAttribute="trailing" secondItem="06D-0p-dnd" secondAttribute="trailing" constant="16" id="azx-SY-cZu"/>
                                             <constraint firstItem="KVv-Ln-SY3" firstAttribute="centerX" secondItem="6xY-Hf-fg5" secondAttribute="centerX" id="dEY-cT-ylj"/>
                                             <constraint firstItem="06D-0p-dnd" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="16" id="gTM-os-8Y5"/>
-                                            <constraint firstItem="lJs-Z3-IUJ" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="25" id="hlT-qb-oRd"/>
+                                            <constraint firstItem="ljO-s7-6Ib" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="25" id="gag-C8-a6J"/>
+                                            <constraint firstAttribute="trailing" secondItem="ljO-s7-6Ib" secondAttribute="trailing" constant="25" id="jai-bC-pCr"/>
                                             <constraint firstItem="6se-UT-Oqz" firstAttribute="leading" secondItem="6xY-Hf-fg5" secondAttribute="leading" constant="16" id="mQK-lK-2Qh"/>
                                             <constraint firstAttribute="bottom" secondItem="Qu6-u7-X5B" secondAttribute="bottom" constant="35" id="r6x-nk-OMy"/>
                                         </constraints>
@@ -618,7 +637,7 @@
                     <navigationItem key="navigationItem" id="ZwX-Tk-5mg"/>
                     <connections>
                         <outlet property="btnBack" destination="6se-UT-Oqz" id="Pzt-Xe-gqo"/>
-                        <outlet property="btnSignup" destination="lJs-Z3-IUJ" id="d6a-0h-KyL"/>
+                        <outlet property="btnSignup" destination="ljO-s7-6Ib" id="71V-gE-hOa"/>
                         <outlet property="labelConfirmPasswordError" destination="3kd-Jp-nhS" id="GaS-0L-Snb"/>
                         <outlet property="labelEmailError" destination="El8-Kl-huf" id="iqP-vL-tfo"/>
                         <outlet property="labelNameError" destination="Ow3-oM-gKd" id="3V5-7t-vQS"/>
@@ -627,12 +646,21 @@
                         <outlet property="textFieldEmail" destination="kCC-su-XxF" id="fcq-UK-8dL"/>
                         <outlet property="textFieldName" destination="WL8-D2-Yro" id="kIT-WZ-ZWe"/>
                         <outlet property="textFieldPassword" destination="FkL-i8-1yK" id="8At-dZ-tQ6"/>
+                        <segue destination="vJB-Mr-Llm" kind="presentation" identifier="showOnBoardingSegue" modalPresentationStyle="fullScreen" id="jnw-55-hNO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8n3-Gb-t85" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="caZ-Pk-OWW" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2391" y="-258"/>
+        </scene>
+        <!--OnBoarding-->
+        <scene sceneID="D5d-ik-Gex">
+            <objects>
+                <viewControllerPlaceholder storyboardName="OnBoarding" id="vJB-Mr-Llm" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eaX-yQ-UYA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3180" y="-259"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="guY-uP-KI2">
@@ -682,16 +710,6 @@
                                         <color key="textColor" red="0.92549019610000005" green="0.94509803920000002" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Bh-dg-Mql" customClass="MDCButton">
-                                        <rect key="frame" x="25" y="644" width="325" height="50"/>
-                                        <color key="backgroundColor" name="Primary"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="qOL-3E-vrA"/>
-                                        </constraints>
-                                        <connections>
-                                            <action selector="didTapBtnLogin:" destination="N4e-e5-a8h" eventType="touchUpInside" id="Wkv-Vg-3xq"/>
-                                        </connections>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zA4-4o-Kvd">
                                         <rect key="frame" x="139.66666666666666" y="70" width="96" height="96"/>
                                         <subviews>
@@ -709,17 +727,31 @@
                                             <constraint firstAttribute="trailing" secondItem="7PB-6W-pgy" secondAttribute="trailing" constant="14.33" id="wKw-r9-afA"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBe-Ia-1OW">
+                                        <rect key="frame" x="25" y="649" width="325" height="50"/>
+                                        <color key="backgroundColor" name="Primary"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="dBT-b2-Y2y"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapBtnLogin:" destination="N4e-e5-a8h" eventType="touchUpInside" id="RCL-Vu-Fo9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rBe-Ia-1OW" secondAttribute="trailing" constant="25" id="5wN-Gh-30A"/>
                                     <constraint firstAttribute="trailing" secondItem="ASy-n0-tjA" secondAttribute="trailing" constant="25" id="69A-Mc-YNc"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Bh-dg-Mql" secondAttribute="trailing" constant="25" id="BZA-Kv-DLO"/>
-                                    <constraint firstItem="4Bh-dg-Mql" firstAttribute="leading" secondItem="icd-8X-PX0" secondAttribute="leading" constant="25" id="Clk-iF-fCA"/>
                                     <constraint firstItem="diU-st-nln" firstAttribute="leading" secondItem="icd-8X-PX0" secondAttribute="leading" constant="56" id="HEV-yN-REs"/>
-                                    <constraint firstAttribute="trailing" secondItem="4Bh-dg-Mql" secondAttribute="trailing" constant="25" id="JG1-My-x0f"/>
+                                    <constraint firstAttribute="bottom" secondItem="rBe-Ia-1OW" secondAttribute="bottom" constant="35" id="IRr-sD-OBw"/>
+                                    <constraint firstAttribute="trailing" secondItem="rBe-Ia-1OW" secondAttribute="trailing" constant="25" id="Ico-1G-4bg"/>
+                                    <constraint firstItem="rBe-Ia-1OW" firstAttribute="leading" secondItem="icd-8X-PX0" secondAttribute="leading" constant="25" id="JRf-Bw-aYb"/>
                                     <constraint firstAttribute="trailing" secondItem="diU-st-nln" secondAttribute="trailing" constant="56" id="UAR-Du-Uq7"/>
-                                    <constraint firstAttribute="bottom" secondItem="4Bh-dg-Mql" secondAttribute="bottom" constant="40" id="Umc-pi-QXO"/>
-                                    <constraint firstItem="4Bh-dg-Mql" firstAttribute="leading" secondItem="icd-8X-PX0" secondAttribute="leading" constant="25" id="V04-aU-zeL"/>
                                     <constraint firstItem="zA4-4o-Kvd" firstAttribute="centerX" secondItem="icd-8X-PX0" secondAttribute="centerX" id="ZC3-b5-HEo"/>
+                                    <constraint firstItem="rBe-Ia-1OW" firstAttribute="leading" secondItem="icd-8X-PX0" secondAttribute="leading" constant="25" id="edK-sc-h7f"/>
                                     <constraint firstItem="ASy-n0-tjA" firstAttribute="leading" secondItem="icd-8X-PX0" secondAttribute="leading" constant="25" id="ny7-HV-1IO"/>
                                     <constraint firstItem="ASy-n0-tjA" firstAttribute="top" secondItem="diU-st-nln" secondAttribute="bottom" constant="15" id="oWA-O5-Aoo"/>
                                     <constraint firstItem="diU-st-nln" firstAttribute="top" secondItem="zA4-4o-Kvd" secondAttribute="bottom" constant="25" id="tD5-VH-6wb"/>
@@ -761,7 +793,7 @@
                     </view>
                     <connections>
                         <outlet property="btnBack" destination="d9t-DL-LPV" id="WVr-CQ-Zui"/>
-                        <outlet property="btnLogin" destination="4Bh-dg-Mql" id="Ejb-Fr-DjU"/>
+                        <outlet property="btnLogin" destination="rBe-Ia-1OW" id="oAT-3r-57S"/>
                         <outlet property="viewCheckMark" destination="zA4-4o-Kvd" id="3Xt-QR-ilR"/>
                     </connections>
                 </viewController>

@@ -14,8 +14,8 @@ class IntroController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var btnLogin: MDCButton!
-    @IBOutlet weak var btnSignup: MDCButton!
+    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var btnSignup: UIButton!
     
     // MARK: - View Methods
     
@@ -27,13 +27,13 @@ class IntroController: UIViewController {
     
     private func initViews(){
         //Signup button
-        btnSignup.styleMDC(color: UIColor(named: "Primary")!, title: "Sign Up")
+        btnSignup.layer.cornerRadius = 25
         btnSignup.addShadow()
         
         //Login button
-        btnLogin.styleMDC(color: UIColor.white.withAlphaComponent(0.1), title: "Login")
-        btnLogin.addBorderMDC(color: UIColor(rgb: 0xFFFFFF), width: 2)
-        btnSignup.addShadow()
+        btnLogin.addBorder(color: UIColor(rgb: 0xFFFFFF), width: 1)
+        btnLogin.layer.cornerRadius = 25
+        btnLogin.addShadow()
     }
     
     // MARK: - Actions

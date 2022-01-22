@@ -23,7 +23,7 @@ class LoginController: UIViewController {
     
     @IBOutlet weak var textFieldPassword: MDCFilledTextField!
     
-    @IBOutlet weak var btnLogin: MDCButton!
+    @IBOutlet weak var btnLogin: UIButton!
     
     // MARK: - Variables
     var introController: IntroController!
@@ -50,7 +50,7 @@ class LoginController: UIViewController {
         self.textFieldPassword.isSecureTextEntry = true
         
         //Button Login
-        btnLogin.style(color: UIColor(named: "Primary")!, title: "Login")
+        btnLogin.layer.cornerRadius = 25
         btnLogin.addShadow()
         
     }

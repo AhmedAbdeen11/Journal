@@ -27,7 +27,7 @@ class SignUpController: UIViewController {
     
     @IBOutlet weak var textFieldConfirmPassword: MDCFilledTextField!
     
-    @IBOutlet weak var btnSignup: MDCButton!
+    @IBOutlet weak var btnSignup: UIButton!
     
     @IBOutlet weak var labelNameError: UILabel!
     
@@ -69,7 +69,7 @@ class SignUpController: UIViewController {
         self.textFieldConfirmPassword.isSecureTextEntry = true
         
         //Button Signup
-        btnSignup.style(color: UIColor(named: "Primary")!, title: "Sign Up")
+        btnSignup.layer.cornerRadius = 25
         btnSignup.addShadow()
     }
     
@@ -167,6 +167,8 @@ class SignUpController: UIViewController {
             .subscribe(onSuccess: { message in
                 
                 Utility.hideProgressDialog(view: self.view)
+                
+                self.performSegue(withIdentifier: "showOnBoardingSegue", sender: nil)
                 
                 /*let alert = UIAlertController(title: "", message: "Register success you can login...", preferredStyle: .alert)
                
