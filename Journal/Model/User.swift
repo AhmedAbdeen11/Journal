@@ -6,14 +6,11 @@ struct User : Mappable {
     var id : Int?
     var name : String?
     var loginType: String! = "email"
-    var hasProfile: Bool! = false
-    var isBlocked: Bool! = false
     var email : String?
-    var phone : String?
     var image : String?
-    var type : String?
-    var typeFormatted : String?
-    var province : String?
+    var dayStreak : Int?
+    var totalDays : Int?
+    var totalEntries : Int?
 
     init?() {
 
@@ -28,14 +25,11 @@ struct User : Mappable {
         id <- map["id"]
         name <- map["name"]
         loginType <- map["login_type"]
-        hasProfile <- map["has_profile"]
-        isBlocked <- map["is_blocked"]
         email <- map["email"]
-        phone <- map["phone"]
         image <- map["image"]
-        type <- map["type"]
-        typeFormatted <- map["type_formatted"]
-        province <- map["province"]
+        dayStreak <- map["day_streak"]
+        totalDays <- map["total_days"]
+        totalEntries <- map["total_entries"]
         
     }
 

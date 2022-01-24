@@ -185,6 +185,24 @@ extension MDCFilledTextField {
         self.layer.borderColor = UIColor.white.cgColor
         self.font = UIFont(name: "Helvetica Neue", size: 15)
     }
+    
+    func style2(title: String){
+        self.setFilledBackgroundColor(UIColor.white.withAlphaComponent(0.1), for: .normal)
+        self.setFilledBackgroundColor(UIColor.white.withAlphaComponent(0.1), for: .editing)
+        self.label.text = title
+        self.setFloatingLabelColor(UIColor(rgb: 0x94A0BA), for: .normal)
+        self.setFloatingLabelColor(UIColor(rgb: 0x94A0BA), for: .editing)
+        self.setFloatingLabelColor(UIColor(rgb: 0x94A0BA), for: .disabled)
+        self.setNormalLabelColor(UIColor(rgb: 0x94A0BA), for: .normal)
+        self.setTextColor(UIColor.black, for: .editing)
+        self.setTextColor(UIColor.black, for: .normal)
+        self.setUnderlineColor(UIColor.white.withAlphaComponent(0), for: .normal)
+        self.setUnderlineColor(UIColor.white.withAlphaComponent(0), for: .editing)
+        self.layer.borderWidth = 1
+        self.layer.cornerRadius = 7.5
+        self.layer.borderColor = UIColor(rgb: 0x94A0BA).cgColor
+        self.font = UIFont(name: "Helvetica Neue", size: 15)
+    }
 }
 
 extension UIButton {
