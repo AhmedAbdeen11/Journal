@@ -56,29 +56,22 @@ class JournalPageController: UIViewController {
     }
     
     private func initViews(){
-        viewStartDay.layer.cornerRadius = 20
+        viewStartDay.layer.cornerRadius = 10
         viewStartDay.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
         viewStartDay.layer.borderWidth = 1
         
-        viewStartDay.layer.shadowColor = UIColor.black.cgColor
-        viewStartDay.layer.shadowOpacity = 0.2
-        viewStartDay.layer.shadowOffset = .zero
-        viewStartDay.layer.shadowRadius = 3
-        viewStartDay.layer.shouldRasterize = true
-        viewStartDay.layer.rasterizationScale = UIScreen.main.scale
+        viewStartDay.addShadow()
         
+        viewSubStartDay.roundCorners([.bottomLeft, .bottomRight], radius: 10)
         
-        viewEndDay.layer.cornerRadius = 20
+        viewEndDay.layer.cornerRadius = 10
 
         viewEndDay.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
         viewEndDay.layer.borderWidth = 1
         
-        viewEndDay.layer.shadowColor = UIColor.black.cgColor
-        viewEndDay.layer.shadowOpacity = 0.2
-        viewEndDay.layer.shadowOffset = .zero
-        viewEndDay.layer.shadowRadius = 3
-        viewEndDay.layer.shouldRasterize = true
-        viewEndDay.layer.rasterizationScale = UIScreen.main.scale
+        viewEndDay.addShadow()
+        
+        viewSubEnday.roundCorners([.bottomLeft, .bottomRight], radius: 10)
         
         viewEntrySaved.layer.cornerRadius = 15
     }

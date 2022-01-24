@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_restore_purchases.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

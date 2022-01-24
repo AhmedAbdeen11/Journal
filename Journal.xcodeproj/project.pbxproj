@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		745B6807279D461300E0DA6E /* SetupNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B6806279D461200E0DA6E /* SetupNotificationController.swift */; };
+		745B680C279E206800E0DA6E /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B680B279E206800E0DA6E /* ProfileController.swift */; };
 		74608FCA27902A8E0053381C /* Pods_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1227341D1FF1295FE509ABF /* Pods_Journal.framework */; };
 		746534DB2792AE4100E745A3 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746534DA2792AE4100E745A3 /* Answer.swift */; };
 		746534E02792C7D000E745A3 /* CreateJournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746534DF2792C7D000E745A3 /* CreateJournalViewModel.swift */; };
+		7468FF6D279D31C1002A1A52 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468FF6C279D31C1002A1A52 /* Triangle.swift */; };
 		7469FC00278973FD0038F9B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FBFF278973FD0038F9B4 /* AppDelegate.swift */; };
 		7469FC02278973FD0038F9B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FC01278973FD0038F9B4 /* SceneDelegate.swift */; };
 		7469FC04278973FD0038F9B4 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7469FC03278973FD0038F9B4 /* MainController.swift */; };
@@ -67,8 +70,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		745B6806279D461200E0DA6E /* SetupNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationController.swift; sourceTree = "<group>"; };
+		745B680B279E206800E0DA6E /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		746534DA2792AE4100E745A3 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		746534DF2792C7D000E745A3 /* CreateJournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalViewModel.swift; sourceTree = "<group>"; };
+		7468FF6C279D31C1002A1A52 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
 		7469FBFC278973FD0038F9B4 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7469FBFF278973FD0038F9B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7469FC01278973FD0038F9B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +156,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		745B6805279D45BE00E0DA6E /* Setup Notification */ = {
+			isa = PBXGroup;
+			children = (
+				745B6806279D461200E0DA6E /* SetupNotificationController.swift */,
+			);
+			path = "Setup Notification";
+			sourceTree = "<group>";
+		};
+		745B680A279E205B00E0DA6E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				745B680B279E206800E0DA6E /* ProfileController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		7469FBF3278973FC0038F9B4 = {
 			isa = PBXGroup;
 			children = (
@@ -209,6 +231,7 @@
 				747E14B4278DACA60027A566 /* Extensions.swift */,
 				747E14B5278DACA70027A566 /* Global.swift */,
 				747E14B3278DACA50027A566 /* Utility.swift */,
+				7468FF6C279D31C1002A1A52 /* Triangle.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -229,6 +252,8 @@
 		747E149F278DAB1F0027A566 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				745B680A279E205B00E0DA6E /* Profile */,
+				745B6805279D45BE00E0DA6E /* Setup Notification */,
 				74B686B4279BEB610089C6F5 /* Try Premium */,
 				74B686A0279BB7000089C6F5 /* OnBoarding */,
 				74DD1F5A2793E98F00655695 /* View Entry */,
@@ -612,6 +637,7 @@
 				74DD1F532793BBC900655695 /* EntryCell.swift in Sources */,
 				74E341F027913A88003C1C89 /* Question.swift in Sources */,
 				74E341DC27910AA3003C1C89 /* TopicCell.swift in Sources */,
+				7468FF6D279D31C1002A1A52 /* Triangle.swift in Sources */,
 				747E154E278DF82F0027A566 /* LoginController.swift in Sources */,
 				746534E02792C7D000E745A3 /* CreateJournalViewModel.swift in Sources */,
 				74E341AD2790DDD7003C1C89 /* JournalPageViewModel.swift in Sources */,
@@ -619,6 +645,7 @@
 				74DD1F5D2793E9AE00655695 /* ViewEntryController.swift in Sources */,
 				74E34143279050C2003C1C89 /* EntriesPageController.swift in Sources */,
 				74DD1F4E2793B51700655695 /* Entry.swift in Sources */,
+				745B6807279D461300E0DA6E /* SetupNotificationController.swift in Sources */,
 				74B686AC279BB89F0089C6F5 /* OnBoardingPage3Controller.swift in Sources */,
 				747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */,
 				747E14B6278DACA70027A566 /* Utility.swift in Sources */,
@@ -648,6 +675,7 @@
 				746534DB2792AE4100E745A3 /* Answer.swift in Sources */,
 				74B68692279BA1610089C6F5 /* ForgotPasswordConfirmationController.swift in Sources */,
 				747E14DB278DC2DA0027A566 /* User.swift in Sources */,
+				745B680C279E206800E0DA6E /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

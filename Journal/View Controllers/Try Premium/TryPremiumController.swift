@@ -32,13 +32,11 @@ class TryPremiumController: UIViewController {
         viewDot.layer.cornerRadius = 2.5
         
         //Button Close
-        btnClose.addBorder(color: UIColor(rgb: 0xFFFFFF), width: 1)
-        btnClose.layer.cornerRadius = 21
+        btnClose.addBorder(color: UIColor(rgb: 0xFFFFFF), width: 1, cornerRadius: 21)
         
         //View Price
+        viewPrice.addBorder(color: UIColor(rgb: 0xFFFFFF), width: 1, cornerRadius: 7)
         viewPrice.backgroundColor = UIColor.white.withAlphaComponent(0.2)
-        viewPrice.addBorder(color: UIColor(rgb: 0xFFFFFF), width: 1)
-        viewPrice.layer.cornerRadius = 7
         viewPrice.addShadow()
         
         //Button try free and subscribe

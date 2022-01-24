@@ -31,8 +31,7 @@ class IntroController: UIViewController {
         btnSignup.addShadow()
         
         //Login button
-        btnLogin.addBorder(color: UIColor(rgb: 0xFFFFFF), width: 1)
-        btnLogin.layer.cornerRadius = 25
+        btnLogin.addBorder(color: UIColor(rgb: 0xFFFFFF), width: 1, cornerRadius: 25)
         btnLogin.addShadow()
     }
     

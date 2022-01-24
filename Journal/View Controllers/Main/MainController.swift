@@ -29,6 +29,10 @@ class MainController: UIViewController {
     
     @IBOutlet weak var btnGotIt: MDCButton!
     
+    @IBOutlet weak var imageViewProfile: UIImageView!
+    
+    @IBOutlet weak var imageViewJournal: UIImageView!
+    
     // MARK: - Variables
     
     
@@ -52,6 +56,23 @@ class MainController: UIViewController {
         btnGotIt.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
     }
     
+    internal override func viewDidAppear(_ animated: Bool) {
+        askForNotificationPermission()
+    }
+    
+    private func askForNotificationPermission(){
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            
+            if let error = error {
+                // Handle the error here.
+                print(error.localizedDescription)
+            }
+            
+            // Enable or disable features based on the authorization.
+        }
+    }
+    
     // MARK: - Actions
 
     @IBAction func didTapGotItBtn(_ sender: Any) {
@@ -69,6 +90,8 @@ class MainController: UIViewController {
     @IBAction func didTapJournalBtn(_ sender: Any) {
         profileContainer.isHidden = true
         homeContainer.isHidden = false
+        
+        imageViewProfile.image = UIImage(named: "profile_outline")
     }
     
     @IBAction func didTapTheoryBtn(_ sender: Any) {
@@ -76,11 +99,10 @@ class MainController: UIViewController {
     }
     
     @IBAction func didTapProfileBtn(_ sender: Any) {
-//        profileContainer.isHidden = false
-//        homeContainer.isHidden = true
+        profileContainer.isHidden = false
+        homeContainer.isHidden = true
         
-//        viewComingSoonContainer.isHidden = false
-        logout()
+        imageViewProfile.image = UIImage(named: "profile_filled")
         
     }
     

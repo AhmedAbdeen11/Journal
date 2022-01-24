@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_join_community.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

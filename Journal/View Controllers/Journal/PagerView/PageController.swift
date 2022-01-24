@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PageController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+class PageController: UIPageViewController,  UIPageViewControllerDelegate {
 
     var journalController: JournalController!
     
@@ -22,7 +22,7 @@ class PageController: UIPageViewController, UIPageViewControllerDataSource, UIPa
         super.viewDidLoad()
 
         self.delegate = self
-        self.dataSource = self
+//        self.dataSource = self
         
         // Do any additional setup after loading the view.
         setViewControllers([subViewControllers[0]], direction: .forward, animated: true, completion: nil)

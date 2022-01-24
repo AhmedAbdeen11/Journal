@@ -68,7 +68,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.027450980392156862" green="0.12941176470588234" blue="0.20784313725490194" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="TransparentBackground"/>
                                 <constraints>
                                     <constraint firstItem="q5t-5k-FhQ" firstAttribute="top" secondItem="bOT-Gt-gxm" secondAttribute="bottom" constant="10" id="1lj-vq-KfT"/>
                                     <constraint firstAttribute="trailing" secondItem="Do6-P8-O6w" secondAttribute="trailing" constant="25" id="I33-TH-1GR"/>
@@ -126,7 +126,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lpo-dE-bl1">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" red="0.027450980392156862" green="0.12941176470588234" blue="0.20784313725490194" alpha="0.65000000000000002" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="TransparentBackground"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1l5-6h-0tO">
                                 <rect key="frame" x="0.0" y="88" width="375" height="724"/>
@@ -292,7 +292,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XeA-iP-mxC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" red="0.027450980392156862" green="0.12941176470588234" blue="0.20784313725490194" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="TransparentBackground"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E3Q-Pr-eQo">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
@@ -411,7 +411,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5L-qh-NWg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" red="0.027450980392156862" green="0.12941176470588234" blue="0.20784313725490194" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" name="TransparentBackground"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cv8-nc-F7x">
                                 <rect key="frame" x="0.0" y="88" width="375" height="690"/>
@@ -693,7 +693,7 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01f-VC-MnT">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                                <color key="backgroundColor" red="0.027450980390000001" green="0.12941176469999999" blue="0.20784313730000001" alpha="0.69999999999999996" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" name="TransparentBackground"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icd-8X-PX0" userLabel="Content View">
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
@@ -812,6 +812,9 @@
         </namedColor>
         <namedColor name="Primary">
             <color red="0.054999999701976776" green="0.25900000333786011" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TransparentBackground">
+            <color red="0.078431372549019607" green="0.25882352941176467" blue="0.39215686274509803" alpha="0.65000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

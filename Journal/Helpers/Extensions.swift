@@ -93,8 +93,8 @@ extension UIView {
     
     func addShadow() {
         self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.3
-        self.layer.shadowOffset = .zero
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = CGSize(width: 0, height: 2)
         self.layer.shadowRadius = 3
         self.layer.shouldRasterize = true
         self.layer.rasterizationScale = UIScreen.main.scale
@@ -104,11 +104,28 @@ extension UIView {
         self.layer.cornerRadius = 4
     }
     
-    func addBorder(color: UIColor, width: CGFloat){
+    func addBorder(color: UIColor, width: CGFloat, cornerRadius: CGFloat){
         self.layer.borderWidth = width
         self.layer.borderColor = color.cgColor
+        self.layer.cornerRadius = cornerRadius
     }
     
+    func roundCorners(_ corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+      }
+    
+    func makeFabButton(){
+        self.layer.cornerRadius = 24
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.2
+        self.layer.shadowOffset = CGSize(width: 0, height: 3)
+        self.layer.shadowRadius = 3
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+    }
 }
 
 extension MDCButton {

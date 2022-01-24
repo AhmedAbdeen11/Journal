@@ -17,10 +17,12 @@ class TopicQuoteController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var labelTitle: UILabel!
+
+    @IBOutlet weak var viewClose: UIView!
     
-    @IBOutlet weak var fbClose: MDCFloatingButton!
+    @IBOutlet weak var viewNotification: UIView!
     
-    @IBOutlet weak var btnBegin: MDCButton!
+    @IBOutlet weak var btnBegin: UIButton!
     
     @IBOutlet weak var viewQuoteContainer: UIView!
     
@@ -39,6 +41,12 @@ class TopicQuoteController: UIViewController {
     
     @IBOutlet weak var viewReadMeContainer: UIView!
     
+    @IBOutlet weak var viewHighlight: UIView!
+    
+    @IBOutlet weak var viewTriangle: Triangle!
+    
+    @IBOutlet weak var viewRounded: UIView!
+    
     // MARK: - Variables
     
     var topic: Topic!
@@ -56,46 +64,50 @@ class TopicQuoteController: UIViewController {
         setData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        UIView.animate(withDuration: 1.0, delay: 0, options: [.repeat, .autoreverse], animations: {
+            
+            self.viewHighlight.frame.origin.y += 7
+            
+        }, completion: nil)
+    }
+    
     private func initViews(){
-        fbClose.backgroundColor = UIColor.white
-        fbClose.setImage(#imageLiteral(resourceName: "big_x"), for: .normal)
+        //View Close
+        viewClose.makeFabButton()
+        
+        //View Notification
+        viewNotification.makeFabButton()
         
         //Begin button
-        btnBegin.backgroundColor = UIColor(named: "Primary")
-        btnBegin.setTitle("Begin", for: .normal)
         btnBegin.layer.cornerRadius = 25
-        btnBegin.isUppercaseTitle = false
-        btnBegin.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
+        btnBegin.addShadow()
         
         //Quote Container
         viewQuoteContainer.layer.cornerRadius = 10
-        viewQuoteContainer.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
+        viewQuoteContainer.layer.borderColor = UIColor(rgb: 0xD1D7DC).cgColor
         viewQuoteContainer.layer.borderWidth = 1
-        
-        viewQuoteContainer.layer.shadowColor = UIColor(rgb: 0xD1D7DC).cgColor
-        viewQuoteContainer.layer.shadowOpacity = 0.5
-        viewQuoteContainer.layer.shadowOffset = .zero
-        viewQuoteContainer.layer.shadowRadius = 10
+
+        viewQuoteContainer.addShadow()
         
         //Quote Description Container
         viewQuoteDescription.layer.cornerRadius = 10
         viewQuoteDescription.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
         viewQuoteDescription.layer.borderWidth = 1
         
-        viewQuoteDescription.layer.shadowColor = UIColor(rgb: 0xD1D7DC).cgColor
-        viewQuoteDescription.layer.shadowOpacity = 0.5
-        viewQuoteDescription.layer.shadowOffset = .zero
-        viewQuoteDescription.layer.shadowRadius = 10
+        viewQuoteDescription.addShadow()
         
-        
+        //Read Me Container
         viewReadMeContainer.layer.cornerRadius = 10
         viewReadMeContainer.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
         viewReadMeContainer.layer.borderWidth = 1
         
-        viewReadMeContainer.layer.shadowColor = UIColor(rgb: 0xD1D7DC).cgColor
-        viewReadMeContainer.layer.shadowOpacity = 0.5
-        viewReadMeContainer.layer.shadowOffset = .zero
-        viewReadMeContainer.layer.shadowRadius = 10
+        viewReadMeContainer.addShadow()
+        
+        //View Rounded
+        viewRounded.layer.cornerRadius = 10
+
+        
         
     }
     
@@ -126,6 +138,8 @@ class TopicQuoteController: UIViewController {
         viewQuoteDescription.isHidden = false
     }
     
+    @IBAction func didTapNotifications(_ sender: Any) {
+    }
     
     
     // MARK: - Navigation

@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,20 +19,27 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vff-8g-3fv">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_background" translatesAutoresizingMaskIntoConstraints="NO" id="FzB-BQ-x2F">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="iUD-9s-bcJ">
                                         <rect key="frame" x="140" y="322.5" width="134" height="251"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" name="Primary"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="FzB-BQ-x2F" secondAttribute="trailing" id="51J-lg-xnh"/>
+                                    <constraint firstItem="FzB-BQ-x2F" firstAttribute="leading" secondItem="vff-8g-3fv" secondAttribute="leading" id="Hmu-Ur-aI1"/>
                                     <constraint firstAttribute="trailing" secondItem="iUD-9s-bcJ" secondAttribute="trailing" constant="140" id="JYx-2L-nRn"/>
+                                    <constraint firstAttribute="bottom" secondItem="FzB-BQ-x2F" secondAttribute="bottom" id="Uhz-QY-d7U"/>
+                                    <constraint firstItem="FzB-BQ-x2F" firstAttribute="top" secondItem="vff-8g-3fv" secondAttribute="top" id="fQm-Ap-fi3"/>
                                     <constraint firstItem="iUD-9s-bcJ" firstAttribute="leading" secondItem="vff-8g-3fv" secondAttribute="leading" constant="140" id="lnQ-av-bYZ"/>
                                     <constraint firstItem="iUD-9s-bcJ" firstAttribute="centerY" secondItem="vff-8g-3fv" secondAttribute="centerY" id="x0i-aA-1Hs"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="Primary"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="vff-8g-3fv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7I7-Fl-ZDD"/>
                             <constraint firstAttribute="bottom" secondItem="vff-8g-3fv" secondAttribute="bottom" id="LJe-JL-ar8"/>
@@ -48,9 +54,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="launch_background" width="125" height="222"/>
         <image name="splash_logo" width="250" height="251"/>
-        <namedColor name="Primary">
-            <color red="0.054999999701976776" green="0.25900000333786011" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
     </resources>
 </document>
