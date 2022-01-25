@@ -111,6 +111,14 @@ class NetworkManager: NSObject {
             .ignoreElements()
     }
     
+    func deleteEntry(params: [String: Any]) -> Completable {
+        return provider.rx
+            .request(.deleteEntry(params: params))
+            .filterSuccessfulStatusAndRedirectCodes()
+            .asObservable()
+            .ignoreElements()
+    }
+    
     // MARK: - Avatar
     
     func getAvatars() -> Single<String> {

@@ -43,6 +43,8 @@ public enum NetworkService {
     
     case favorite(params: [String: Any])
     
+    case deleteEntry(params: [String: Any])
+    
     // MARK: - Avatar
     
     case getAvatars
@@ -123,6 +125,9 @@ extension NetworkService: TargetType {
                 
             case .favorite:
                 return "entry/favorite"
+                
+            case .deleteEntry:
+                return "entry/delete"
         
             // MARK: - Avatar
         
@@ -141,7 +146,7 @@ extension NetworkService: TargetType {
         
         case .register, .login, .myData, .forgotPassword,
              .changePassword, .updateProfile, .saveAnswers
-             , .favorite, .addUserJournal:
+             , .favorite, .addUserJournal, .deleteEntry:
                 return .post
                 
             default:
@@ -172,7 +177,8 @@ extension NetworkService: TargetType {
              let .myData(params: params),
              let .saveAnswers(params: params),
              let .favorite(params: params),
-             let .addUserJournal(params: params):
+             let .addUserJournal(params: params),
+             let .deleteEntry(params: params):
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
             
         // MARK: - Form + list of images

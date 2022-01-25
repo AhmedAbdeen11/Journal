@@ -214,7 +214,7 @@ class EntriesPageController: UIViewController {
     
     // MARK: - Server Work
     
-    private func getMyEntries(){
+    func getMyEntries(){
       
 //        Utility.showProgressDialog(view: self.view)
         
@@ -314,6 +314,7 @@ extension EntriesPageController: UITableViewDelegate, UITableViewDataSource {
          
             cell.viewContainer.addShadow()
             
+            cell.backgroundColor = UIColor.clear
             cell.selectionStyle = .none
             
             return cell

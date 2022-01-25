@@ -21,38 +21,86 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background2" translatesAutoresizingMaskIntoConstraints="NO" id="uz6-4G-6t2">
                                 <rect key="frame" x="0.0" y="0.0" width="800" height="896"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-pQ-oyz" userLabel="Floating Button Favorite" customClass="MDCFloatingButton">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WgK-pQ-oyz" userLabel="Floating Button Favorite">
                                 <rect key="frame" x="16" y="64" width="50" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_star" translatesAutoresizingMaskIntoConstraints="NO" id="q8m-38-Aub">
+                                        <rect key="frame" x="13" y="13" width="24" height="24"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bj6-Ph-7LC">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <connections>
+                                            <action selector="didTapFavoriteBtn:" destination="c9W-A6-CUr" eventType="touchUpInside" id="wLi-Xg-1Qe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="1Vr-Qq-oaB"/>
+                                    <constraint firstAttribute="bottom" secondItem="q8m-38-Aub" secondAttribute="bottom" constant="13" id="C4d-jz-sgD"/>
+                                    <constraint firstAttribute="trailing" secondItem="bj6-Ph-7LC" secondAttribute="trailing" id="QK2-Da-KYd"/>
+                                    <constraint firstItem="bj6-Ph-7LC" firstAttribute="top" secondItem="WgK-pQ-oyz" secondAttribute="top" id="VkB-hy-7QB"/>
+                                    <constraint firstAttribute="trailing" secondItem="q8m-38-Aub" secondAttribute="trailing" constant="13" id="X34-a5-yYt"/>
                                     <constraint firstAttribute="height" constant="50" id="Yqf-YG-DQ4"/>
+                                    <constraint firstItem="q8m-38-Aub" firstAttribute="top" secondItem="WgK-pQ-oyz" secondAttribute="top" constant="13" id="e7s-dP-N4A"/>
+                                    <constraint firstItem="q8m-38-Aub" firstAttribute="leading" secondItem="WgK-pQ-oyz" secondAttribute="leading" constant="13" id="gk0-f5-3TH"/>
+                                    <constraint firstAttribute="bottom" secondItem="bj6-Ph-7LC" secondAttribute="bottom" id="r9d-CU-cXc"/>
+                                    <constraint firstItem="bj6-Ph-7LC" firstAttribute="leading" secondItem="WgK-pQ-oyz" secondAttribute="leading" id="s0k-Lx-Snr"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="didTapFavoriteBtn:" destination="c9W-A6-CUr" eventType="touchUpInside" id="XOT-qK-Toq"/>
-                                </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agI-YO-ZLi" userLabel="Floating Button Options" customClass="MDCFloatingButton">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agI-YO-ZLi" userLabel="Floating Button Options">
                                 <rect key="frame" x="74" y="64" width="50" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dots" translatesAutoresizingMaskIntoConstraints="NO" id="57h-ZT-qTb">
+                                        <rect key="frame" x="15" y="15" width="20" height="20"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ug-0f-R9o">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <connections>
+                                            <action selector="didTapOptionsBtn:" destination="c9W-A6-CUr" eventType="touchUpInside" id="TUk-hw-IUI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="7Ug-0f-R9o" firstAttribute="top" secondItem="agI-YO-ZLi" secondAttribute="top" id="6Mv-lK-zJZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Ug-0f-R9o" secondAttribute="bottom" id="B28-iu-7JJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Ug-0f-R9o" secondAttribute="trailing" id="HCs-bN-nFY"/>
                                     <constraint firstAttribute="height" constant="50" id="IPo-TI-rcm"/>
+                                    <constraint firstItem="57h-ZT-qTb" firstAttribute="leading" secondItem="agI-YO-ZLi" secondAttribute="leading" constant="15" id="Lzr-b6-Cph"/>
+                                    <constraint firstItem="57h-ZT-qTb" firstAttribute="top" secondItem="agI-YO-ZLi" secondAttribute="top" constant="15" id="RT4-T7-FhT"/>
+                                    <constraint firstItem="7Ug-0f-R9o" firstAttribute="leading" secondItem="agI-YO-ZLi" secondAttribute="leading" id="Zuh-6K-vUf"/>
                                     <constraint firstAttribute="width" constant="50" id="qgT-eL-lbb"/>
+                                    <constraint firstAttribute="trailing" secondItem="57h-ZT-qTb" secondAttribute="trailing" constant="15" id="sTY-v8-4zW"/>
+                                    <constraint firstAttribute="bottom" secondItem="57h-ZT-qTb" secondAttribute="bottom" constant="15" id="x1q-nl-AUa"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="didTapOptionsBtn:" destination="c9W-A6-CUr" eventType="touchUpInside" id="ehl-Xt-YZ9"/>
-                                </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXL-xa-5fX" userLabel="Floating Button Close" customClass="MDCFloatingButton">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXL-xa-5fX" userLabel="Floating Button Close">
                                 <rect key="frame" x="348" y="64" width="50" height="50"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_close" translatesAutoresizingMaskIntoConstraints="NO" id="F9U-md-OuM">
+                                        <rect key="frame" x="16" y="16" width="18" height="18"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qe-JP-S98">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <connections>
+                                            <action selector="didTapCloseBtn:" destination="c9W-A6-CUr" eventType="touchUpInside" id="imi-ae-uxH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="F9U-md-OuM" firstAttribute="top" secondItem="nXL-xa-5fX" secondAttribute="top" constant="16" id="1N3-Ks-59p"/>
                                     <constraint firstAttribute="height" constant="50" id="9Wa-k0-bZG"/>
                                     <constraint firstAttribute="width" constant="50" id="DjK-As-ISV"/>
+                                    <constraint firstAttribute="trailing" secondItem="8qe-JP-S98" secondAttribute="trailing" id="GgU-ra-UmR"/>
+                                    <constraint firstItem="8qe-JP-S98" firstAttribute="top" secondItem="nXL-xa-5fX" secondAttribute="top" id="OSU-MI-efj"/>
+                                    <constraint firstAttribute="bottom" secondItem="F9U-md-OuM" secondAttribute="bottom" constant="16" id="aOA-G7-DtI"/>
+                                    <constraint firstItem="F9U-md-OuM" firstAttribute="leading" secondItem="nXL-xa-5fX" secondAttribute="leading" constant="16" id="mpu-Iq-Kf6"/>
+                                    <constraint firstAttribute="trailing" secondItem="F9U-md-OuM" secondAttribute="trailing" constant="16" id="oqf-Uw-otu"/>
+                                    <constraint firstAttribute="bottom" secondItem="8qe-JP-S98" secondAttribute="bottom" id="ySF-f0-8H7"/>
+                                    <constraint firstItem="8qe-JP-S98" firstAttribute="leading" secondItem="nXL-xa-5fX" secondAttribute="leading" id="zgJ-6i-gCD"/>
                                 </constraints>
-                                <connections>
-                                    <action selector="didTapCloseBtn:" destination="c9W-A6-CUr" eventType="touchUpInside" id="Asn-A6-wAc"/>
-                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nov 14, 2021" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dW7-SR-zej">
                                 <rect key="frame" x="161" y="79" width="92.5" height="20"/>
@@ -178,13 +226,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="fbClose" destination="nXL-xa-5fX" id="1qp-95-EGh"/>
-                        <outlet property="fbFavorite" destination="WgK-pQ-oyz" id="XdO-MV-j8H"/>
-                        <outlet property="fbOptions" destination="agI-YO-ZLi" id="On7-MF-Egd"/>
+                        <outlet property="imageViewFavorite" destination="q8m-38-Aub" id="X0F-hL-ehu"/>
                         <outlet property="labelDate" destination="dW7-SR-zej" id="ara-Zu-Ybq"/>
                         <outlet property="labelTime" destination="kjR-og-iGk" id="hdW-YQ-DMc"/>
                         <outlet property="labelTitle" destination="cSr-sd-4iU" id="df9-kH-ABK"/>
+                        <outlet property="viewClose" destination="nXL-xa-5fX" id="LUR-cm-t8x"/>
                         <outlet property="viewContainer" destination="lYN-pA-xMy" id="taS-uL-rPd"/>
+                        <outlet property="viewFavorite" destination="WgK-pQ-oyz" id="Jew-jP-PR2"/>
+                        <outlet property="viewOptions" destination="agI-YO-ZLi" id="Zyd-K4-NVg"/>
                         <outlet property="viewTitleContainer" destination="JFn-qx-o3H" id="VK4-LZ-aEZ"/>
                     </connections>
                 </viewController>
@@ -195,6 +244,9 @@
     </scenes>
     <resources>
         <image name="background2" width="800" height="533"/>
+        <image name="ic_close" width="70" height="70"/>
+        <image name="ic_dots" width="83" height="17"/>
+        <image name="ic_star" width="84" height="80"/>
         <namedColor name="Primary">
             <color red="0.054999999701976776" green="0.25900000333786011" blue="0.41200000047683716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

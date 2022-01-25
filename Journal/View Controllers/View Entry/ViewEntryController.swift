@@ -12,13 +12,18 @@ import SDWebImage
 
 class ViewEntryController: UIViewController {
 
+    // MARK: - View Model
+    
+    var viewModel = ViewEntryViewModel()
+    let disposeBag = DisposeBag()
+    
     // MARK: - Properties
     
-    @IBOutlet weak var fbFavorite: MDCFloatingButton!
+    @IBOutlet weak var viewFavorite: UIView!
     
-    @IBOutlet weak var fbOptions: MDCFloatingButton!
+    @IBOutlet weak var viewOptions: UIView!
     
-    @IBOutlet weak var fbClose: MDCFloatingButton!
+    @IBOutlet weak var viewClose: UIView!
     
     @IBOutlet weak var labelDate: UILabel!
     
@@ -29,6 +34,8 @@ class ViewEntryController: UIViewController {
     @IBOutlet weak var viewContainer: UIView!
     
     @IBOutlet weak var viewTitleContainer: UIView!
+    
+    @IBOutlet weak var imageViewFavorite: UIImageView!
     
     // MARK: - Variables
     
@@ -46,35 +53,57 @@ class ViewEntryController: UIViewController {
     }
     
     private func initViews(){
-        viewContainer.layer.cornerRadius = 50
-        viewContainer.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
-        viewContainer.layer.borderWidth = 1
         
-        viewContainer.layer.shadowColor = UIColor(rgb: 0xD1D7DC).cgColor
-        viewContainer.layer.shadowOpacity = 0.5
-        viewContainer.layer.shadowOffset = .zero
-        viewContainer.layer.shadowRadius = 10
+        viewContainer.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 50)
+        viewContainer.addShadow()
         
         if entry.isFavorite! {
-            fbFavorite.backgroundColor = UIColor(named: "Primary")
-            fbFavorite.setImage(#imageLiteral(resourceName: "ic_start_filled"), for: .normal)
+            viewFavorite.backgroundColor = UIColor(named: "Primary")
+            imageViewFavorite.image = UIImage(named: "ic_star_filled")
+            
         }else{
-            fbFavorite.backgroundColor = UIColor.white
-            fbFavorite.setImage(#imageLiteral(resourceName: "ic_star_outline"), for: .normal)
+            viewFavorite.backgroundColor = UIColor.white
+            imageViewFavorite.image = UIImage(named: "ic_star")
         }
         
+        viewFavorite.layer.cornerRadius = 25
+        viewFavorite.addShadow()
         
-        fbOptions.backgroundColor = UIColor.white
-        fbOptions.setImage(#imageLiteral(resourceName: "ic_dots"), for: .normal)
+        viewClose.layer.cornerRadius = 25
+        viewClose.addShadow()
         
-        fbClose.backgroundColor = UIColor.white
-        fbClose.setImage(#imageLiteral(resourceName: "big_x"), for: .normal)
+        viewOptions.layer.cornerRadius = 25
+        viewOptions.addShadow()
+        
     }
     
     private func setData(){
         labelDate.text = entry.dayMonthYear
         labelTime.text = entry.time
         labelTitle.text = entry.topic?.title
+    }
+    
+    private func showDeleteDialog(){
+        let alert = UIAlertController(title: "", message: "Are you sure you want to delete?", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+            
+            self.deleteEntry()
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        
+        //==================Ipad case================//
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        //===========================================//
+        
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Actions
@@ -84,6 +113,32 @@ class ViewEntryController: UIViewController {
     }
     
     @IBAction func didTapOptionsBtn(_ sender: Any) {
+        let alert = UIAlertController(title: "", message: "\(entry.dayMonthYear!) at \(entry.time!)", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
+            
+            
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+            
+            self.showDeleteDialog()
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        
+        //==================Ipad case================//
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        //===========================================//
+        
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func didTapFavoriteBtn(_ sender: Any) {
@@ -91,11 +146,11 @@ class ViewEntryController: UIViewController {
         entry.isFavorite = !entry.isFavorite!
         
         if entry.isFavorite! {
-            fbFavorite.backgroundColor = UIColor(named: "Primary")
-            fbFavorite.setImage(#imageLiteral(resourceName: "ic_start_filled"), for: .normal)
+            viewFavorite.backgroundColor = UIColor(named: "Primary")
+            imageViewFavorite.image = UIImage(named: "ic_star_filled")
         }else{
-            fbFavorite.backgroundColor = UIColor.white
-            fbFavorite.setImage(#imageLiteral(resourceName: "ic_star_outline"), for: .normal)
+            viewFavorite.backgroundColor = UIColor.white
+            imageViewFavorite.image = UIImage(named: "ic_star")
         }
         
         entriesPageController.favoriteUpdatedCallback(entryId: entry.id!, isFavorite: entry.isFavorite!)
@@ -104,6 +159,26 @@ class ViewEntryController: UIViewController {
     
     // MARK: - Server Work
 
+    private func deleteEntry(){
+  
+        Utility.showProgressDialog(view: self.view)
+        
+        let params: [String: Any] =
+            [
+                "entry_id": entry.id!
+            ]
+        
+        viewModel.deleteEntry(params: params)
+            .subscribe(onCompleted: {
+                Utility.hideProgressDialog(view: self.view)
+                self.entriesPageController.getMyEntries()
+                self.dismiss(animated: true, completion: nil)
+            }, onError: { error in
+                Utility.hideProgressDialog(view: self.view)
+            })
+        .disposed(by: disposeBag)
+    }
+    
     /*
     // MARK: - Navigation
 
