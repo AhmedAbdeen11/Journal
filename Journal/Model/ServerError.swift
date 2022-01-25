@@ -6,6 +6,8 @@ struct ServerError : Mappable {
     var name : [String]?
     var email : [String]?
     var password: [String]?
+    var currentPassword: [String]?
+    var newPassword: [String]?
 
     init?() {
 
@@ -20,6 +22,8 @@ struct ServerError : Mappable {
         name <- map["name"]
         email <- map["email"]
         password <- map["password"]
+        currentPassword <- map["current_password"]
+        newPassword <- map["new_password"]
         
     }
 

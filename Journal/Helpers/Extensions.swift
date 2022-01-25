@@ -168,6 +168,7 @@ extension MDCOutlinedTextField {
 }
 
 extension MDCFilledTextField {
+    
     func style(title: String){
         self.setFilledBackgroundColor(UIColor.white.withAlphaComponent(0.1), for: .normal)
         self.setFilledBackgroundColor(UIColor.white.withAlphaComponent(0.1), for: .editing)
@@ -203,6 +204,7 @@ extension MDCFilledTextField {
         self.layer.borderColor = UIColor(rgb: 0x94A0BA).cgColor
         self.font = UIFont(name: "Helvetica Neue", size: 15)
     }
+    
 }
 
 extension UIButton {

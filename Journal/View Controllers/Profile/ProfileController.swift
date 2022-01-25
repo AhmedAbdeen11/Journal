@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import MessageUI
+import LocalAuthentication
 
 class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
 
@@ -42,6 +43,11 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
     
     @IBOutlet weak var viewThirdStackContainer: UIView!
     
+    @IBOutlet weak var imageViewUser: UIImageView!
+    
+    @IBOutlet weak var switchFaceId: UISwitch!
+    
+    
     // MARK: - View Methods
     
     override func viewDidLoad() {
@@ -73,11 +79,18 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
         viewThirdStackContainer.addShadow()
     }
 
-    private func setData(user: User){
+    func setData(user: User){
         labelUsername.text = user.name
         labelDayStreak.text = "\(user.dayStreak!)"
         labelTotalDays.text = "\(user.totalDays!)"
         labelTotalEntries.text = "\(user.totalEntries!)"
+        
+        imageViewUser.sd_setImage(with: URL(string: user.avatar!), completed: nil)
+        
+        let defaults = UserDefaults.standard
+        if defaults.bool(forKey: "faceId") {
+            switchFaceId.setOn(true, animated: false)
+        }
     }
     
     private func openGmail(subject: String){
@@ -106,6 +119,27 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
             self.present(mail, animated: true)
           } else {
             // show failure alert
+          }
+    }
+    
+    func authenticate(){
+      let context = LAContext()
+      let reason = "Enabling Face ID allows you quick and secure access to your account"
+     
+      var authError: NSError?
+          if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+              context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
+                    let defaults = UserDefaults.standard
+                  if success {
+                    defaults.set(true, forKey: "faceId")
+//                    switchFaceId.setOn(true, animated: true)
+                  } else {
+                    defaults.set(false, forKey: "faceId")
+//                    self.switchFaceId.setOn(false, animated: true)
+                  }
+              }
+          } else {
+             // Handle Error
           }
     }
     
@@ -225,6 +259,16 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
       controller.dismiss(animated: true)
     }
     
+    @IBAction func switchFaceIdChanged(_ sender: Any) {
+        if switchFaceId.isOn {
+            authenticate()
+        }else{
+            let defaults = UserDefaults.standard
+            defaults.setValue(false, forKey: "faceId")
+        }
+    }
+    
+    
     // MARK: - Server Work
     
     private func getProfile(){
@@ -250,14 +294,16 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
     
     
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showAccountInfoSegue" {
+            let accountInfoController = segue.destination as? AccountInfoController
+            accountInfoController?.profileController = self
+        }
     }
-    */
+    
 
 }

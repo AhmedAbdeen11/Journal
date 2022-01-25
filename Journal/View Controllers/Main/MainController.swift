@@ -10,6 +10,7 @@ import RxSwift
 import MaterialComponents
 import RxSwift
 import SwiftKeychainWrapper
+import LocalAuthentication
 
 class MainController: UIViewController {
 
@@ -42,8 +43,29 @@ class MainController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        let defaults = UserDefaults.standard
+        if defaults.bool(forKey: "faceId") {
+            authenticate()
+        }
+        
         viewModel = MainViewModel(context: self)
         initViews()
+        
+    }
+    
+    func authenticate(){
+      let context = LAContext()
+      let reason = "Enabling Face ID allows you quick and secure access to your account"
+     
+      var authError: NSError?
+          if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+              context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, error in
+                  if success {
+                  }
+              }
+          } else {
+             // Handle Error
+          }
     }
     
     private func initViews(){

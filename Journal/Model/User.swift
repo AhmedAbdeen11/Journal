@@ -7,7 +7,7 @@ struct User : Mappable {
     var name : String?
     var loginType: String! = "email"
     var email : String?
-    var image : String?
+    var avatar : String?
     var dayStreak : Int?
     var totalDays : Int?
     var totalEntries : Int?
@@ -26,7 +26,7 @@ struct User : Mappable {
         name <- map["name"]
         loginType <- map["login_type"]
         email <- map["email"]
-        image <- map["image"]
+        avatar <- map["avatar"]
         dayStreak <- map["day_streak"]
         totalDays <- map["total_days"]
         totalEntries <- map["total_entries"]

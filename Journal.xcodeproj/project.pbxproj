@@ -12,7 +12,12 @@
 		745B6810279E4A6500E0DA6E /* ProfileControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B680F279E4A6500E0DA6E /* ProfileControllerViewModel.swift */; };
 		745B6815279E5DE600E0DA6E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745B6814279E5DE600E0DA6E /* Profile.storyboard */; };
 		745B681A279E625400E0DA6E /* AccountInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B6819279E625400E0DA6E /* AccountInfoController.swift */; };
+		745B681F279E7B1D00E0DA6E /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B681E279E7B1D00E0DA6E /* AvatarCell.swift */; };
+		745B6825279E809300E0DA6E /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B6824279E809300E0DA6E /* AccountInfoViewModel.swift */; };
+		745B6829279E80B500E0DA6E /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B6828279E80B500E0DA6E /* Avatar.swift */; };
 		74608FCA27902A8E0053381C /* Pods_Journal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1227341D1FF1295FE509ABF /* Pods_Journal.framework */; };
+		74632144279ED3AB00560706 /* ChangePasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74632143279ED3AB00560706 /* ChangePasswordController.swift */; };
+		74632160279ED9EA00560706 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7463215F279ED9EA00560706 /* ChangePasswordViewModel.swift */; };
 		746534DB2792AE4100E745A3 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746534DA2792AE4100E745A3 /* Answer.swift */; };
 		746534E02792C7D000E745A3 /* CreateJournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746534DF2792C7D000E745A3 /* CreateJournalViewModel.swift */; };
 		7468FF6D279D31C1002A1A52 /* Triangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7468FF6C279D31C1002A1A52 /* Triangle.swift */; };
@@ -78,6 +83,11 @@
 		745B680F279E4A6500E0DA6E /* ProfileControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileControllerViewModel.swift; sourceTree = "<group>"; };
 		745B6814279E5DE600E0DA6E /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		745B6819279E625400E0DA6E /* AccountInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoController.swift; sourceTree = "<group>"; };
+		745B681E279E7B1D00E0DA6E /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		745B6824279E809300E0DA6E /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
+		745B6828279E80B500E0DA6E /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
+		74632143279ED3AB00560706 /* ChangePasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordController.swift; sourceTree = "<group>"; };
+		7463215F279ED9EA00560706 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		746534DA2792AE4100E745A3 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		746534DF2792C7D000E745A3 /* CreateJournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalViewModel.swift; sourceTree = "<group>"; };
 		7468FF6C279D31C1002A1A52 /* Triangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Triangle.swift; sourceTree = "<group>"; };
@@ -162,6 +172,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7429F2C1279ED05800F2854F /* Change Password */ = {
+			isa = PBXGroup;
+			children = (
+				74632143279ED3AB00560706 /* ChangePasswordController.swift */,
+				7463215F279ED9EA00560706 /* ChangePasswordViewModel.swift */,
+			);
+			path = "Change Password";
+			sourceTree = "<group>";
+		};
 		745B6805279D45BE00E0DA6E /* Setup Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,9 +201,19 @@
 		745B6818279E624400E0DA6E /* Account Info */ = {
 			isa = PBXGroup;
 			children = (
+				745B681D279E7AFA00E0DA6E /* cells */,
 				745B6819279E625400E0DA6E /* AccountInfoController.swift */,
+				745B6824279E809300E0DA6E /* AccountInfoViewModel.swift */,
 			);
 			path = "Account Info";
+			sourceTree = "<group>";
+		};
+		745B681D279E7AFA00E0DA6E /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				745B681E279E7B1D00E0DA6E /* AvatarCell.swift */,
+			);
+			path = cells;
 			sourceTree = "<group>";
 		};
 		7469FBF3278973FC0038F9B4 = {
@@ -268,6 +297,7 @@
 		747E149F278DAB1F0027A566 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				7429F2C1279ED05800F2854F /* Change Password */,
 				745B6818279E624400E0DA6E /* Account Info */,
 				745B680A279E205B00E0DA6E /* Profile */,
 				745B6805279D45BE00E0DA6E /* Setup Notification */,
@@ -291,6 +321,7 @@
 		747E14A0278DAB290027A566 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				745B6828279E80B500E0DA6E /* Avatar.swift */,
 				74B68696279BA75C0089C6F5 /* ServerError.swift */,
 				747E14DD278DC2E00027A566 /* Paging.swift */,
 				747E14DA278DC2DA0027A566 /* User.swift */,
@@ -669,8 +700,10 @@
 				747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */,
 				747E14B6278DACA70027A566 /* Utility.swift in Sources */,
 				74E341A92790DD2F003C1C89 /* JournalCell.swift in Sources */,
+				74632144279ED3AB00560706 /* ChangePasswordController.swift in Sources */,
 				74B686B6279BEB880089C6F5 /* TryPremiumController.swift in Sources */,
 				74B68697279BA75C0089C6F5 /* ServerError.swift in Sources */,
+				745B681F279E7B1D00E0DA6E /* AvatarCell.swift in Sources */,
 				747E155A278E40590027A566 /* LoginViewModel.swift in Sources */,
 				747E14AE278DAC9A0027A566 /* ResponseHandler.swift in Sources */,
 				74B686B1279BBCD20089C6F5 /* OnBoardingPageController.swift in Sources */,
@@ -680,12 +713,14 @@
 				74E3413F279050AD003C1C89 /* JournalPageController.swift in Sources */,
 				74DD1F45279387FE00655695 /* EntriesViewModel.swift in Sources */,
 				74E341B12790DDF5003C1C89 /* Journal.swift in Sources */,
+				74632160279ED9EA00560706 /* ChangePasswordViewModel.swift in Sources */,
 				7469FC00278973FD0038F9B4 /* AppDelegate.swift in Sources */,
 				74DD1F612793ED4A00655695 /* QuestionCell.swift in Sources */,
 				74B686A9279BB8890089C6F5 /* OnBoardingPage2Controller.swift in Sources */,
 				747E14F2278DE2D70027A566 /* SignUpController.swift in Sources */,
 				747E14B8278DACA70027A566 /* Global.swift in Sources */,
 				745B681A279E625400E0DA6E /* AccountInfoController.swift in Sources */,
+				745B6825279E809300E0DA6E /* AccountInfoViewModel.swift in Sources */,
 				74E341002790491B003C1C89 /* JournalController.swift in Sources */,
 				74E341382790500C003C1C89 /* PageController.swift in Sources */,
 				747E14DE278DC2E00027A566 /* Paging.swift in Sources */,
@@ -693,6 +728,7 @@
 				74E341D327910439003C1C89 /* TopicsController.swift in Sources */,
 				7469FC02278973FD0038F9B4 /* SceneDelegate.swift in Sources */,
 				746534DB2792AE4100E745A3 /* Answer.swift in Sources */,
+				745B6829279E80B500E0DA6E /* Avatar.swift in Sources */,
 				74B68692279BA1610089C6F5 /* ForgotPasswordConfirmationController.swift in Sources */,
 				747E14DB278DC2DA0027A566 /* User.swift in Sources */,
 				745B680C279E206800E0DA6E /* ProfileController.swift in Sources */,

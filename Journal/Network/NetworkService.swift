@@ -21,6 +21,10 @@ public enum NetworkService {
     
     case forgotPassword(params: [String: Any])
     
+    case updateProfile(params: [String: Any])
+    
+    case changePassword(params: [String: Any])
+    
     case logout
     
     // MARK: - Journal
@@ -36,6 +40,10 @@ public enum NetworkService {
     case myEntries
     
     case favorite(params: [String: Any])
+    
+    // MARK: - Avatar
+    
+    case getAvatars
     
 }
 
@@ -79,6 +87,12 @@ extension NetworkService: TargetType {
              
             case .myData:
                 return "me"
+            
+            case .changePassword:
+                return "change-password"
+                
+            case .updateProfile:
+                return "update-profile"
                 
             case .logout:
                 return "logout"
@@ -101,13 +115,18 @@ extension NetworkService: TargetType {
             case .favorite:
                 return "entry/favorite"
         
+            // MARK: - Avatar
+        
+            case .getAvatars:
+                return "avatar"
         }
     }
     
     public var method: Moya.Method {
         switch self {
         
-        case .register, .login, .myData, .forgotPassword, .saveAnswers
+        case .register, .login, .myData, .forgotPassword,
+             .changePassword, .updateProfile, .saveAnswers
              , .favorite:
                 return .post
                 
@@ -134,6 +153,8 @@ extension NetworkService: TargetType {
         case let .login(params: params),
              let .register(params: params),
              let .forgotPassword(params: params),
+             let .changePassword(params: params),
+             let .updateProfile(params: params),
              let .myData(params: params),
              let .saveAnswers(params: params),
              let .favorite(params: params):

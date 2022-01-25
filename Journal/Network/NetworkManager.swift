@@ -45,6 +45,21 @@ class NetworkManager: NSObject {
             .mapString()
     }
     
+    func changePassword(params: [String: Any]) -> Completable {
+        return provider.rx
+            .request(.changePassword(params: params))
+            .filterSuccessfulStatusAndRedirectCodes()
+            .asObservable()
+            .ignoreElements()
+    }
+    
+    func updateProfile(params: [String: Any]) -> Single<String> {
+        return provider.rx
+            .request(.updateProfile(params: params))
+            .filterSuccessfulStatusAndRedirectCodes()
+            .mapString()
+    }
+    
     func logout() -> Completable {
         return provider.rx
             .request(.logout)
@@ -86,6 +101,15 @@ class NetworkManager: NSObject {
             .filterSuccessfulStatusAndRedirectCodes()
             .asObservable()
             .ignoreElements()
+    }
+    
+    // MARK: - Avatar
+    
+    func getAvatars() -> Single<String> {
+        return provider.rx
+            .request(.getAvatars)
+            .filterSuccessfulStatusAndRedirectCodes()
+            .mapString()
     }
     
 }
