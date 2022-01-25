@@ -27,6 +27,8 @@ public enum NetworkService {
     
     case logout
     
+    case deleteAccount
+    
     // MARK: - Journal
     
     case getJournals
@@ -44,6 +46,10 @@ public enum NetworkService {
     // MARK: - Avatar
     
     case getAvatars
+    
+    // MARK: - User Journal
+    
+    case addUserJournal(params: [String: Any])
     
 }
 
@@ -96,6 +102,9 @@ extension NetworkService: TargetType {
                 
             case .logout:
                 return "logout"
+                
+            case .deleteAccount:
+                return "delete-account"
             
             // MARK: - Journal
         
@@ -119,6 +128,11 @@ extension NetworkService: TargetType {
         
             case .getAvatars:
                 return "avatar"
+                
+            // MARK: - User Journal
+            
+            case .addUserJournal:
+                return "user-journal"
         }
     }
     
@@ -127,7 +141,7 @@ extension NetworkService: TargetType {
         
         case .register, .login, .myData, .forgotPassword,
              .changePassword, .updateProfile, .saveAnswers
-             , .favorite:
+             , .favorite, .addUserJournal:
                 return .post
                 
             default:
@@ -157,7 +171,8 @@ extension NetworkService: TargetType {
              let .updateProfile(params: params),
              let .myData(params: params),
              let .saveAnswers(params: params),
-             let .favorite(params: params):
+             let .favorite(params: params),
+             let .addUserJournal(params: params):
             return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
             
         // MARK: - Form + list of images

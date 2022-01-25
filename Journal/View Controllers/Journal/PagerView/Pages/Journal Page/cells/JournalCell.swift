@@ -16,6 +16,8 @@ class JournalCell: UITableViewCell {
     
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var viewImgContainer: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

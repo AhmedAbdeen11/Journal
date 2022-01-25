@@ -75,6 +75,10 @@
 		74E341E8279120AC003C1C89 /* CreateJournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341E7279120AC003C1C89 /* CreateJournalController.swift */; };
 		74E341EC279131BF003C1C89 /* Hint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341EB279131BF003C1C89 /* Hint.swift */; };
 		74E341F027913A88003C1C89 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E341EF27913A88003C1C89 /* Question.swift */; };
+		74E8AF45279F81F200117622 /* NotificationsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8AF44279F81F200117622 /* NotificationsController.swift */; };
+		74E8AF4A279FB96000117622 /* AddJournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8AF49279FB96000117622 /* AddJournalController.swift */; };
+		74E8AF53279FD53900117622 /* AddJournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8AF52279FD53900117622 /* AddJournalViewModel.swift */; };
+		74E8AF56279FD7F400117622 /* UserJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8AF55279FD7F400117622 /* UserJournal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -147,6 +151,10 @@
 		74E341E7279120AC003C1C89 /* CreateJournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJournalController.swift; sourceTree = "<group>"; };
 		74E341EB279131BF003C1C89 /* Hint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hint.swift; sourceTree = "<group>"; };
 		74E341EF27913A88003C1C89 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
+		74E8AF44279F81F200117622 /* NotificationsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsController.swift; sourceTree = "<group>"; };
+		74E8AF49279FB96000117622 /* AddJournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalController.swift; sourceTree = "<group>"; };
+		74E8AF52279FD53900117622 /* AddJournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewModel.swift; sourceTree = "<group>"; };
+		74E8AF55279FD7F400117622 /* UserJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJournal.swift; sourceTree = "<group>"; };
 		DFFA38729BE09D22682E1BBE /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		E96D95DD42A5D61811B85296 /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
 		F1227341D1FF1295FE509ABF /* Pods_Journal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,6 +305,8 @@
 		747E149F278DAB1F0027A566 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				74E8AF48279FB95200117622 /* Add Journal */,
+				74E8AF43279F81DD00117622 /* Notifications */,
 				7429F2C1279ED05800F2854F /* Change Password */,
 				745B6818279E624400E0DA6E /* Account Info */,
 				745B680A279E205B00E0DA6E /* Profile */,
@@ -331,6 +341,7 @@
 				74E341EF27913A88003C1C89 /* Question.swift */,
 				746534DA2792AE4100E745A3 /* Answer.swift */,
 				74DD1F4D2793B51700655695 /* Entry.swift */,
+				74E8AF55279FD7F400117622 /* UserJournal.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -545,6 +556,23 @@
 			path = "Create Journal";
 			sourceTree = "<group>";
 		};
+		74E8AF43279F81DD00117622 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				74E8AF44279F81F200117622 /* NotificationsController.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		74E8AF48279FB95200117622 /* Add Journal */ = {
+			isa = PBXGroup;
+			children = (
+				74E8AF49279FB96000117622 /* AddJournalController.swift */,
+				74E8AF52279FD53900117622 /* AddJournalViewModel.swift */,
+			);
+			path = "Add Journal";
+			sourceTree = "<group>";
+		};
 		D0833B8FA369ECC9A4FF7D45 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +724,7 @@
 				74E34143279050C2003C1C89 /* EntriesPageController.swift in Sources */,
 				74DD1F4E2793B51700655695 /* Entry.swift in Sources */,
 				745B6807279D461300E0DA6E /* SetupNotificationController.swift in Sources */,
+				74E8AF53279FD53900117622 /* AddJournalViewModel.swift in Sources */,
 				74B686AC279BB89F0089C6F5 /* OnBoardingPage3Controller.swift in Sources */,
 				747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */,
 				747E14B6278DACA70027A566 /* Utility.swift in Sources */,
@@ -713,6 +742,7 @@
 				74E3413F279050AD003C1C89 /* JournalPageController.swift in Sources */,
 				74DD1F45279387FE00655695 /* EntriesViewModel.swift in Sources */,
 				74E341B12790DDF5003C1C89 /* Journal.swift in Sources */,
+				74E8AF45279F81F200117622 /* NotificationsController.swift in Sources */,
 				74632160279ED9EA00560706 /* ChangePasswordViewModel.swift in Sources */,
 				7469FC00278973FD0038F9B4 /* AppDelegate.swift in Sources */,
 				74DD1F612793ED4A00655695 /* QuestionCell.swift in Sources */,
@@ -724,8 +754,10 @@
 				74E341002790491B003C1C89 /* JournalController.swift in Sources */,
 				74E341382790500C003C1C89 /* PageController.swift in Sources */,
 				747E14DE278DC2E00027A566 /* Paging.swift in Sources */,
+				74E8AF56279FD7F400117622 /* UserJournal.swift in Sources */,
 				74E341D7279107C7003C1C89 /* Topic.swift in Sources */,
 				74E341D327910439003C1C89 /* TopicsController.swift in Sources */,
+				74E8AF4A279FB96000117622 /* AddJournalController.swift in Sources */,
 				7469FC02278973FD0038F9B4 /* SceneDelegate.swift in Sources */,
 				746534DB2792AE4100E745A3 /* Answer.swift in Sources */,
 				745B6829279E80B500E0DA6E /* Avatar.swift in Sources */,

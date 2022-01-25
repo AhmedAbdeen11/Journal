@@ -24,7 +24,9 @@ class EntriesPageController: UIViewController {
     
     @IBOutlet weak var textFieldSearch: UITextField!
     
-    @IBOutlet weak var fbFavorite: MDCFloatingButton!
+    @IBOutlet weak var viewFavorite: UIView!
+    
+    @IBOutlet weak var imageViewFavorite: UIImageView!
     
     @IBOutlet weak var tableViewEntries: UITableView!
     
@@ -54,19 +56,11 @@ class EntriesPageController: UIViewController {
     }
     
     private func initViews(){
-        fbFavorite.backgroundColor = UIColor.white
-        fbFavorite.setImage(#imageLiteral(resourceName: "ic_star_outline"), for: .normal)
+        viewFavorite.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 25)
+        viewFavorite.addShadow()
         
-        viewSearch.layer.cornerRadius = 25
-        
-        viewSearch.layer.shadowColor = UIColor.black.cgColor
-        viewSearch.layer.shadowOpacity = 0.2
-        viewSearch.layer.shadowOffset = .zero
-        viewSearch.layer.shadowRadius = 5
-//        viewSearch.layer.shadowPath = UIBezierPath(rect: viewSearch.bounds).cgPath
-        viewSearch.layer.shouldRasterize = true
-        viewSearch.layer.rasterizationScale = UIScreen.main.scale
-        
+        viewSearch.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 25)
+        viewSearch.addShadow()
         
         textFieldSearch.borderStyle = .none
     }
@@ -138,15 +132,29 @@ class EntriesPageController: UIViewController {
         var counter = 0
         
         for item in entries {
-            if(item.topic!.title!.lowercased().contains(query.lowercased())){
-                if(isFavoriteShown){
-                    if item.isFavorite! {
+            if item.entrableType == "UserJournal" {
+                if(item.journal!.title!.lowercased().contains(query.lowercased())){
+                    if(isFavoriteShown){
+                        if item.isFavorite! {
+                            formattedEntries.append(item)
+                        }
+                    }else{
                         formattedEntries.append(item)
                     }
-                }else{
-                    formattedEntries.append(item)
+                }
+            }else{
+                if(item.topic!.title!.lowercased().contains(query.lowercased())){
+                    if(isFavoriteShown){
+                        if item.isFavorite! {
+                            formattedEntries.append(item)
+                        }
+                    }else{
+                        formattedEntries.append(item)
+                    }
                 }
             }
+            
+            
             
             counter = counter + 1
         }
@@ -193,13 +201,13 @@ class EntriesPageController: UIViewController {
         if isFavoriteShown {
             isFavoriteShown = false
             formatEntries()
-            fbFavorite.backgroundColor = UIColor.white
-            fbFavorite.setImage(#imageLiteral(resourceName: "ic_star_outline"), for: .normal)
+            viewFavorite.backgroundColor = UIColor.white
+            imageViewFavorite.image = UIImage(named: "ic_star")
         }else{
             isFavoriteShown = true
             showFavorites()
-            fbFavorite.backgroundColor = UIColor(named: "Primary")
-            fbFavorite.setImage(#imageLiteral(resourceName: "ic_start_filled"), for: .normal)
+            viewFavorite.backgroundColor = UIColor(named: "Primary")
+            imageViewFavorite.image = UIImage(named: "ic_star_filled")
         }
     }
     
@@ -276,8 +284,17 @@ extension EntriesPageController: UITableViewDelegate, UITableViewDataSource {
          
             let cell = tableView.dequeueReusableCell(withIdentifier: "EntryCell", for: indexPath) as! EntryCell
             
-            cell.labelTitle.text = entryItem.topic?.title
-            cell.labelQuote.text = entryItem.topic?.quote
+            
+            if entryItem.entrableType == "UserJournal" {
+                cell.labelTitle.text = entryItem.journal?.title
+                cell.labelQuote.text = entryItem.journal?.text
+                
+            }else{
+                cell.labelTitle.text = entryItem.topic?.title
+                cell.labelQuote.text = entryItem.topic?.quote
+                
+            }
+            
             cell.labelDate.text = entryItem.dayMonth
             
             if entryItem.isFavorite ?? false {
@@ -295,6 +312,8 @@ extension EntriesPageController: UITableViewDelegate, UITableViewDataSource {
             cell.viewContainer.layer.shadowOffset = .zero
             cell.viewContainer.layer.shadowRadius = 10
          
+            cell.viewContainer.addShadow()
+            
             cell.selectionStyle = .none
             
             return cell
@@ -310,12 +329,22 @@ extension EntriesPageController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if (editingStyle == .delete) {
-            self.updateFavoriteOnServer(entryId: formattedEntries[indexPath.row].id!)
-            self.updateFavoriteWithId(id: formattedEntries[indexPath.row].id!, isFavorite: false)
-            formattedEntries.remove(at: indexPath.row)
-            tableViewEntries.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
+                self.updateFavoriteOnServer(entryId: self.formattedEntries[indexPath.row].id!)
+                self.updateFavoriteWithId(id: self.formattedEntries[indexPath.row].id!, isFavorite: false)
+                self.formattedEntries.remove(at: indexPath.row)
+                self.tableViewEntries.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+                    completionHandler(true)
+                }
+        deleteAction.image = UIGraphicsImageRenderer(size: CGSize(width: 50, height: 50)).image { _ in
+            UIImage(named: "delete_trash")?.draw(in: CGRect(x: 0, y: 0, width: 50, height: 50))
         }
+        deleteAction.backgroundColor = UIColor.init(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0)
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        return configuration
     }
     
 }

@@ -50,6 +50,7 @@ class MainController: UIViewController {
         
         viewModel = MainViewModel(context: self)
         initViews()
+        getCurrentUser()
         
     }
     
@@ -95,6 +96,30 @@ class MainController: UIViewController {
         }
     }
     
+    private func clearUserData(){
+        let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: "accessToken")
+
+        if removeSuccessful {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateInitialViewController()
+
+            if #available(iOS 13.0, *){
+                if let scene = UIApplication.shared.connectedScenes.first{
+                    guard let windowScene = (scene as? UIWindowScene) else { return }
+                    print(">>> windowScene: \(windowScene)")
+                    let window: UIWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
+                    window.windowScene = windowScene //Make sure to do this
+                    window.rootViewController = vc
+                    window.makeKeyAndVisible()
+                    appDelegate.window = window
+                }
+            } else {
+                appDelegate.window?.rootViewController = vc
+                appDelegate.window?.makeKeyAndVisible()
+            }
+        }
+    }
+    
     // MARK: - Actions
 
     @IBAction func didTapGotItBtn(_ sender: Any) {
@@ -114,6 +139,7 @@ class MainController: UIViewController {
         homeContainer.isHidden = false
         
         imageViewProfile.image = UIImage(named: "profile_outline")
+        imageViewJournal.image = UIImage(named: "journal")
     }
     
     @IBAction func didTapTheoryBtn(_ sender: Any) {
@@ -125,43 +151,31 @@ class MainController: UIViewController {
         homeContainer.isHidden = true
         
         imageViewProfile.image = UIImage(named: "profile_filled")
+        imageViewJournal.image = UIImage(named: "ic_journal_outlined")
         
     }
     
-    private func logout() {
-        
-        let confirmAlert = UIAlertController(title: "", message: "Are you sure you want to logout?", preferredStyle: UIAlertController.Style.alert)
-
-        confirmAlert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action: UIAlertAction!) in
-//            self.logoutUser()
-            self.clearUserData()
-        }))
-
-        confirmAlert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
-
-        present(confirmAlert, animated: true, completion: nil)
-        
-    }
+    // MARK: - Server Work
     
-    private func logoutUser(){
-        Utility.showProgressDialog(view: self.view)
-        viewModel.logout()
-            .subscribe(onCompleted: {
-                Utility.hideProgressDialog(view: self.view)
+    private func getCurrentUser(){
+        
+        let deviceId = UIDevice.current.identifierForVendor?.uuidString
+        
+//        Utility.showProgressDialog(view: self.view)
+        
+        let params: [String: Any] =
+            [
+             "device_id": (deviceId ?? "ios_device"),
+             "notification_token": "notificationToken"]
+        
+        viewModel.getCurrentUser(params: params)
+            .subscribe(onSuccess: { user in
+                Global.sharedInstance.userData = user
+            }, onError: { error in
                 self.clearUserData()
-            }) { (error) in
-        }
+            })
         .disposed(by: disposeBag)
     }
-    
-    private func clearUserData(){
-        let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: "accessToken")
-
-        if removeSuccessful {
-            Utility.openLogin()
-        }
-    }
-    
     
 }
 

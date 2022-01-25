@@ -9,6 +9,7 @@ import UIKit
 import RxSwift
 import MessageUI
 import LocalAuthentication
+import SwiftKeychainWrapper
 
 class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
 
@@ -58,7 +59,12 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
     }
 
     private func initViews(){
-        viewHeader.addShadow()
+        viewHeader.layer.shadowColor = UIColor.black.cgColor
+        viewHeader.layer.shadowOpacity = 0.1
+        viewHeader.layer.shadowOffset = CGSize(width: 0, height: 4)
+        viewHeader.layer.shadowRadius = 3
+        viewHeader.layer.shouldRasterize = true
+        viewHeader.layer.rasterizationScale = UIScreen.main.scale
         
         viewBackground.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 15)
         viewBackground.addShadow()
@@ -143,6 +149,30 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
           }
     }
     
+    private func clearUserData(){
+        let removeSuccessful: Bool = KeychainWrapper.standard.removeObject(forKey: "accessToken")
+
+        if removeSuccessful {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let vc = UIStoryboard(name: "Authentication", bundle: nil).instantiateInitialViewController()
+
+            if #available(iOS 13.0, *){
+                if let scene = UIApplication.shared.connectedScenes.first{
+                    guard let windowScene = (scene as? UIWindowScene) else { return }
+                    print(">>> windowScene: \(windowScene)")
+                    let window: UIWindow = UIWindow(frame: windowScene.coordinateSpace.bounds)
+                    window.windowScene = windowScene //Make sure to do this
+                    window.rootViewController = vc
+                    window.makeKeyAndVisible()
+                    appDelegate.window = window
+                }
+            } else {
+                appDelegate.window?.rootViewController = vc
+                appDelegate.window?.makeKeyAndVisible()
+            }
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func didTapBtnRate(_ sender: Any) {
@@ -180,7 +210,7 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
             
         }
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         
         //==================Ipad case================//
         if let popoverController = alert.popoverPresentationController {
@@ -216,7 +246,7 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
             
         }
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("cancel", comment: ""), style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         
         //==================Ipad case================//
         if let popoverController = alert.popoverPresentationController {
@@ -269,6 +299,96 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
     }
     
     
+    @IBAction func didTapBtnHelpAndSupport(_ sender: Any) {
+        
+        let subject = "Help and Support for Stoic Nature"
+        
+        let alert = UIAlertController(title: "Open mail app", message: "Which app would you like to open", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Mail", style: .default, handler: { (action) in
+            
+            self.openMail(subject: subject)
+            
+        }))
+        
+        if UIApplication.shared.canOpenURL(NSURL(string: "googlegmail:///")! as URL) {
+            
+            alert.addAction(UIAlertAction(title: "Gmail", style: .default, handler: { (action) in
+                
+                self.openGmail(subject: "Help%20and%20Support%20for%20Stoic%20Nature")
+            }))
+            
+        }
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        
+        //==================Ipad case================//
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        //===========================================//
+        
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
+    
+    @IBAction func didTapBtnLogout(_ sender: Any) {
+
+        let alert = UIAlertController(title: "Are you sure you want to log out of", message: "\(Global.sharedInstance.userData!.email!)", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Logout", style: .destructive, handler: { (action) in
+            
+            self.logout()
+            
+        }))
+        
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        
+        //==================Ipad case================//
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        //===========================================//
+        
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func didTapDeleteAccount(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Are you sure you want to delete your account?", message: "Stoic Nature will remove all of your data. This action cannont be undone.", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (action) in
+            
+            self.deleteAccount()
+            
+        }))
+        
+        
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        
+        //==================Ipad case================//
+        if let popoverController = alert.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        //===========================================//
+        
+        
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    
     // MARK: - Server Work
     
     private func getProfile(){
@@ -292,8 +412,29 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
         .disposed(by: disposeBag)
     }
     
+    private func logout(){
+        Utility.showProgressDialog(view: self.view)
+        viewModel.logout()
+            .subscribe(onCompleted: {
+                self.clearUserData()
+                Utility.hideProgressDialog(view: self.view)
+            }, onError: { error in
+                
+            })
+        .disposed(by: disposeBag)
+    }
     
-    
+    private func deleteAccount(){
+        Utility.showProgressDialog(view: self.view)
+        viewModel.deleteAccount()
+            .subscribe(onCompleted: {
+                self.clearUserData()
+                Utility.hideProgressDialog(view: self.view)
+            }, onError: { error in
+                
+            })
+        .disposed(by: disposeBag)
+    }
     
     // MARK: - Navigation
 

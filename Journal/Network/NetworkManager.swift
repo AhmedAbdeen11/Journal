@@ -68,6 +68,14 @@ class NetworkManager: NSObject {
             .ignoreElements()
     }
     
+    func deleteAccount() -> Completable {
+        return provider.rx
+            .request(.deleteAccount)
+            .filterSuccessfulStatusAndRedirectCodes()
+            .asObservable()
+            .ignoreElements()
+    }
+    
     // MARK: - Journal
     
     func getJournals() -> Single<String> {
@@ -110,6 +118,16 @@ class NetworkManager: NSObject {
             .request(.getAvatars)
             .filterSuccessfulStatusAndRedirectCodes()
             .mapString()
+    }
+    
+    // MARK: - User Journal
+    
+    func addUserJournal(params: [String: Any]) -> Completable {
+        return provider.rx
+            .request(.addUserJournal(params: params))
+            .filterSuccessfulStatusAndRedirectCodes()
+            .asObservable()
+            .ignoreElements()
     }
     
 }

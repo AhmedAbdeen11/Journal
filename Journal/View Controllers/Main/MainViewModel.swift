@@ -19,18 +19,20 @@ class MainViewModel {
         self.context = context
     }
     
-    func logout() -> Completable {
+    func getCurrentUser(params: [String: Any]) -> Single<User> {
         
         return .create (subscribe: { observer in
             
-            self.provider.logout()
-                .subscribe(onCompleted: {
-                    
-                    observer(.completed)
+          self.provider.getCurrentUser(params: params)
+                .subscribe(onSuccess: { serverResponse in
+                  
+                  let serverModel = BaseResponseObject<User>(JSONString: serverResponse)
+                  
+                  observer(.success((serverModel?.data)!))
                     
                 }, onError: { error in
                     
-                    ResponseHandler.showResponseError(context: self.context, error: error)
+                    observer(.error(error))
                     
                 })
         })

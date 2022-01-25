@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SVProgressHUD
+import Reachability
 
 class Utility {
     
@@ -76,5 +77,6 @@ class Utility {
         
         return true
     }*/
+
     
 }

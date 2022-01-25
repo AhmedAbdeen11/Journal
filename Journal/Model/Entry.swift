@@ -10,7 +10,10 @@ struct Entry : Mappable {
     var dayMonthYear: String?
     var time: String?
     var isFavorite: Bool?
+    var entrableId: Int?
+    var entrableType: String?
     var topic: Topic?
+    var journal: UserJournal?
 
     init?() {
 
@@ -29,7 +32,10 @@ struct Entry : Mappable {
         dayMonthYear <- map["day_month_year"]
         time <- map["time"]
         isFavorite <- map["is_favorite"]
+        entrableId <- map["entrable_id"]
+        entrableType <- map["entrable_type"]
         topic <- map["topic"]
+        journal <- map["journal"]
         
     }
 

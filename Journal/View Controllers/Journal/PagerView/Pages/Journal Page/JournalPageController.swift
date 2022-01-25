@@ -34,6 +34,7 @@ class JournalPageController: UIViewController {
     
     @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var viewAddJournal: UIView!
     
     // MARK: - Variables
     
@@ -74,6 +75,9 @@ class JournalPageController: UIViewController {
         viewSubEnday.roundCorners([.bottomLeft, .bottomRight], radius: 10)
         
         viewEntrySaved.layer.cornerRadius = 15
+        
+        viewAddJournal.layer.cornerRadius = 39
+        viewAddJournal.addShadow()
     }
     
     func showViewEntrySaved(){
@@ -112,6 +116,9 @@ class JournalPageController: UIViewController {
         self.performSegue(withIdentifier: "ShowTopicQuoteController", sender: endDayJournal)
     }
     
+    @IBAction func didTapBtnAddJournal(_ sender: Any) {
+        
+    }
     
     
     //MARK: - Server Work
@@ -150,6 +157,11 @@ class JournalPageController: UIViewController {
             topicQuoteController.topic = (sender as? Journal)?.topics![0]
             topicQuoteController.journalPageController = self
         }
+        
+        if segue.identifier == "ShowAddJournalSegue" {
+            let addJournalController = segue.destination as! AddJournalController
+            addJournalController.journalPageController = self
+        }
     }
     
 
@@ -177,15 +189,19 @@ extension JournalPageController: UITableViewDelegate, UITableViewDataSource {
         
         cell.title.text = journal.title
         
-        cell.containerView.layer.cornerRadius = 10
-        cell.containerView.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
-        cell.containerView.layer.borderWidth = 1
+        cell.containerView.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 10)
+        cell.containerView.addShadow()
         
-        cell.containerView.layer.shadowColor = UIColor(rgb: 0xD1D7DC).cgColor
-        cell.containerView.layer.shadowOpacity = 0.5
-        cell.containerView.layer.shadowOffset = .zero
-        cell.containerView.layer.shadowRadius = 10
+        let path = UIBezierPath(roundedRect:cell.viewImgContainer.bounds,
+                                byRoundingCorners:[.topLeft, .bottomLeft],
+                                cornerRadii: CGSize(width: 10, height:  10))
+
+        let maskLayer = CAShapeLayer()
+
+        maskLayer.path = path.cgPath
+        cell.viewImgContainer.layer.mask = maskLayer
         
+        cell.backgroundColor = .clear
         cell.selectionStyle = .none
         
         return cell
