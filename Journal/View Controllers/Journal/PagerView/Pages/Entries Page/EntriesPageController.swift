@@ -180,6 +180,12 @@ class EntriesPageController: UIViewController {
             viewEntryController.entry = sender as? Entry
             viewEntryController.entriesPageController = self
         }
+        
+        if segue.identifier == "ShowViewJournalSegue" {
+            let viewJournalController = segue.destination as! ViewJournalController
+            viewJournalController.entry = sender as? Entry
+            viewJournalController.entriesPageController = self
+        }
     }
     
     // MARK: - Actions
@@ -258,7 +264,11 @@ extension EntriesPageController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if formattedEntries[indexPath.row].id != nil {
         
-            performSegue(withIdentifier: "ShowViewEntrySegue", sender: formattedEntries[indexPath.row])
+            if formattedEntries[indexPath.row].entrableType == "UserJournal" {
+                performSegue(withIdentifier: "ShowViewJournalSegue", sender: formattedEntries[indexPath.row])
+            }else{
+                performSegue(withIdentifier: "ShowViewEntrySegue", sender: formattedEntries[indexPath.row])
+            }
             
         }
         

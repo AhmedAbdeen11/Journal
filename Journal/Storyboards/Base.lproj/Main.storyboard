@@ -1091,6 +1091,7 @@
                         <outlet property="viewFavorite" destination="ISF-DR-866" id="vlP-fm-c79"/>
                         <outlet property="viewSearch" destination="N2l-nk-cPK" id="QHL-jW-ya7"/>
                         <segue destination="Wzr-sB-fMg" kind="presentation" identifier="ShowViewEntrySegue" modalPresentationStyle="fullScreen" id="VVp-57-inc"/>
+                        <segue destination="sHe-PD-sHy" kind="presentation" identifier="ShowViewJournalSegue" modalPresentationStyle="fullScreen" id="59i-X0-lZR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEI-zW-OCJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1105,7 +1106,15 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NnG-is-NQX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3357" y="301"/>
+            <point key="canvasLocation" x="3386" y="286"/>
+        </scene>
+        <!--ViewJournalController-->
+        <scene sceneID="Ohr-1y-cgT">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ViewJournalController" storyboardName="EntriesFlow" referencedIdentifier="ViewJournalController" id="sHe-PD-sHy" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dwn-nu-AaB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3392" y="402"/>
         </scene>
         <!--Add Journal Controller-->
         <scene sceneID="eCk-LU-jbc">

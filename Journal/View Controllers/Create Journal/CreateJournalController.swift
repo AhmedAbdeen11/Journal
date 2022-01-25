@@ -19,15 +19,15 @@ class CreateJournalController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var fbClose: MDCFloatingButton!
+    @IBOutlet weak var viewClose: UIView!
     
     @IBOutlet weak var progressView: UIProgressView!
     
     @IBOutlet weak var labelInfo: UILabel!
     
-    @IBOutlet weak var fbNext: MDCFloatingButton!
+    @IBOutlet weak var viewNext: UIView!
     
-    @IBOutlet weak var fbBack: MDCFloatingButton!
+    @IBOutlet weak var viewBack: UIView!
     
     @IBOutlet weak var viewHint: UIView!
     
@@ -46,6 +46,12 @@ class CreateJournalController: UIViewController {
     @IBOutlet weak var btnSaveToFavorites: MDCButton!
     
     @IBOutlet weak var btnFinishJournal: MDCButton!
+    
+    @IBOutlet weak var imageViewBack: UIImageView!
+    
+    @IBOutlet weak var imageViewNext: UIImageView!
+    
+    @IBOutlet weak var constraintBottomImageNext: NSLayoutConstraint!
     
     // MARK: - Variables
     
@@ -68,6 +74,10 @@ class CreateJournalController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         viewModel = CreateJournalViewModel(context: self)
         initViews()
         setData()
@@ -79,14 +89,14 @@ class CreateJournalController: UIViewController {
     }
     
     private func initViews(){
-        fbClose.backgroundColor = UIColor.white
-        fbClose.setImage(#imageLiteral(resourceName: "big_x"), for: .normal)
+        viewClose.layer.cornerRadius = 25
+        viewClose.addShadow()
         
-        fbBack.backgroundColor = UIColor.white
-        fbBack.setImage(#imageLiteral(resourceName: "ic_back"), for: .normal)
+        viewBack.layer.cornerRadius = 25
+        viewBack.addShadow()
         
-        fbNext.backgroundColor = UIColor(named: "Primary")
-        fbNext.setImage(#imageLiteral(resourceName: "ic_forward"), for: .normal)
+        viewNext.layer.cornerRadius = 32.5
+        viewNext.addShadow()
         
         //Final Container
         
@@ -147,13 +157,14 @@ class CreateJournalController: UIViewController {
     private func showBeforeHint(position: Int){
         viewHint.isHidden = false
         viewQuestion.isHidden = true
-        fbNext.isHidden = false
+        viewNext.isHidden = false
+        viewClose.isHidden = false
         finalViewContainer.isHidden = true
-        fbNext.setImage(#imageLiteral(resourceName: "ic_forward"), for: .normal)
+        imageViewNext.image = UIImage(named: "ic_arrow")
         if position == 0 {
-            fbBack.isHidden = true
+            viewBack.isHidden = true
         }else{
-            fbBack.isHidden = false
+            viewBack.isHidden = false
         }
         
         labelInfo.text = topic.beforeHints![position].title
@@ -164,9 +175,10 @@ class CreateJournalController: UIViewController {
         viewHint.isHidden = true
         finalViewContainer.isHidden = true
         viewQuestion.isHidden = false
-        fbNext.isHidden = false
-        fbBack.isHidden = false
-        fbNext.setImage(#imageLiteral(resourceName: "checkmark"), for: .normal)
+        viewNext.isHidden = false
+        viewBack.isHidden = false
+        viewClose.isHidden = false
+        imageViewNext.image = UIImage(named: "checkmark")
         
         textViewUserInput.text = topic.questions![position].answer?.answer ?? ""
         labelQuestionTitle.text = topic.questions![position].question
@@ -177,22 +189,23 @@ class CreateJournalController: UIViewController {
     private func showAfterHint(position: Int){
         viewHint.isHidden = false
         viewQuestion.isHidden = true
-        fbNext.isHidden = false
+        viewNext.isHidden = false
         finalViewContainer.isHidden = true
-        fbBack.isHidden = false
-        fbNext.setImage(#imageLiteral(resourceName: "ic_forward"), for: .normal)
+        viewBack.isHidden = false
+        viewClose.isHidden = false
+        imageViewNext.image = UIImage(named: "ic_arrow")
         
         labelInfo.text = topic.afterHints![position].title
         progressView.setProgress(Float(counter)/Float(layouts.count), animated: true)
     }
     
     private func showFinalView(){
-        fbClose.isHidden = true
+        viewClose.isHidden = true
         viewHint.isHidden = true
         viewQuestion.isHidden = true
-        fbNext.isHidden = true
+        viewNext.isHidden = true
         finalViewContainer.isHidden = false
-        fbBack.isHidden = false
+        viewBack.isHidden = false
         
         progressView.setProgress(1, animated: true)
     }
@@ -234,6 +247,23 @@ class CreateJournalController: UIViewController {
     private func saveAnswer(questionPosition: Int){
         topic.questions![questionPosition].answer?.answer = textViewUserInput.text
         textViewUserInput.text = ""
+    }
+    
+    @objc private func keyboardWillShow(notification: NSNotification) {
+        
+        let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
+        
+        print(self.constraintBottomImageNext.constant)
+        print(keyboardSize.height)
+        
+        self.constraintBottomImageNext.constant = 10 + keyboardSize.height
+        
+    }
+
+    @objc private func keyboardWillHide(notification: NSNotification) {
+        let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
+        
+        self.constraintBottomImageNext.constant = 30
     }
     
     // MARK: - Actions

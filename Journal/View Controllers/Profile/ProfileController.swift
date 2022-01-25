@@ -49,6 +49,7 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
     @IBOutlet weak var switchFaceId: UISwitch!
     
     
+    
     // MARK: - View Methods
     
     override func viewDidLoad() {

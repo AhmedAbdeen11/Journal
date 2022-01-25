@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "ic_end_your_day_right.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -114,13 +114,26 @@ class TopicQuoteController: UIViewController {
     private func setData(){
         labelTitle.text = topic.title
         
-        if topic.subtitle != nil || !topic.subtitle!.isEmpty {
+        if topic.subtitle != nil && !topic.subtitle!.isEmpty {
             labelSubtitle.text = "(\(topic.subtitle!))"
         }
         
         labelQuotee.text = topic.quotee
         labelQuote.text = "\"\(topic.quote!)\""
         labelQuoteDescription.text = topic.description
+        
+        if topic.title !=  "Start the Day" && topic.title !=  "End the Day" {
+            viewNotification.isHidden = true
+            viewHighlight.isHidden = true
+        }else{
+            
+            let standard = UserDefaults.standard
+            
+            if standard.bool(forKey: "isNotificationOpened") {
+                viewHighlight.isHidden = true
+            }
+            
+        }
     }
     
     // MARK: - Actions
@@ -139,6 +152,15 @@ class TopicQuoteController: UIViewController {
     }
     
     @IBAction func didTapNotifications(_ sender: Any) {
+        
+        viewHighlight.isHidden = true
+        
+        if topic.title == "Start the Day" {
+            self.performSegue(withIdentifier: "ShowDayNotificationSegue", sender: nil)
+        }else {
+            self.performSegue(withIdentifier: "ShowNightNotificationSegue", sender: nil)
+        }
+        
     }
     
     

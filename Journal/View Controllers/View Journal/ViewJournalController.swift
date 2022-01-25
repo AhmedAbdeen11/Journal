@@ -1,16 +1,14 @@
 //
-//  ViewEntryController.swift
+//  ViewJournalController.swift
 //  Journal
 //
-//  Created by Abdeen on 1/16/22.
+//  Created by Abdeen on 1/25/22.
 //
 
 import UIKit
 import RxSwift
-import MaterialComponents
-import SDWebImage
 
-class ViewEntryController: UIViewController {
+class ViewJournalController: UIViewController {
 
     // MARK: - View Model
     
@@ -37,13 +35,15 @@ class ViewEntryController: UIViewController {
     
     @IBOutlet weak var imageViewFavorite: UIImageView!
     
+    @IBOutlet weak var labelText: UILabel!
+    
+    @IBOutlet weak var textView: UIView!
+    
     // MARK: - Variables
     
     var entriesPageController: EntriesPageController!
     
     var entry: Entry!
-    
-    @IBOutlet weak var viewTest: UIView!
     
     // MARK: - View Methods
     
@@ -59,7 +59,7 @@ class ViewEntryController: UIViewController {
         viewContainer.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 50)
         viewContainer.addShadow()
         
-        viewTest.layer.cornerRadius = 50
+        textView.layer.cornerRadius = 50
         
         if entry.isFavorite! {
             viewFavorite.backgroundColor = UIColor(named: "Primary")
@@ -84,7 +84,8 @@ class ViewEntryController: UIViewController {
     private func setData(){
         labelDate.text = entry.dayMonthYear
         labelTime.text = entry.time
-        labelTitle.text = entry.topic?.title
+        labelTitle.text = entry.journal?.title
+        labelText.text = entry.journal?.text
     }
     
     private func showDeleteDialog(){
@@ -193,30 +194,4 @@ class ViewEntryController: UIViewController {
     }
     */
 
-}
-
-//MARK: - Extensions
-
-extension ViewEntryController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return entry.topic!.questions!.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let question = self.entry.topic!.questions![indexPath.row]
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell", for: indexPath) as! QuestionCell
-        
-        cell.labelQuestion.text = question.question
-        cell.labelAnswer.text = question.answer?.answer
-        
-        cell.selectionStyle = .none
-        cell.backgroundColor = UIColor.clear
-        
-        
-        return cell
-    }
-    
 }

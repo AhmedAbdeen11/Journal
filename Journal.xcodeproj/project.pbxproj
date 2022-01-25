@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		745B6807279D461300E0DA6E /* SetupNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B6806279D461200E0DA6E /* SetupNotificationController.swift */; };
+		745B6807279D461300E0DA6E /* SetupDayNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B6806279D461200E0DA6E /* SetupDayNotificationController.swift */; };
 		745B680C279E206800E0DA6E /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B680B279E206800E0DA6E /* ProfileController.swift */; };
 		745B6810279E4A6500E0DA6E /* ProfileControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745B680F279E4A6500E0DA6E /* ProfileControllerViewModel.swift */; };
 		745B6815279E5DE600E0DA6E /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745B6814279E5DE600E0DA6E /* Profile.storyboard */; };
@@ -80,10 +80,13 @@
 		74E8AF53279FD53900117622 /* AddJournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8AF52279FD53900117622 /* AddJournalViewModel.swift */; };
 		74E8AF56279FD7F400117622 /* UserJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8AF55279FD7F400117622 /* UserJournal.swift */; };
 		74E8AF59279FF7DB00117622 /* ViewEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8AF58279FF7DB00117622 /* ViewEntryViewModel.swift */; };
+		74E8AF5D279FFBE800117622 /* ViewJournalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8AF5C279FFBE800117622 /* ViewJournalController.swift */; };
+		74E8AF61279FFBFE00117622 /* ViewJournalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8AF60279FFBFE00117622 /* ViewJournalViewModel.swift */; };
+		74E8AF6527A02E8D00117622 /* SetupNightNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E8AF6427A02E8D00117622 /* SetupNightNotificationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		745B6806279D461200E0DA6E /* SetupNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNotificationController.swift; sourceTree = "<group>"; };
+		745B6806279D461200E0DA6E /* SetupDayNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupDayNotificationController.swift; sourceTree = "<group>"; };
 		745B680B279E206800E0DA6E /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		745B680F279E4A6500E0DA6E /* ProfileControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileControllerViewModel.swift; sourceTree = "<group>"; };
 		745B6814279E5DE600E0DA6E /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
@@ -157,6 +160,9 @@
 		74E8AF52279FD53900117622 /* AddJournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJournalViewModel.swift; sourceTree = "<group>"; };
 		74E8AF55279FD7F400117622 /* UserJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserJournal.swift; sourceTree = "<group>"; };
 		74E8AF58279FF7DB00117622 /* ViewEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewEntryViewModel.swift; sourceTree = "<group>"; };
+		74E8AF5C279FFBE800117622 /* ViewJournalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJournalController.swift; sourceTree = "<group>"; };
+		74E8AF60279FFBFE00117622 /* ViewJournalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewJournalViewModel.swift; sourceTree = "<group>"; };
+		74E8AF6427A02E8D00117622 /* SetupNightNotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupNightNotificationController.swift; sourceTree = "<group>"; };
 		DFFA38729BE09D22682E1BBE /* Pods-Journal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.debug.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.debug.xcconfig"; sourceTree = "<group>"; };
 		E96D95DD42A5D61811B85296 /* Pods-Journal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Journal.release.xcconfig"; path = "Target Support Files/Pods-Journal/Pods-Journal.release.xcconfig"; sourceTree = "<group>"; };
 		F1227341D1FF1295FE509ABF /* Pods_Journal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,7 +200,8 @@
 		745B6805279D45BE00E0DA6E /* Setup Notification */ = {
 			isa = PBXGroup;
 			children = (
-				745B6806279D461200E0DA6E /* SetupNotificationController.swift */,
+				745B6806279D461200E0DA6E /* SetupDayNotificationController.swift */,
+				74E8AF6427A02E8D00117622 /* SetupNightNotificationController.swift */,
 			);
 			path = "Setup Notification";
 			sourceTree = "<group>";
@@ -307,6 +314,7 @@
 		747E149F278DAB1F0027A566 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				74E8AF5B279FFBBF00117622 /* View Journal */,
 				74E8AF48279FB95200117622 /* Add Journal */,
 				74E8AF43279F81DD00117622 /* Notifications */,
 				7429F2C1279ED05800F2854F /* Change Password */,
@@ -576,6 +584,15 @@
 			path = "Add Journal";
 			sourceTree = "<group>";
 		};
+		74E8AF5B279FFBBF00117622 /* View Journal */ = {
+			isa = PBXGroup;
+			children = (
+				74E8AF5C279FFBE800117622 /* ViewJournalController.swift */,
+				74E8AF60279FFBFE00117622 /* ViewJournalViewModel.swift */,
+			);
+			path = "View Journal";
+			sourceTree = "<group>";
+		};
 		D0833B8FA369ECC9A4FF7D45 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -714,6 +731,7 @@
 				74E341E8279120AC003C1C89 /* CreateJournalController.swift in Sources */,
 				747E14B0278DAC9A0027A566 /* ServerResponse.swift in Sources */,
 				7469FC04278973FD0038F9B4 /* MainController.swift in Sources */,
+				74E8AF61279FFBFE00117622 /* ViewJournalViewModel.swift in Sources */,
 				74DD1F532793BBC900655695 /* EntryCell.swift in Sources */,
 				74E341F027913A88003C1C89 /* Question.swift in Sources */,
 				74E341DC27910AA3003C1C89 /* TopicCell.swift in Sources */,
@@ -721,12 +739,13 @@
 				747E154E278DF82F0027A566 /* LoginController.swift in Sources */,
 				745B6810279E4A6500E0DA6E /* ProfileControllerViewModel.swift in Sources */,
 				746534E02792C7D000E745A3 /* CreateJournalViewModel.swift in Sources */,
+				74E8AF5D279FFBE800117622 /* ViewJournalController.swift in Sources */,
 				74E341AD2790DDD7003C1C89 /* JournalPageViewModel.swift in Sources */,
 				74DD1F7D2794339600655695 /* MainViewModel.swift in Sources */,
 				74DD1F5D2793E9AE00655695 /* ViewEntryController.swift in Sources */,
 				74E34143279050C2003C1C89 /* EntriesPageController.swift in Sources */,
 				74DD1F4E2793B51700655695 /* Entry.swift in Sources */,
-				745B6807279D461300E0DA6E /* SetupNotificationController.swift in Sources */,
+				745B6807279D461300E0DA6E /* SetupDayNotificationController.swift in Sources */,
 				74E8AF53279FD53900117622 /* AddJournalViewModel.swift in Sources */,
 				74B686AC279BB89F0089C6F5 /* OnBoardingPage3Controller.swift in Sources */,
 				747E14B1278DAC9A0027A566 /* NetworkManager.swift in Sources */,
@@ -758,6 +777,7 @@
 				74E341382790500C003C1C89 /* PageController.swift in Sources */,
 				747E14DE278DC2E00027A566 /* Paging.swift in Sources */,
 				74E8AF56279FD7F400117622 /* UserJournal.swift in Sources */,
+				74E8AF6527A02E8D00117622 /* SetupNightNotificationController.swift in Sources */,
 				74E341D7279107C7003C1C89 /* Topic.swift in Sources */,
 				74E341D327910439003C1C89 /* TopicsController.swift in Sources */,
 				74E8AF4A279FB96000117622 /* AddJournalController.swift in Sources */,

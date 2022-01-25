@@ -17,4 +17,7 @@ class TopicCell: UICollectionViewCell {
     
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var subView: UIView!
+    
+    
 }

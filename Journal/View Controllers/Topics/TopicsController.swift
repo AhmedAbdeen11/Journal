@@ -16,13 +16,15 @@ class TopicsController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var fbClose: MDCFloatingButton!
+    @IBOutlet weak var viewClose: UIView!
     
     @IBOutlet weak var labelJournalTitle: UILabel!
     
     @IBOutlet weak var labelJournalSubtitle: UILabel!
     
     @IBOutlet weak var collectionViewTopics: UICollectionView!
+    
+    @IBOutlet weak var subViewContainer: UIView!
     
     // MARK: - Variables
     
@@ -40,8 +42,8 @@ class TopicsController: UIViewController {
     }
     
     private func initViews(){
-        fbClose.backgroundColor = UIColor(named: "Primary")
-        fbClose.setImage(#imageLiteral(resourceName: "close"), for: .normal)
+        viewClose.layer.cornerRadius = 25
+        viewClose.addShadow()
     }
     
     private func setData(){
@@ -92,9 +94,9 @@ extension TopicsController: UICollectionViewDelegate, UICollectionViewDataSource
         
         cell.title.text = topic.title
         
-        if topic.subtitle != nil && topic.subtitle!.isEmpty {
+        if topic.subtitle != nil && !topic.subtitle!.isEmpty {
         
-            cell.subTitle.text = topic.subtitle
+            cell.subTitle.text = "(\(topic.subtitle!))"
             cell.subTitle.isHidden = false
             
         }else{
@@ -103,14 +105,12 @@ extension TopicsController: UICollectionViewDelegate, UICollectionViewDataSource
         }
         
         
-        cell.containerView.layer.cornerRadius = 10
-        cell.containerView.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
-        cell.containerView.layer.borderWidth = 1
+        cell.containerView.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 10)
+        cell.containerView.addShadow()
         
-        cell.containerView.layer.shadowColor = UIColor(rgb: 0xD1D7DC).cgColor
-        cell.containerView.layer.shadowOpacity = 1
-        cell.containerView.layer.shadowOffset = .zero
-        cell.containerView.layer.shadowRadius = 10
+        cell.subView.layer.cornerRadius = 10
+        
+        cell.backgroundColor = .clear
         
         return cell
         
@@ -125,12 +125,12 @@ extension TopicsController: UICollectionViewDelegate, UICollectionViewDataSource
     //To make this work. You have to make Estimate size = none for collection view in storyboard
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let height = 200
+        let height = 225
         
         if indexPath.row == 0 {
             return CGSize(width: collectionView.bounds.size.width, height: CGFloat(height))
         }else{
-            return CGSize(width: (collectionView.bounds.size.width / 2) - 5, height: CGFloat(height))
+            return CGSize(width: (collectionView.bounds.size.width / 2) - 10, height: CGFloat(height))
         }
         
     }

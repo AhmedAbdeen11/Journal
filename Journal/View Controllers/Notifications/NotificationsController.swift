@@ -13,11 +13,17 @@ class NotificationsController: UIViewController {
     
     @IBOutlet weak var viewStacksContainer: UIView!
     
+    @IBOutlet weak var dayTime: UILabel!
+    
+    @IBOutlet weak var nightTime: UILabel!
+    
+    let standard = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initViews()
+        setData()
     }
     
     private func initViews(){
@@ -26,6 +32,38 @@ class NotificationsController: UIViewController {
         
         viewStacksContainer.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 15)
         viewStacksContainer.addShadow()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setData()
+    }
+    
+    private func setData(){
+        
+        let dt = standard.string(forKey: "start_your_day_time")
+        
+        if dt != nil && !dt!.isEmpty {
+        
+            dayTime.text = dt
+            
+        }else{
+            dayTime.text = "09:00am"
+        }
+        
+        
+        //=======================================================/
+        
+        
+        let et = standard.string(forKey: "end_your_day_time")
+        
+        if et != nil && !et!.isEmpty {
+        
+            nightTime.text = et
+            
+        }else{
+            nightTime.text = "10:00pm"
+        }
+         
     }
     
     @IBAction func didTapBtnBack(_ sender: Any) {

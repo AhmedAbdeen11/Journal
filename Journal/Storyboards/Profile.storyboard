@@ -1645,8 +1645,8 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7ah-Cz-V9P">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="72.5"/>
                                                                 <connections>
-                                                                    <action selector="didTapBtnBack:" destination="Eah-iK-7L7" eventType="touchUpInside" id="rS5-Ty-azx"/>
                                                                     <action selector="didTapbtnStartTheDay:" destination="Eah-iK-7L7" eventType="touchUpInside" id="ch2-ln-g34"/>
+                                                                    <segue destination="HTa-eq-ki7" kind="presentation" modalPresentationStyle="fullScreen" id="e4B-sJ-ty3"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1703,8 +1703,8 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfE-fF-ohk">
                                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="72.5"/>
                                                                 <connections>
-                                                                    <action selector="didTapBtnBack:" destination="Eah-iK-7L7" eventType="touchUpInside" id="Yz1-eZ-ETI"/>
                                                                     <action selector="didTapbtnEndTheDay:" destination="Eah-iK-7L7" eventType="touchUpInside" id="AUF-NK-nLS"/>
+                                                                    <segue destination="fli-eH-bmn" kind="presentation" modalPresentationStyle="fullScreen" id="ddR-18-tCr"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1798,6 +1798,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="paD-Bb-MGV"/>
                     <connections>
+                        <outlet property="dayTime" destination="x7k-Ds-Mog" id="vvw-v2-53x"/>
+                        <outlet property="nightTime" destination="c9j-GR-m8f" id="BN8-pd-3Si"/>
                         <outlet property="viewBack" destination="rvL-9o-kIx" id="zj8-oZ-Wsv"/>
                         <outlet property="viewStacksContainer" destination="MFI-1X-VsG" id="3LK-q8-ybS"/>
                     </connections>
@@ -1805,6 +1807,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIo-6q-Wqg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-11.594202898550726" y="1917.8571428571427"/>
+        </scene>
+        <!--SetupDayNotificationController-->
+        <scene sceneID="kzh-xI-J4e">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SetupDayNotificationController" storyboardName="JournalFlow" referencedIdentifier="SetupDayNotificationController" id="HTa-eq-ki7" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g9V-Sk-HFA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="1769"/>
+        </scene>
+        <!--SetupNightNotificationController-->
+        <scene sceneID="655-ZO-32l">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SetupNightNotificationController" storyboardName="JournalFlow" referencedIdentifier="SetupNightNotificationController" id="fli-eH-bmn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="niv-8Y-vr9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="659" y="1988"/>
         </scene>
     </scenes>
     <resources>
