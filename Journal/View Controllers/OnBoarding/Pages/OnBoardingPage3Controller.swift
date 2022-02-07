@@ -29,7 +29,7 @@ class OnBoardingPage3Controller: UIViewController {
         viewImageContainer.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         viewImageContainer.layer.borderWidth = 1
         viewImageContainer.layer.borderColor = UIColor.white.cgColor
-        viewImageContainer.layer.cornerRadius = 81
+        viewImageContainer.layer.cornerRadius = 82.5
         
         //Button Get Started
         btnGetStarted.addBorder(color: UIColor(rgb: 0xFFFFFF), width: 1, cornerRadius: 0)

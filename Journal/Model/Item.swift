@@ -8,7 +8,7 @@
 import Foundation
 import ObjectMapper
 
-struct Question : Mappable {
+struct Item : Mappable {
     
     var id : Int?
     var question : String?

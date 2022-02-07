@@ -32,6 +32,8 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround() 
 
         viewModel = LoginViewModel(context: self)
         initViews()
@@ -43,11 +45,16 @@ class LoginController: UIViewController {
         
         //Text Field Email
         self.textFieldEmail.style(title: "Email")
-        
+        self.textFieldEmail.keyboardType = .emailAddress
+        self.textFieldEmail.returnKeyType = .done
+        self.textFieldEmail.delegate = self
         
         //Text Field Password
         self.textFieldPassword.style(title: "Password")
         self.textFieldPassword.isSecureTextEntry = true
+        self.textFieldPassword.keyboardType = .default
+        self.textFieldPassword.returnKeyType = .done
+        self.textFieldPassword.delegate = self
         
         //Button Login
         btnLogin.layer.cornerRadius = 25
@@ -146,4 +153,17 @@ class LoginController: UIViewController {
     }
     */
 
+}
+
+
+//MARK: - Extensions
+
+
+extension LoginController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }

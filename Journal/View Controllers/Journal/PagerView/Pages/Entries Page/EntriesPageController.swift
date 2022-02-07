@@ -32,6 +32,8 @@ class EntriesPageController: UIViewController {
     
     @IBOutlet weak var imageViewSearch: UIImageView!
     
+    @IBOutlet weak var viewEmptyEntries: UIView!
+    
     // MARK: - Variables
     
     var entries = [Entry]()
@@ -48,7 +50,6 @@ class EntriesPageController: UIViewController {
         viewModel = EntriesViewModel(context: self)
         
         initViews()
-//        getMyEntries()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +64,10 @@ class EntriesPageController: UIViewController {
         viewSearch.addShadow()
         
         textFieldSearch.borderStyle = .none
+        textFieldSearch.attributedPlaceholder = NSAttributedString(
+            string: "Search",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor(rgb: 0xC8D2DC)]
+        )
     }
 
     private func formatEntries(){
@@ -172,6 +177,16 @@ class EntriesPageController: UIViewController {
         updateFavoriteOnServer(entryId: entryId)
     }
     
+    func deleteEntryById(entryId: Int){
+        var counter = 0
+        for entry in entries {
+            if entry.id == entryId {
+                entries.remove(at: counter)
+            }
+            counter = counter + 1
+        }
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -225,13 +240,18 @@ class EntriesPageController: UIViewController {
 //        Utility.showProgressDialog(view: self.view)
         
         viewModel.myEntries()
-            .subscribe(onSuccess: { journals in
+            .subscribe(onSuccess: { entries in
 
 //                Utility.hideProgressDialog(view: self.view)
                 
-                self.entries.removeAll()
-                self.entries.append(contentsOf: journals)
-                self.formatEntries()
+                if(entries.isEmpty){
+                    self.viewEmptyEntries.isHidden = false
+                }else{
+                    self.viewEmptyEntries.isHidden = true
+                    self.entries.removeAll()
+                    self.entries.append(contentsOf: entries)
+                    self.formatEntries()
+                }
             })
         .disposed(by: disposeBag)
         
@@ -249,6 +269,20 @@ class EntriesPageController: UIViewController {
         .disposed(by: disposeBag)
     }
     
+    private func deleteEntry(entryId: Int){
+        
+        let params: [String: Any] =
+            [
+                "entry_id": entryId
+            ]
+        
+        viewModel.deleteEntry(params: params)
+            .subscribe(onCompleted: {
+            }, onError: { error in
+                Utility.hideProgressDialog(view: self.view)
+            })
+        .disposed(by: disposeBag)
+    }
     
 
 }
@@ -301,6 +335,8 @@ extension EntriesPageController: UITableViewDelegate, UITableViewDataSource {
                 
             }else{
                 cell.labelTitle.text = entryItem.topic?.title
+                
+                var counter  = 0
                 cell.labelQuote.text = entryItem.topic?.quote
                 
             }
@@ -334,21 +370,21 @@ extension EntriesPageController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return isFavoriteShown
-    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        return self.formattedEntries[indexPath.row].id != nil
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: nil) { (_, _, completionHandler) in
-                self.updateFavoriteOnServer(entryId: self.formattedEntries[indexPath.row].id!)
-                self.updateFavoriteWithId(id: self.formattedEntries[indexPath.row].id!, isFavorite: false)
+            
+                self.deleteEntry(entryId: self.formattedEntries[indexPath.row].id!)
+            
+                self.deleteEntryById(entryId: self.formattedEntries[indexPath.row].id!)
+            
                 self.formattedEntries.remove(at: indexPath.row)
+            
                 self.tableViewEntries.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
                     completionHandler(true)
+            
                 }
         deleteAction.image = UIGraphicsImageRenderer(size: CGSize(width: 50, height: 50)).image { _ in
             UIImage(named: "delete_trash")?.draw(in: CGRect(x: 0, y: 0, width: 50, height: 50))

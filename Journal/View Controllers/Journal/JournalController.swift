@@ -31,7 +31,7 @@ class JournalController: UIViewController {
     }
     
     private func initViews(){
-        segmentedControl.items = ["Journal", "Entries"]
+        segmentedControl.items = [" Journal ", " Entries "]
         segmentedControl.font = UIFont(name: "Baskerville", size: 19)!
         
         viewTabsContainer.layer.shadowColor = UIColor.black.cgColor

@@ -79,5 +79,11 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>LibreBaskerville-Bold.ttf</string>
+		<string>LibreBaskerville-Regular.ttf</string>
+		<string>LibreBaskerville-Italic.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -46,6 +46,8 @@ class JournalPageController: UIViewController {
     
     var endDayJournal: Journal!
     
+    
+    
     // MARK: - View Methods
     
     override func viewDidLoad() {
@@ -57,31 +59,33 @@ class JournalPageController: UIViewController {
     }
     
     private func initViews(){
-        viewStartDay.layer.cornerRadius = 10
-        viewStartDay.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
-        viewStartDay.layer.borderWidth = 1
+        viewSubStartDay.layer.cornerRadius = 10
+
+        viewSubStartDay.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
+        viewSubStartDay.layer.borderWidth = 1
         
         viewStartDay.addShadow()
         
-        viewSubStartDay.roundCorners([.bottomLeft, .bottomRight], radius: 10)
+        //=========================//
         
-        viewEndDay.layer.cornerRadius = 10
+        viewSubEnday.layer.cornerRadius = 10
 
-        viewEndDay.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
-        viewEndDay.layer.borderWidth = 1
+        viewSubEnday.layer.borderColor = UIColor(rgb: 0xBFCDDB).cgColor
+        viewSubEnday.layer.borderWidth = 1
         
         viewEndDay.addShadow()
         
-        viewSubEnday.roundCorners([.bottomLeft, .bottomRight], radius: 10)
+        //=======================//
         
         viewEntrySaved.layer.cornerRadius = 15
         
         viewAddJournal.layer.cornerRadius = 39
         viewAddJournal.addShadow()
+
     }
     
     func showViewEntrySaved(){
-        Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.dismissViewEntrySaved), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(self.dismissViewEntrySaved), userInfo: nil, repeats: false)
         viewEntrySaved.isHidden = false
     }
     
@@ -153,7 +157,9 @@ class JournalPageController: UIViewController {
         }
         
         if segue.identifier == "ShowTopicQuoteController" {
-            let topicQuoteController = segue.destination as! TopicQuoteController
+            let navigationController = segue.destination as! UINavigationController
+            
+            let topicQuoteController = navigationController.viewControllers.first as! TopicQuoteController
             topicQuoteController.topic = (sender as? Journal)?.topics![0]
             topicQuoteController.journalPageController = self
         }

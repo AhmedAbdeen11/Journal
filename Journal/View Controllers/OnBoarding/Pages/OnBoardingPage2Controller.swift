@@ -35,7 +35,7 @@ class OnBoardingPage2Controller: UIViewController {
         viewImageContainer.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         viewImageContainer.layer.borderWidth = 1
         viewImageContainer.layer.borderColor = UIColor.white.cgColor
-        viewImageContainer.layer.cornerRadius = 81
+        viewImageContainer.layer.cornerRadius = 82.5
     }
 
     // MARK: - Actions

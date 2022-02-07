@@ -39,6 +39,9 @@ class ViewJournalController: UIViewController {
     
     @IBOutlet weak var textView: UIView!
     
+    @IBOutlet weak var viewEntrySaved: UIView!
+    
+    
     // MARK: - Variables
     
     var entriesPageController: EntriesPageController!
@@ -50,6 +53,7 @@ class ViewJournalController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideKeyboardWhenTappedAround()
         initViews()
         setData()
     }
@@ -61,14 +65,6 @@ class ViewJournalController: UIViewController {
         
         textView.layer.cornerRadius = 50
         
-        if entry.isFavorite! {
-            viewFavorite.backgroundColor = UIColor(named: "Primary")
-            imageViewFavorite.image = UIImage(named: "ic_star_filled")
-            
-        }else{
-            viewFavorite.backgroundColor = UIColor.white
-            imageViewFavorite.image = UIImage(named: "ic_star")
-        }
         
         viewFavorite.layer.cornerRadius = 25
         viewFavorite.addShadow()
@@ -79,6 +75,8 @@ class ViewJournalController: UIViewController {
         viewOptions.layer.cornerRadius = 25
         viewOptions.addShadow()
         
+        viewEntrySaved.layer.cornerRadius = 15
+        
     }
     
     private func setData(){
@@ -86,7 +84,32 @@ class ViewJournalController: UIViewController {
         labelTime.text = entry.time
         labelTitle.text = entry.journal?.title
         labelText.text = entry.journal?.text
+        
+        if entry.isFavorite! {
+            viewFavorite.backgroundColor = UIColor(named: "Primary")
+            imageViewFavorite.image = UIImage(named: "ic_star_filled")
+            
+        }else{
+            viewFavorite.backgroundColor = UIColor.white
+            imageViewFavorite.image = UIImage(named: "ic_star")
+        }
     }
+    
+    
+    func showViewEntrySaved(userJournal: UserJournal, isFavorite: Bool){
+        Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(self.dismissViewEntrySaved), userInfo: nil, repeats: false)
+        viewEntrySaved.isHidden = false
+        
+        entry.journal = userJournal
+        entry.isFavorite = isFavorite
+        setData()
+
+    }
+    
+    @objc private func dismissViewEntrySaved(){
+        self.viewEntrySaved.isHidden = true
+    }
+    
     
     private func showDeleteDialog(){
         let alert = UIAlertController(title: "", message: "Are you sure you want to delete?", preferredStyle: .actionSheet)
@@ -122,7 +145,7 @@ class ViewJournalController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
             
-            
+            self.performSegue(withIdentifier: "showUpdateUserJournalSegue", sender: nil)
             
         }))
         
@@ -184,14 +207,19 @@ class ViewJournalController: UIViewController {
         .disposed(by: disposeBag)
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showUpdateUserJournalSegue" {
+            let addJournalController = segue.destination as! AddJournalController
+
+            addJournalController.userJournal = entry.journal
+            addJournalController.isFavorite = entry.isFavorite ?? false
+            addJournalController.viewJournalController = self
+        }
     }
-    */
+    
 
 }

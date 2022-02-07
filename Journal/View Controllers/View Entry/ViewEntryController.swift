@@ -37,6 +37,8 @@ class ViewEntryController: UIViewController {
     
     @IBOutlet weak var imageViewFavorite: UIImageView!
     
+    @IBOutlet weak var viewEntrySaved: UIView!
+    
     // MARK: - Variables
     
     var entriesPageController: EntriesPageController!
@@ -45,6 +47,7 @@ class ViewEntryController: UIViewController {
     
     @IBOutlet weak var viewTest: UIView!
     
+    @IBOutlet weak var tableViewEntries: UITableView!
     // MARK: - View Methods
     
     override func viewDidLoad() {
@@ -52,6 +55,30 @@ class ViewEntryController: UIViewController {
 
         initViews()
         setData()
+    }
+    
+    func showViewEntrySaved(topic: Topic){
+        Timer.scheduledTimer(timeInterval: 0.8, target: self, selector: #selector(self.dismissViewEntrySaved), userInfo: nil, repeats: false)
+        viewEntrySaved.isHidden = false
+        
+        entry.topic?.questions?.removeAll()
+        entry.topic?.items?.removeAll()
+
+        for (index, item) in topic.items!.enumerated(){
+            
+            if item.question != nil {
+                entry.topic?.questions?.append(item)
+            }
+            
+            entry.topic?.items?.append(item)
+        }
+        
+        tableViewEntries.reloadData()
+//        setData()
+    }
+    
+    @objc private func dismissViewEntrySaved(){
+        self.viewEntrySaved.isHidden = true
     }
     
     private func initViews(){
@@ -78,6 +105,8 @@ class ViewEntryController: UIViewController {
         
         viewOptions.layer.cornerRadius = 25
         viewOptions.addShadow()
+        
+        viewEntrySaved.layer.cornerRadius = 15
         
     }
     
@@ -121,7 +150,7 @@ class ViewEntryController: UIViewController {
         
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { (action) in
             
-            
+            self.performSegue(withIdentifier: "showUpdateJournalSegue", sender: nil)
             
         }))
         
@@ -183,16 +212,17 @@ class ViewEntryController: UIViewController {
         .disposed(by: disposeBag)
     }
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showUpdateJournalSegue" {
+            let createJournalController = segue.destination as! CreateJournalController
+            createJournalController.isUpdateCase = true
+            createJournalController.topic = entry.topic
+            createJournalController.viewEntryController = self
+        }
     }
-    */
-
 }
 
 //MARK: - Extensions

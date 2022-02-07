@@ -63,7 +63,9 @@ class TopicsController: UIViewController {
      
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "showTopicQuoteSegue" {
-             let topicQuoteController = segue.destination as! TopicQuoteController
+            let navigationController = segue.destination as! UINavigationController
+            
+            let topicQuoteController = navigationController.viewControllers.first as! TopicQuoteController
             topicQuoteController.topic = sender as? Topic
             topicQuoteController.journalPageController = self.journalPageController
             topicQuoteController.topicsController = self
@@ -109,6 +111,8 @@ extension TopicsController: UICollectionViewDelegate, UICollectionViewDataSource
         cell.containerView.addShadow()
         
         cell.subView.layer.cornerRadius = 10
+        cell.subContainer.layer.borderColor = UIColor(rgb: 0xE3E8ED).cgColor
+        cell.subContainer.layer.borderWidth = 1
         
         cell.backgroundColor = .clear
         
@@ -130,8 +134,17 @@ extension TopicsController: UICollectionViewDelegate, UICollectionViewDataSource
         if indexPath.row == 0 {
             return CGSize(width: collectionView.bounds.size.width, height: CGFloat(height))
         }else{
-            return CGSize(width: (collectionView.bounds.size.width / 2) - 10, height: CGFloat(height))
+            return CGSize(width: (collectionView.bounds.size.width - 20) / 2, height: CGFloat(height))
         }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
         
     }
     

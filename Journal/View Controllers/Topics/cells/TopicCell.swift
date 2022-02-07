@@ -19,5 +19,6 @@ class TopicCell: UICollectionViewCell {
     
     @IBOutlet weak var subView: UIView!
     
+    @IBOutlet weak var subContainer: UIStackView!
     
 }

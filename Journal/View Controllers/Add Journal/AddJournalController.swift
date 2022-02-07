@@ -33,17 +33,24 @@ class AddJournalController: UIViewController {
     
     @IBOutlet weak var imageViewStar: UIImageView!
     
+    @IBOutlet weak var constraintBottomTextView: NSLayoutConstraint!
     // MARK: - Variables
     
-    private var isFavorite = false
+    var isFavorite = false
     
-    var journalPageController: JournalPageController!
+    var journalPageController: JournalPageController?
+    
+    var viewJournalController: ViewJournalController?
+    
+    var userJournal: UserJournal?
+    
     
     // MARK: - View Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideKeyboardWhenTappedAround()
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -60,7 +67,7 @@ class AddJournalController: UIViewController {
         viewAddFavorite.layer.cornerRadius = 21
         viewAddFavorite.addShadow()
         
-        viewSubmit.layer.cornerRadius = 26.5
+        viewSubmit.layer.cornerRadius = 25
         viewSubmit.addShadow()
         
         textFieldTitle.layer.borderWidth = 0
@@ -76,6 +83,23 @@ class AddJournalController: UIViewController {
         labelDate.text = Date().string(format: "MMM d, yyyy")
         
         textView.delegate = self
+        
+        if userJournal != nil {
+            textFieldTitle.text = userJournal?.title
+            textView.text = userJournal?.text
+            textView.textColor = UIColor.black
+            
+            if isFavorite {
+                viewAddFavorite.backgroundColor = UIColor(named: "Primary")
+                imageViewStar.image = UIImage(named: "ic_star_filled")
+                isFavorite = true
+            }else{
+                viewAddFavorite.backgroundColor = UIColor.white
+                imageViewStar.image = UIImage(named: "ic_star")
+                isFavorite = false
+            }
+            
+        }
     }
     
     @objc private func keyboardWillShow(notification: NSNotification) {
@@ -85,7 +109,8 @@ class AddJournalController: UIViewController {
         print(self.constraintViewSubmitBottom.constant)
         print(keyboardSize.height)
         
-        self.constraintViewSubmitBottom.constant = 16 + keyboardSize.height
+        self.constraintViewSubmitBottom.constant = keyboardSize.height - 10
+        self.constraintBottomTextView.constant = keyboardSize.height
         
     }
 
@@ -96,7 +121,10 @@ class AddJournalController: UIViewController {
         print(keyboardSize.height)
         
         self.constraintViewSubmitBottom.constant = 16
+        self.constraintBottomTextView.constant = 40
     }
+    
+    
     
     // MARK: - Actions
     
@@ -134,16 +162,29 @@ class AddJournalController: UIViewController {
   
         Utility.showProgressDialog(view: self.view)
         
-        let params: [String: Any] =
+        var params: [String: Any] =
             [
                 "title": textFieldTitle.text!,
                 "text": textView.text!,
                 "is_favorite": isFavorite,
             ]
         
+        if userJournal != nil {
+            params["id"] = userJournal?.id
+        }
+        
         viewModel.addUserJournal(params: params)
             .subscribe(onCompleted: {
-                self.journalPageController.showViewEntrySaved()
+                
+                if(self.userJournal == nil){
+                    self.journalPageController?.showViewEntrySaved()
+                }else{
+                    self.userJournal?.title = self.textFieldTitle.text!
+                    self.userJournal?.text = self.textView.text
+                    self.viewJournalController!.showViewEntrySaved(userJournal: self.userJournal!, isFavorite: self.isFavorite)
+                }
+                
+                
                 Utility.hideProgressDialog(view: self.view)
                 self.dismiss(animated: true, completion: nil)
             }, onError: { error in

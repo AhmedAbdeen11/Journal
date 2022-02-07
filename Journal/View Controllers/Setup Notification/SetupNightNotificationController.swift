@@ -24,6 +24,8 @@ class SetupNightNotificationController: UIViewController {
     
     @IBOutlet weak var labelTime: UILabel!
     
+    @IBOutlet weak var viewCloseDialog: UIView!
+    
     // MARK: - Properties
     
     let standard = UserDefaults.standard
@@ -36,6 +38,7 @@ class SetupNightNotificationController: UIViewController {
         super.viewDidLoad()
 
         initViews()
+        initListeners()
         setData()
     }
     
@@ -53,6 +56,14 @@ class SetupNightNotificationController: UIViewController {
         viewTimePickContainer.layer.cornerRadius = 20
         
         btnSetTime.layer.cornerRadius = 25
+    }
+    
+    private func initListeners(){
+        let hideDialogGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideComingSoonDialog(_:)))
+        viewSetTime.addGestureRecognizer(hideDialogGesture)
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.dontHideDialog(_:)))
+        viewTimePickContainer.addGestureRecognizer(gesture)
     }
     
     private func setData(){
@@ -74,6 +85,14 @@ class SetupNightNotificationController: UIViewController {
     
     // MARK: - Actions
 
+    @objc func hideComingSoonDialog(_ sender: Any) {
+        viewSetTime.isHidden = true
+    }
+    
+    @objc func dontHideDialog(_ sender: Any) {
+        //No Action
+    }
+    
     @IBAction func didTapBtnClose(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -99,6 +118,9 @@ class SetupNightNotificationController: UIViewController {
         standard.setValue(dailyReminderSwich.isOn, forKey: "end_your_day_switch")
     }
     
+    @IBAction func didTapCloseDialogBtn(_ sender: Any) {
+        viewSetTime.isHidden = true
+    }
     /*
     // MARK: - Navigation
 

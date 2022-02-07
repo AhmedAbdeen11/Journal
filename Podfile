@@ -17,7 +17,7 @@ target 'Journal' do
   # Pods for Journal
   pod 'Moya/RxSwift', '~> 12.0'
   pod 'SwiftyJSON'
-  pod 'IQKeyboardManager'
+#  pod 'IQKeyboardManager'
   pod 'RSSelectionMenu'
   pod 'BEMCheckBox'
   pod 'SVProgressHUD'

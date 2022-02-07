@@ -34,6 +34,9 @@ class MainController: UIViewController {
     
     @IBOutlet weak var imageViewJournal: UIImageView!
     
+    @IBOutlet weak var viewClose: UIView!
+    
+    
     // MARK: - Variables
     
     
@@ -49,10 +52,14 @@ class MainController: UIViewController {
         }
         
         viewModel = MainViewModel(context: self)
+        initListeners()
         initViews()
         getCurrentUser()
         
     }
+    
+    
+    
     
     func authenticate(){
       let context = LAContext()
@@ -70,13 +77,24 @@ class MainController: UIViewController {
     }
     
     private func initViews(){
-        viewComingSoon.layer.cornerRadius = 20
         
         btnGotIt.backgroundColor = UIColor(named: "Primary")
         btnGotIt.setTitle("Got it", for: .normal)
         btnGotIt.layer.cornerRadius = 25
         btnGotIt.isUppercaseTitle = false
         btnGotIt.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
+        
+        viewClose.layer.cornerRadius = 4
+        
+        viewComingSoon.layer.cornerRadius = 20
+    }
+    
+    private func initListeners(){
+        let hideDialogGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideComingSoonDialog(_:)))
+        viewComingSoonContainer.addGestureRecognizer(hideDialogGesture)
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.dontHideDialog(_:)))
+        viewComingSoon.addGestureRecognizer(gesture)
     }
     
     internal override func viewDidAppear(_ animated: Bool) {
@@ -122,6 +140,14 @@ class MainController: UIViewController {
     
     // MARK: - Actions
 
+    @objc func hideComingSoonDialog(_ sender: Any) {
+        viewComingSoonContainer.isHidden = true
+    }
+    
+    @objc func dontHideDialog(_ sender: Any) {
+        //No Action
+    }
+    
     @IBAction func didTapGotItBtn(_ sender: Any) {
         viewComingSoonContainer.isHidden = true
     }
@@ -153,6 +179,10 @@ class MainController: UIViewController {
         imageViewProfile.image = UIImage(named: "profile_filled")
         imageViewJournal.image = UIImage(named: "ic_journal_outlined")
         
+    }
+    
+    @IBAction func didTapCloseBtn(_ sender: Any) {
+        self.viewComingSoonContainer.isHidden = true
     }
     
     // MARK: - Server Work

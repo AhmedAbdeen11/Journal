@@ -26,6 +26,8 @@ class SetupDayNotificationController: UIViewController {
     
     @IBOutlet weak var labelTime: UILabel!
     
+    @IBOutlet weak var viewCloseDialog: UIView!
+    
     // MARK: - Properties
     
     let standard = UserDefaults.standard
@@ -38,11 +40,13 @@ class SetupDayNotificationController: UIViewController {
         super.viewDidLoad()
 
         initViews()
+        initListeners()
         setData()
     }
     
     private func initViews(){
         viewClose.layer.cornerRadius = 24
+        viewCloseDialog.layer.cornerRadius = 4
         
         viewClock.layer.borderWidth = 1
         viewClock.layer.borderColor = UIColor.white.cgColor
@@ -55,6 +59,14 @@ class SetupDayNotificationController: UIViewController {
         viewTimePickContainer.layer.cornerRadius = 20
         
         btnSetTime.layer.cornerRadius = 25
+    }
+    
+    private func initListeners(){
+        let hideDialogGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideComingSoonDialog(_:)))
+        viewSetTime.addGestureRecognizer(hideDialogGesture)
+        
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.dontHideDialog(_:)))
+        viewTimePickContainer.addGestureRecognizer(gesture)
     }
     
     private func setData(){
@@ -74,6 +86,14 @@ class SetupDayNotificationController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    @objc func hideComingSoonDialog(_ sender: Any) {
+        viewSetTime.isHidden = true
+    }
+    
+    @objc func dontHideDialog(_ sender: Any) {
+        //No Action
+    }
 
     @IBAction func didTapBtnClose(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -99,6 +119,11 @@ class SetupDayNotificationController: UIViewController {
     @IBAction func didSwitchChanged(_ sender: Any) {
         standard.setValue(dailyReminderSwich.isOn, forKey: "start_your_day_switch")
     }
+    
+    @IBAction func didTapCloseDialogBtn(_ sender: Any) {
+        viewSetTime.isHidden = true
+    }
+    
     
     /*
     // MARK: - Navigation

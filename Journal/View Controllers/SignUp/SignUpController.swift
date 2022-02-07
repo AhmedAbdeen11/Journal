@@ -46,6 +46,7 @@ class SignUpController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround() 
         initViews()
     }
     
@@ -55,18 +56,30 @@ class SignUpController: UIViewController {
         
         //Text Field Name
         self.textFieldName.style(title: "Name")
+        self.textFieldName.keyboardType = .default
+        self.textFieldName.returnKeyType = .done
+        self.textFieldName.delegate = self
         
         
         //Text Field Email
         self.textFieldEmail.style(title: "Email")
+        self.textFieldEmail.keyboardType = .default
+        self.textFieldEmail.returnKeyType = .done
+        self.textFieldEmail.delegate = self
         
         //Text Field Password
         self.textFieldPassword.style(title: "Password")
         self.textFieldPassword.isSecureTextEntry = true
+        self.textFieldPassword.keyboardType = .default
+        self.textFieldPassword.returnKeyType = .done
+        self.textFieldPassword.delegate = self
         
         //Text Field Confirm Password
         self.textFieldConfirmPassword.style(title: "Confirm Password")
         self.textFieldConfirmPassword.isSecureTextEntry = true
+        self.textFieldConfirmPassword.keyboardType = .default
+        self.textFieldConfirmPassword.returnKeyType = .done
+        self.textFieldConfirmPassword.delegate = self
         
         //Button Signup
         btnSignup.layer.cornerRadius = 25
@@ -189,4 +202,16 @@ class SignUpController: UIViewController {
         .disposed(by: disposeBag)
     }
 
+}
+
+//MARK: - Extensions
+
+
+extension SignUpController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }

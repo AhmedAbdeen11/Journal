@@ -53,12 +53,16 @@ class AccountInfoController: UIViewController {
     
     var profileController: ProfileController!
     
+    @IBOutlet weak var viewClose: UIView!
+    
+    
     // MARK: - View Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initViews()
+        initListeners()
         setData()
         getAvatars()
     }
@@ -67,7 +71,7 @@ class AccountInfoController: UIViewController {
         viewBack.layer.cornerRadius = 24
         viewBack.addShadow()
         
-        viewUserImage.addBorder(color: UIColor(rgb: 0xC8D2DC), width: 1, cornerRadius: 61)
+//        viewUserImage.addBorder(color: UIColor(rgb: 0xC8D2DC), width: 1, cornerRadius: 61)
         
         viewEditImage.addBorder(color: UIColor(named: "Primary")!, width: 1, cornerRadius: 16)
         
@@ -95,6 +99,15 @@ class AccountInfoController: UIViewController {
         btnSetAvatar.addShadow()
     }
 
+    private func initListeners(){
+        let hideDialogGesture = UITapGestureRecognizer(target: self, action: #selector(self.hideSetAvatarDialog(_:)))
+        viewChangeAvatarContainer.addGestureRecognizer(hideDialogGesture)
+        
+//        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.dontHideDialog(_:)))
+//        viewChangeAvatar.addGestureRecognizer(gesture)
+    }
+    
+    
     // MARK: - Validate
 
     private func validateForm() -> Bool {
@@ -132,8 +145,19 @@ class AccountInfoController: UIViewController {
         }
     }
     
+    @objc func hideSetAvatarDialog(_ sender: Any) {
+        viewChangeAvatarContainer.isHidden = true
+    }
+    
+    @objc func dontHideDialog(_ sender: Any) {
+        //No Action
+    }
+    
     // MARK: - Actions
     
+    @IBAction func didTapCloseDialogBtn(_ sender: Any) {
+        viewChangeAvatarContainer.isHidden = true
+    }
     
     @IBAction func didTapBtnUpdate(_ sender: Any) {
         if validateForm() {
@@ -228,12 +252,12 @@ extension AccountInfoController: UICollectionViewDelegate, UICollectionViewDataS
         
         if avatar.isSelected! {
             selectedAvatar = indexPath.row
-            cell.viewContainer.addBorder(color: UIColor(named: "Primary")!, width: 1, cornerRadius: 61)
+//            cell.viewContainer.addBorder(color: UIColor(named: "Primary")!, width: 1, cornerRadius: 61)
             cell.viewSelected.isHidden = false
             
         }else{
             
-            cell.viewContainer.addBorder(color: UIColor(rgb: 0xC8D2DC), width: 1, cornerRadius: 61)
+//            cell.viewContainer.addBorder(color: UIColor(rgb: 0xC8D2DC), width: 1, cornerRadius: 61)
             cell.viewSelected.isHidden = true
         }
         

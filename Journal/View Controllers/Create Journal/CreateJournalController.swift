@@ -25,7 +25,6 @@ class CreateJournalController: UIViewController {
     
     @IBOutlet weak var labelInfo: UILabel!
     
-    @IBOutlet weak var viewNext: UIView!
     
     @IBOutlet weak var viewBack: UIView!
     
@@ -45,13 +44,30 @@ class CreateJournalController: UIViewController {
     
     @IBOutlet weak var btnSaveToFavorites: MDCButton!
     
-    @IBOutlet weak var btnFinishJournal: MDCButton!
+    @IBOutlet weak var btnFinishJournal: UIView!
     
     @IBOutlet weak var imageViewBack: UIImageView!
     
+    @IBOutlet weak var viewNext: UIView!
+    
     @IBOutlet weak var imageViewNext: UIImageView!
     
+    @IBOutlet weak var imageViewDone: UIView!
+    
+    @IBOutlet weak var viewDone: UIView!
+    
     @IBOutlet weak var constraintBottomImageNext: NSLayoutConstraint!
+    
+    @IBOutlet weak var constraintBottomDoneBtn: NSLayoutConstraint!
+    
+    @IBOutlet weak var viewFavorite: UIView!
+    
+    @IBOutlet weak var imgFavorite: UIImageView!
+    
+    @IBOutlet weak var labelFavorite: UILabel!
+    
+    @IBOutlet weak var textViewBottomConstraint: NSLayoutConstraint!
+    
     
     // MARK: - Variables
     
@@ -61,19 +77,27 @@ class CreateJournalController: UIViewController {
     
     var layouts = [String]()
     
-    var journalPageController: JournalPageController!
+    var journalPageController: JournalPageController?
     
     var topicsController: TopicsController?
     
-    var topicQuoteController: TopicQuoteController!
+    var topicQuoteController: TopicQuoteController?
+    
+    var viewEntryController: ViewEntryController?
     
     var entry: Entry!
+    
+    var isFavorite = false
+    
+    var isUpdateCase = false
     
     // MARK: - View Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.hideKeyboardWhenTappedAround()
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -95,28 +119,21 @@ class CreateJournalController: UIViewController {
         viewBack.layer.cornerRadius = 25
         viewBack.addShadow()
         
-        viewNext.layer.cornerRadius = 32.5
+        viewNext.layer.cornerRadius = 37.5
         viewNext.addShadow()
+        
+        viewDone.layer.cornerRadius = 25
+        viewDone.addShadow()
         
         //Final Container
         
         //Save to favorites button
-        btnSaveToFavorites.backgroundColor = UIColor.white
-        btnSaveToFavorites.layer.cornerRadius = 25
-        btnSaveToFavorites.isUppercaseTitle = false
-        btnSaveToFavorites.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
-        btnSaveToFavorites.setBorderWidth(2, for: .normal)
-        btnSaveToFavorites.setBorderColor(UIColor(named: "Primary"), for: .normal)
-        btnSaveToFavorites.setTitleColor(UIColor(named: "Primary"), for: .normal)
-        btnSaveToFavorites.setTitle("Loading...", for: .normal)
-        
+        viewFavorite.addBorder(color: UIColor(named: "Primary")!, width: 1, cornerRadius: 25)
+        viewFavorite.addShadow()
         
         //Finish Journal button
-        btnFinishJournal.backgroundColor = UIColor(named: "Primary")
-        btnFinishJournal.setTitle("Finish Journal", for: .normal)
         btnFinishJournal.layer.cornerRadius = 25
-        btnFinishJournal.isUppercaseTitle = false
-        btnFinishJournal.setTitleFont(UIFont(name: "Helvetica Neue", size: 18)!, for: .normal)
+        btnFinishJournal.addShadow()
         
     }
     
@@ -131,76 +148,64 @@ class CreateJournalController: UIViewController {
     }
     
     private func setData(){
-        var hint = Hint()
-        hint?.id = 0
-        hint?.title = "You’ve reached the end of this journal exercise"
-        hint?.type = "after";
-        topic.afterHints?.insert(hint!, at: 0)
-        
-        for _ in topic.beforeHints! {
-            layouts.append("beforeHint")
-        }
-        
-        for _ in topic.questions! {
-            layouts.append("question")
-        }
-        
-        for _ in topic.afterHints! {
-            layouts.append("afterHint")
-        }
-        
-        layouts.append("finalView")
-        
-        setFlowData()
-    }
-    
-    private func showBeforeHint(position: Int){
-        viewHint.isHidden = false
-        viewQuestion.isHidden = true
-        viewNext.isHidden = false
-        viewClose.isHidden = false
-        finalViewContainer.isHidden = true
-        imageViewNext.image = UIImage(named: "ic_arrow")
-        if position == 0 {
-            viewBack.isHidden = true
+        if(counter == topic.items!.count){
+            progressView.setProgress(1, animated: true)
+            showFinalView()
         }else{
-            viewBack.isHidden = false
+        
+            progressView.setProgress(Float(counter)/Float(topic.items!.count), animated: true)
+            
+            let item = topic.items![counter]
+         
+            if(item.question == nil){ //show hint
+                showHint(position: counter)
+            }else{ //show question
+                showQuestion(position: counter)
+            }
         }
         
-        labelInfo.text = topic.beforeHints![position].title
-        progressView.setProgress(Float(counter)/Float(layouts.count), animated: true)
     }
     
     private func showQuestion(position: Int){
+        textViewUserInput.becomeFirstResponder()
+//        self.keyboardManagerVisible(false)
+        
+        
         viewHint.isHidden = true
         finalViewContainer.isHidden = true
         viewQuestion.isHidden = false
         viewNext.isHidden = false
         viewBack.isHidden = false
         viewClose.isHidden = false
-        imageViewNext.image = UIImage(named: "checkmark")
+        viewNext.isHidden = true
+        viewDone.isHidden = false
         
-        textViewUserInput.text = topic.questions![position].answer?.answer ?? ""
-        labelQuestionTitle.text = topic.questions![position].question
-        labelQuestionHint.text = topic.questions![position].hint
-        progressView.setProgress(Float(counter)/Float(layouts.count), animated: true)
+        textViewUserInput.text = topic.items![position].answer?.answer ?? ""
+        labelQuestionTitle.text = topic.items![position].question
+        labelQuestionHint.text = topic.items![position].hint
     }
     
-    private func showAfterHint(position: Int){
+    private func showHint(position: Int){
+        textViewUserInput.endEditing(true)
         viewHint.isHidden = false
         viewQuestion.isHidden = true
         viewNext.isHidden = false
         finalViewContainer.isHidden = true
-        viewBack.isHidden = false
         viewClose.isHidden = false
-        imageViewNext.image = UIImage(named: "ic_arrow")
+        viewNext.isHidden = false
+        viewDone.isHidden = true
         
-        labelInfo.text = topic.afterHints![position].title
-        progressView.setProgress(Float(counter)/Float(layouts.count), animated: true)
+        if position == 0 {
+            viewBack.isHidden = true
+        }else{
+            viewBack.isHidden = false
+        }
+        
+        labelInfo.text = topic.items![position].hint
     }
     
     private func showFinalView(){
-        viewClose.isHidden = true
+        viewClose.isHidden = false
         viewHint.isHidden = true
         viewQuestion.isHidden = true
         viewNext.isHidden = true
@@ -210,42 +215,8 @@ class CreateJournalController: UIViewController {
         progressView.setProgress(1, animated: true)
     }
     
-    private func setFlowData(){
-        if counter < layouts.count {
-            
-            switch layouts[counter] {
-            
-                case "beforeHint":
-                    do {
-                        self.showBeforeHint(position: counter)
-                    }
-                    break
-              
-            case "question":
-                do {
-                    self.showQuestion(position: counter - topic.beforeHints!.count)
-                }
-                    
-            case "afterHint":
-                do {
-                    self.showAfterHint(position: counter - (topic.beforeHints!.count + topic.questions!.count))
-                }
-                
-            case "finalView":
-                do {
-                    self.saveAnswersToServer()
-                    self.showFinalView()
-                }
-                    
-                default:break
-                
-            }
-            
-        }
-    }
-    
-    private func saveAnswer(questionPosition: Int){
-        topic.questions![questionPosition].answer?.answer = textViewUserInput.text
+    private func saveAnswer(){
+        topic.items![counter].answer?.answer = textViewUserInput.text
         textViewUserInput.text = ""
     }
     
@@ -253,78 +224,35 @@ class CreateJournalController: UIViewController {
         
         let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         
-        print(self.constraintBottomImageNext.constant)
+        print(self.constraintBottomDoneBtn.constant)
         print(keyboardSize.height)
         
-        self.constraintBottomImageNext.constant = 10 + keyboardSize.height
+        self.constraintBottomDoneBtn.constant = keyboardSize.height - 15
+        
+        self.textViewBottomConstraint.constant = keyboardSize.height
         
     }
 
     @objc private func keyboardWillHide(notification: NSNotification) {
         let keyboardSize = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.size
         
-        self.constraintBottomImageNext.constant = 30
+        self.constraintBottomDoneBtn.constant = 30
+        self.textViewBottomConstraint.constant = 40
     }
     
-    // MARK: - Actions
-
-    @IBAction func didTapCloseBtn(_ sender: Any) {
-        textViewUserInput.endEditing(true)
-        
-        let alert = UIAlertController(title: "How would you like to exit?", message: nil, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Save Entry", style: .default, handler: { (action) in
-                    self.journalPageController.showViewEntrySaved()
-                    self.saveAnswersToServer()
-                    self.dismiss(animated: false, completion: {
-                        self.topicQuoteController.dismiss(animated: false, completion: {
-                            self.topicsController?.dismiss(animated: false, completion: {
-                                
-                            })
-                        })
-                    })
-                    
-                }))
-                alert.addAction(UIAlertAction(title: "Delete Entry", style: .default, handler: { (action) in
-                    
-                    self.dismiss(animated: false, completion: {
-                        self.topicQuoteController.dismiss(animated: false, completion: {
-                            self.topicsController?.dismiss(animated: false, completion: {
-                                
-                            })
-                        })
-                    })
-                    
-                }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-        
-        
+    private func showSaveFavoriteView(){
+        labelFavorite.text = "Save as Favorite"
+        imgFavorite.image = UIImage(#imageLiteral(resourceName: "ic_star_outlined3"))
     }
     
-    @IBAction func didTapNextBtn(_ sender: Any) {
-        textViewUserInput.endEditing(true)
-        counter = counter + 1
-        setFlowData()
+    private func showSavedView(){
+        labelFavorite.text = "Saved"
+        imgFavorite.image = UIImage(#imageLiteral(resourceName: "ic_star_filled-1"))
     }
     
-    @IBAction func didTapBackBtn(_ sender: Any) {
-        textViewUserInput.endEditing(true)
-        if counter != 0 {
-            counter = counter - 1
-            setFlowData()
-        }
-    }
-    
-    @IBAction func didTapAddFavoriteBtn(_ sender: Any) {
-        self.entry.isFavorite! = !self.entry.isFavorite!
-        self.checkFavorite()
-        self.updateFavoriteOnServer(entryId: self.entry!.id!)
-    }
-    
-    @IBAction func didTapFinishJournalBtn(_ sender: Any) {
-        journalPageController.showViewEntrySaved()
+    private func gotToRoot(){
         self.dismiss(animated: false, completion: {
-            self.topicQuoteController.dismiss(animated: false, completion: {
+            self.topicQuoteController?.dismiss(animated: false, completion: {
                 self.topicsController?.dismiss(animated: false, completion: {
                     
                 })
@@ -332,26 +260,113 @@ class CreateJournalController: UIViewController {
         })
     }
     
+    private func showOptionsCreateCase(){
+        textViewUserInput.endEditing(true)
+        
+        let alert = UIAlertController(title: "How would you like to exit?", message: nil, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Save Entry", style: .default, handler: { (action) in
+                    self.journalPageController?.showViewEntrySaved()
+                    self.saveAnswersToServer()
+                    self.gotToRoot()
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "Delete Entry", style: .default, handler: { (action) in
+                    self.gotToRoot()
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    private func showOptionsUpdateCase(){
+        textViewUserInput.endEditing(true)
+        
+        let alert = UIAlertController(title: "How would you like to exit?", message: nil, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Save Changes", style: .default, handler: { (action) in
+                    self.saveAnswersToServer()
+                    self.viewEntryController?.showViewEntrySaved(topic: self.topic)
+                    self.gotToRoot()
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "Exit Without Saving", style: .default, handler: { (action) in
+                    self.gotToRoot()
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - Actions
+
+    @IBAction func didTapCloseBtn(_ sender: Any) {
+        if isUpdateCase {
+            showOptionsUpdateCase()
+        }else {
+            showOptionsCreateCase()
+        }
+    }
+    
+    @IBAction func didTapNextBtn(_ sender: Any) {
+        counter = counter + 1
+        setData()
+    }
+    
+    @IBAction func didTapDoneBtn(_ sender: Any) {
+        counter = counter + 1
+        setData()
+    }
+    
+    
+    @IBAction func didTapBackBtn(_ sender: Any) {
+        textViewUserInput.endEditing(true)
+        if counter != 0 {
+            counter = counter - 1
+            setData()
+        }
+    }
+    
+    @IBAction func didTapAddFavoriteBtn(_ sender: Any) {
+        if(isFavorite){
+            isFavorite = false
+            showSaveFavoriteView()
+        }else{
+            isFavorite = true
+            showSavedView()
+        }
+    }
+    
+    @IBAction func didTapFinishJournalBtn(_ sender: Any) {
+        journalPageController?.showViewEntrySaved()
+        self.saveAnswersToServer()
+        self.gotToRoot()
+    }
+    
     // MARK: - Server Work
     
     private func saveAnswersToServer(){
                 
-        var params: [String: Any] = ["topic_id": topic.id!]
+        var params: [String: Any] = [
+            "topic_id": topic.id!,
+            "is_favorite": isFavorite
+        ]
         
-        for (index, question) in self.topic.questions!.enumerated(){
-            params["answers[\(index)][question_id]"] = "\(question.id!)"
-            params["answers[\(index)][answer]"] = "\(question.answer?.answer ?? "")"
+        for (index, item) in self.topic.items!.enumerated(){
+            
+            if(item.question != nil){
+             
+                params["answers[\(index)][item_id]"] = "\(item.id!)"
+                params["answers[\(index)][answer]"] = "\(item.answer?.answer ?? "")"
+                
+            }
         }
         
         viewModel.saveAnswers(params: params)
             .subscribe(onSuccess: { entry in
                 self.entry = entry
-                self.checkFavorite()
             })
         .disposed(by: disposeBag)
     }
     
-    private func updateFavoriteOnServer(entryId: Int){
+    /*private func updateFavoriteOnServer(entryId: Int){
                 
         let params: [String: Any] = ["entry_id": entryId]
         
@@ -361,7 +376,7 @@ class CreateJournalController: UIViewController {
                 //No Action
             })
         .disposed(by: disposeBag)
-    }
+    }*/
     
     
     /*
@@ -379,12 +394,8 @@ class CreateJournalController: UIViewController {
 extension CreateJournalController: UITextViewDelegate {
 
     func textViewDidChange(_ textView: UITextView) {
-        let questionPosition = counter - topic.afterHints!.count
         
-        if questionPosition >= 0 && questionPosition < topic.questions!.count {
-            topic.questions![questionPosition].answer?.answer = textView.text
-//            saveAnswerToServer(questionPosition: questionPosition)
-        }
+        topic.items![counter].answer?.answer = textView.text
     }
 
 }
@@ -396,3 +407,11 @@ extension Date {
         return formatter.string(from: self)
     }
 }
+
+// MARK: - Helper
+//extension CreateJournalController {
+//
+//  private func keyboardManagerVisible(_ state: Bool) {
+//    IQKeyboardManager.shared().isEnableAutoToolbar = state
+//  }
+//}

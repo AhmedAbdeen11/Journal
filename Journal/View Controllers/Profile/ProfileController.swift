@@ -74,7 +74,7 @@ class ProfileController: UIViewController, MFMailComposeViewControllerDelegate{
         imageBackground.layer.cornerRadius = 15
 
         
-        viewUserImage.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 61)
+//        viewUserImage.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 61)
         
         viewFirstStackContainer.addBorder(color: UIColor(rgb: 0xBFCDDB), width: 1, cornerRadius: 15)
         viewFirstStackContainer.addShadow()
